@@ -208,6 +208,7 @@ body.menu-abierto .menu-rejilla a{opacity:1;transform:none;transition-delay:calc
 .firma{display:flex;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:#4a443d;border-top:2px solid var(--negro);padding-top:.8rem}
 .articulo{position:relative;display:grid;grid-template-columns:minmax(0,680px) 260px;gap:3.5rem;justify-content:center;width:min(1080px,100% - 3rem);margin:0 auto;padding-bottom:2rem}
 @media (max-width:1000px){.articulo{grid-template-columns:minmax(0,680px);gap:0}}
+.articulo-solo{grid-template-columns:minmax(0,680px)}
 .cuerpo p{margin:0 0 1.35rem}
 .cuerpo strong{background:linear-gradient(transparent 60%,rgba(255,210,31,.75) 60%);font-weight:700}
 .cuerpo .capitular::first-letter{font-family:var(--cifra);float:left;font-size:4.6rem;line-height:.8;padding:.35rem .6rem 0 0;color:var(--rojo)}
@@ -562,7 +563,7 @@ html.con3d .separador .marco-sep{opacity:.65}
 .cita-banda{border:0;background:var(--fondo-cita);color:var(--tc);padding:2.4rem 2.2rem 2rem 4.6rem;border-radius:4px;box-shadow:8px 8px 0 var(--a)}
 .cita-banda::before{content:"“";position:absolute;left:1.1rem;top:1.2rem;font-family:var(--cifra);font-size:5.5rem;line-height:.8;color:var(--a)}
 .cita-banda p{color:var(--tc);font-size:clamp(1.9rem,3.8vw,2.8rem)}
-@media (min-width:1260px){.cita-banda{margin-left:-110px;margin-right:-110px}}
+@media (min-width:1260px){.cita-banda{margin-left:-110px;margin-right:-110px}.articulo-rep .cita-banda{margin-right:0}}
 @media (max-width:520px){.cita-banda{padding:3.6rem 1.3rem 1.5rem}.cita-banda::before{left:1rem;top:.9rem;font-size:4.2rem}}
 .dato-caja{background:var(--c);color:var(--t);border:3px solid var(--negro);border-radius:6px;box-shadow:6px 6px 0 var(--negro);padding:1.3rem 1.4rem;margin:2.2rem 0;font-size:.9rem;line-height:1.5}
 .dato-caja p{margin:.6rem 0 0}
@@ -894,14 +895,10 @@ html.anim .portada-collage .pc1{transition-delay:500ms}.portada-collage .pc2{tra
       <p class="bajada">Durante décadas el cine colombiano se contó en masculino. Esta es la historia de las mujeres que dirigieron, produjeron y filmaron a pesar de eso, y de las que hoy están cambiando quién se sienta en la silla de dirección.</p>
       <div class="firma"><span>Por <b>Equipo Fuera de Cuadro</b></span><span>Con las voces de Leonor Manotas, Nathashia Franco y Neila Macea</span><span>Lectura de 6 min</span></div>
     </div>
-    <div class="articulo">
+    <div class="articulo articulo-solo">
       <div class="cuerpo">
         <p class="nota-muestra"><b>Nota del equipo:</b> este es el texto de muestra que ocupa el lugar del perfil final, construido con las entrevistas a Leonor Manotas (productora de cine), Nathashia Franco y Neila Macea. Los datos que aparecen aquí deben verificarse con las fuentes antes de publicar.</p>
         <p class="capitular">En 1972, cuando casi nadie en Colombia pensaba en el documental como una forma de hacer periodismo, <strong>Marta Rodríguez y Jorge Silva estrenaron <em>Chircales</em></strong>, una película sobre una familia que fabricaba ladrillos a mano en las afueras de Bogotá. No había efectos, ni estrellas, ni presupuesto de estudio. Había tiempo: años de convivir con esa familia hasta que la cámara dejó de ser una intrusa.</p>
-        <figure class="fig-lateral flota">
-          <div class="arte" data-arte="chircales" data-paleta="terracota"></div>
-          <figcaption>Imagen lateral de muestra · Collage sobre el oficio de los chircales.</figcaption>
-        </figure>
         <p>Esa manera de mirar —paciente, cercana, puesta del lado de quienes casi nunca salen en pantalla— se volvió una escuela. Y la abrió, en buena parte, una mujer que todavía hoy es referencia para quienes empiezan a hacer documental en el país.</p>
         <blockquote class="destacada revela">Antes de que existieran las cuotas y los estímulos, ya había mujeres filmando. Lo que faltaba era que alguien las nombrara.</blockquote>
         <h4>La primera silla de dirección</h4>
@@ -919,12 +916,6 @@ html.anim .portada-collage .pc1{transition-delay:500ms}.portada-collage .pc2{tra
         <p>Los premios ayudan a contar la historia, pero no la resuelven. Las brechas siguen ahí: en quién consigue financiación para su ópera prima, en quién se sostiene en un set de doce horas mientras cuida a alguien en casa, en quién recibe la segunda oportunidad después de una primera película que no funcionó.</p>
         <p>Por eso este perfil no termina con un nombre sino con una pregunta: ¿cuántas historias nos perdimos porque nadie le dio la cámara a la persona correcta? En la siguiente parada te presentamos a otras manos que tampoco suelen salir en pantalla.</p>
       </div>
-      <aside class="galeria-lat" aria-label="Galería lateral">
-        <span class="kicker">Galería</span>
-        <figure style="margin:0"><button type="button" data-ampliar="0" aria-label="Ampliar imagen: el set"><div class="arte" data-arte="camara" data-paleta="fucsia"></div></button><figcaption>El set · muestra</figcaption></figure>
-        <figure style="margin:0"><button type="button" data-ampliar="1" aria-label="Ampliar imagen: la sala de montaje"><div class="arte" data-arte="montaje" data-paleta="cobalto"></div></button><figcaption>La sala de montaje · muestra</figcaption></figure>
-        <figure style="margin:0"><button type="button" data-ampliar="2" aria-label="Ampliar imagen: el estreno"><div class="arte" data-arte="sillas" data-paleta="lima"></div></button><figcaption>El estreno · muestra</figcaption></figure>
-      </aside>
     </div>
     <div class="cta-cierre"><a class="btn" href="#creditos">Conoce a quienes están detrás <span class="fle" aria-hidden="true">→</span></a></div>
   </div>
