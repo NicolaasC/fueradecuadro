@@ -1,0 +1,20 @@
+FUERA DE CUADRO · página web completa
+
+Contenido
+- index.html  → la página (HTML, CSS y JavaScript en un solo archivo)
+- img/        → recortes del collage
+- media/      → podcasts, audio inmersivo, minidocumental y trazo de la intro
+- lib/        → three.js (animaciones 3D del fondo)
+
+Cómo publicarla
+Sube la carpeta completa, sin cambiar los nombres ni la estructura, a cualquier
+hosting de páginas estáticas: Netlify (arrastrar la carpeta en app.netlify.com/drop),
+GitHub Pages, Vercel o el administrador de archivos de tu hosting.
+
+Cómo verla en tu computador
+Si abres index.html con doble clic, el navegador bloquea parte del JavaScript
+(el fondo 3D) por seguridad. Para verla completa, abre una terminal en esta
+carpeta y escribe:  python3 -m http.server 8000
+y luego entra a http://localhost:8000 en el navegador.
+
+En esta versión el Genially de "Viaje fílmico" ya va incrustado dentro de la página.

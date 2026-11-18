@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fuera de Cuadro · El cine colombiano y lo que ocurre fuera del encuadre</title>
+<meta name="description" content="Fuera de Cuadro: especial convergente de periodismo cultural sobre el cine colombiano y lo que ocurre detrás, alrededor y más allá de la pantalla.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===== Tokens (Biblia p.38 · Paleta principal y extendida) ===== */
+:root{
+  --crema:#F5E8CD; --negro:#111111; --rojo:#E52B18; --amarillo:#FFD21F; --fucsia:#F2387A;
+  --cobalto:#2455D6; --lima:#A8C92B; --papel:#E3DDD2; --terracota:#C86A58;
+  --rosa-pastel:#FF8FAB; --amarillo-claro:#FFD75A; --naranja:#F5B800; --azul-claro:#7EA6F7;
+  --azul-profundo:#1B3FA3; --verde-claro:#CBE8A1; --lavanda:#E6E6F7; --beige:#F8E4D6;
+  --display:"Bebas Neue","Anton",Impact,"Arial Narrow",sans-serif;
+  --cifra:"Anton","Bebas Neue",Impact,sans-serif;
+  --etiqueta:"Archivo Black","Arial Black",sans-serif;
+  --texto:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --ease-in-out:cubic-bezier(0.77,0,0.175,1);
+  --ease-drawer:cubic-bezier(0.32,0.72,0,1);
+  --cinta:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='28'%3E%3Crect x='2' y='7' width='10' height='14' rx='3' fill='%23F5E8CD'/%3E%3C/svg%3E");
+  --rasgado:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M0 0H120V5L114 9L108 4L101 10L95 6L88 11L80 5L73 9L66 4L58 10L51 6L44 11L37 5L29 9L22 4L15 10L8 6L0 9Z'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip}
+body{margin:0;background:var(--crema);color:var(--negro);font-family:var(--texto);font-size:1.0625rem;line-height:1.7;overflow-x:clip}
+body.bloqueado{overflow:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:3px solid var(--cobalto);outline-offset:3px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+section,[id]{scroll-margin-top:0}
+.envoltura{width:min(1200px,100% - 3rem);margin-inline:auto}
+.lectura{width:min(680px,100% - 3rem);margin-inline:auto}
+@media (max-width:480px){.envoltura,.lectura{width:calc(100% - 2.25rem)}}
+
+/* ===== Recursos gráficos de la biblia: cinta de película, rasgado, cinta adhesiva, marco punteado ===== */
+.tira{position:fixed;left:0;top:0;bottom:0;width:22px;background:var(--rojo) var(--cinta) repeat-y center/14px 28px;z-index:40;pointer-events:none}
+@media (max-width:760px){.tira{width:12px;background-size:8px 16px}}
+.rasgado{position:relative}
+.rasgado::after{content:"";position:absolute;left:0;right:0;bottom:-11px;height:12px;background:inherit;-webkit-mask:var(--rasgado) center/100% 100%;mask:var(--rasgado) center/100% 100%;z-index:2}
+.cinta-adh{position:absolute;height:26px;background:var(--amarillo);clip-path:polygon(2% 10%,30% 0,62% 8%,98% 2%,100% 88%,66% 100%,34% 92%,0 100%);opacity:.95;pointer-events:none}
+.marco-punteado{border:3px dashed currentColor;border-radius:2px}
+.flecha{display:inline-flex;align-items:center;gap:.5em}
+.flecha::after{content:"";width:2.4em;height:2px;background:currentColor;-webkit-mask:linear-gradient(#000 0 0);mask:none;position:relative}
+.kicker{font-family:var(--etiqueta);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.chip-et{display:inline-block;background:var(--rojo);color:var(--crema);font-family:var(--etiqueta);font-size:.72rem;letter-spacing:.08em;padding:.35em .8em;clip-path:polygon(0 8%,4% 0,97% 6%,100% 92%,96% 100%,2% 94%);text-transform:uppercase}
+.nota-muestra{font-size:.8rem;line-height:1.5;background:var(--papel);border-left:6px solid var(--amarillo);padding:.75rem 1rem;margin:1.5rem 0;color:#3a3530}
+
+/* ===== Botones ===== */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--etiqueta);font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;padding:.95rem 1.4rem;background:var(--negro);color:var(--crema);border-radius:999px;text-decoration:none;transition:transform 160ms var(--ease-out),background-color 200ms ease,box-shadow 200ms ease;position:relative}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--rojo);box-shadow:4px 4px 0 var(--negro)}}
+.btn svg{width:1.1em;height:1.1em}
+.btn-claro{background:var(--crema);color:var(--negro)}
+@media (hover:hover) and (pointer:fine){.btn-claro:hover{background:var(--amarillo)}}
+.btn[disabled]{opacity:.35;cursor:not-allowed;box-shadow:none}
+.cta-cierre{display:flex;justify-content:center;padding:4rem 0 5.5rem}
+.cta-cierre .btn{font-size:1rem;padding:1.1rem 1.8rem;max-width:calc(100vw - 2.4rem);white-space:normal;text-align:center;line-height:1.25}
+.cta-cierre .btn .fle{transition:transform 200ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.cta-cierre .btn:hover .fle{transform:translateX(5px)}}
+
+/* ===== 1. Pantalla de inicio (Biblia p.39) ===== */
+#inicio{position:fixed;inset:0;z-index:100;background:#FFFFFF;color:var(--crema);display:grid;place-items:center;text-align:center;overflow:hidden;transition:clip-path 900ms var(--ease-in-out),visibility 0s linear 900ms;clip-path:inset(0 0 0 0)}
+#inicio.salida{clip-path:inset(0 0 100% 0);visibility:hidden}
+#inicio .tira-ini{position:absolute;left:0;top:0;bottom:0;width:22px;background:var(--negro) var(--cinta) repeat-y center/14px 28px}
+#inicio .tira-ini.der{left:auto;right:0}
+.escena{perspective:1100px;width:min(560px,86vw);aspect-ratio:16/10;display:grid;place-items:center;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.escena:active{cursor:grabbing}
+.escena:focus-visible{outline:2px dashed var(--amarillo);outline-offset:8px}
+.logo-capa svg{margin:auto}
+.logo3d{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
+.logo-capa{position:absolute;inset:0;display:grid;place-items:center;backface-visibility:visible}
+.logo-marca{position:relative;width:78%;aspect-ratio:2.4/1;font-family:var(--display);line-height:.9}
+.logo-marca .marco{position:absolute;inset:0;border:3px dashed var(--crema)}
+.logo-marca .fd{position:absolute;left:7%;bottom:12%;font-size:clamp(2.6rem,10vw,5.4rem);color:var(--crema);letter-spacing:.02em}
+.logo-marca .cu{position:absolute;left:40%;top:104%;font-size:clamp(2.6rem,10vw,5.4rem);color:var(--amarillo);display:flex;align-items:center;gap:.25em;white-space:nowrap}
+.logo-marca .cu i{display:block;width:1.6em;height:3px;background:var(--amarillo);position:relative}
+.logo-marca .cu i::after{content:"";position:absolute;right:-2px;top:50%;width:.32em;height:.32em;border-top:3px solid var(--amarillo);border-right:3px solid var(--amarillo);transform:translateY(-50%) rotate(45deg)}
+.logo-capa.prof .marco{border-color:#9e1a0b}
+.logo-capa.prof .fd{color:#b3200f}
+.logo-capa.prof .cu{color:#c79a00}
+.logo-capa.prof .cu i,.logo-capa.prof .cu i::after{background:#c79a00;border-color:#c79a00}
+.logo-capa.prof .cu i::after{background:none}
+.ini-texto{margin-top:4.5rem;display:grid;gap:1rem;justify-items:center;padding:0 1.5rem}
+.ini-instruccion{font-size:1rem;max-width:30ch;margin:0;min-height:3.2em}
+.ini-progreso{width:min(280px,70vw);height:6px;background:rgba(245,232,205,.25);border-radius:6px;overflow:hidden}
+.ini-progreso span{display:block;height:100%;width:0;background:var(--amarillo);transition:width 120ms linear}
+#btn-entrar{font-size:1rem}
+#btn-entrar::after{content:"";position:absolute;inset:-6px;border-radius:999px;border:3px solid var(--amarillo);opacity:0;pointer-events:none}
+#btn-entrar:not([disabled])::after{animation:latido 1.6s var(--ease-in-out) infinite}
+@keyframes latido{0%{opacity:.7;transform:scale(.92)}100%{opacity:0;transform:scale(1.18)}}
+.ini-sonido{position:absolute;right:2.2rem;top:1.4rem;font-size:.8rem;display:flex;gap:.5rem;align-items:center;opacity:.85}
+.ini-kicker{position:absolute;left:2.6rem;top:1.6rem;font-family:var(--etiqueta);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+.ini-kicker{} @media (max-width:640px){.ini-kicker{top:auto;bottom:3.2rem;left:0;right:0}}
+.ini-pie{position:absolute;bottom:1.4rem;left:0;right:0;font-size:.75rem;opacity:.8;letter-spacing:.04em}
+
+/* ===== 2. Menú fijo (Biblia p.40) ===== */
+.cabecera{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:flex-start;padding:1rem 1.25rem 0 2.2rem;pointer-events:none}
+.cabecera > *{pointer-events:auto}
+.logo-mini{display:block;text-decoration:none;background:var(--rojo);padding:.6rem .65rem .45rem;border-radius:4px;transition:transform 160ms var(--ease-out);box-shadow:3px 3px 0 var(--negro)}
+.logo-mini:active{transform:scale(.97)}
+.logo-mini .lm{display:block;width:104px}
+.cab-der{display:flex;gap:.6rem;align-items:center}
+.cab-seccion{font-family:var(--etiqueta);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;background:var(--crema);color:var(--negro);padding:.55rem .9rem;border-radius:999px;box-shadow:2px 2px 0 var(--negro);opacity:0;transform:translateY(-6px);transition:opacity 200ms ease,transform 200ms var(--ease-out);max-width:42vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cab-seccion.visible{opacity:1;transform:none}
+@media (max-width:860px){.cab-seccion{display:none}}
+.btn-cab{display:inline-flex;align-items:center;gap:.5rem;height:44px;padding:0 1.1rem;border-radius:999px;background:var(--negro);color:var(--crema);font-family:var(--etiqueta);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;transition:transform 160ms var(--ease-out),background-color 200ms ease;box-shadow:0 0 0 2px var(--crema),3px 3px 0 2px rgba(17,17,17,.35)}
+.btn-cab:active{transform:scale(.96)}
+@media (hover:hover) and (pointer:fine){.btn-cab:hover{background:var(--rojo)}}
+.btn-cab.redondo{width:44px;padding:0;justify-content:center}
+.btn-cab svg{width:20px;height:20px}
+.hamb{display:grid;gap:4px}
+.hamb i{display:block;width:18px;height:2px;background:currentColor;transition:transform 250ms var(--ease-out),opacity 150ms ease}
+body.menu-abierto .hamb i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+body.menu-abierto .hamb i:nth-child(2){opacity:0}
+body.menu-abierto .hamb i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.progreso-lectura{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--amarillo);transform-origin:0 50%;transform:scaleX(0);z-index:61;pointer-events:none;opacity:0;transition:opacity 200ms ease}
+.progreso-lectura.visible{opacity:1}
+
+#menu{position:fixed;inset:0;z-index:55;background:var(--crema);overflow-y:auto;padding:6.5rem 1.5rem 2rem 2.6rem;visibility:hidden;opacity:0;transform:translate3d(0,-14px,0);transition:opacity 260ms ease,transform 380ms var(--ease-out),visibility 0s linear 380ms}
+body.menu-abierto #menu{visibility:visible;opacity:1;transform:none;transition:opacity 260ms ease,transform 380ms var(--ease-out),visibility 0s}
+.menu-cab{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;width:min(1200px,100%);margin-inline:auto}
+.menu-cab h2{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6vw,4.5rem);line-height:.9;margin:0}
+.menu-cab p{margin:0;font-size:.9rem;max-width:40ch}
+.menu-rejilla{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;width:min(1200px,100%)}
+@media (max-width:860px){.menu-rejilla{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.menu-rejilla{grid-template-columns:1fr}}
+.menu-rejilla a{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem;align-items:end;min-height:150px;padding:1.1rem 1.2rem;text-decoration:none;background:var(--c);color:var(--t);border-radius:4px;position:relative;overflow:hidden;opacity:0;transform:translateY(14px);transition:opacity 300ms ease,transform 400ms var(--ease-out),box-shadow 200ms ease}
+@media (max-width:520px){.menu-rejilla a{min-height:96px}}
+body.menu-abierto .menu-rejilla a{opacity:1;transform:none;transition-delay:calc(160ms + var(--i) * 40ms)}
+@media (hover:hover) and (pointer:fine){.menu-rejilla a:hover{box-shadow:6px 6px 0 var(--negro)}}
+.menu-rejilla a:active{transform:scale(.98)}
+.menu-rejilla .mn{font-family:var(--cifra);font-size:2.6rem;line-height:1;grid-row:span 2;align-self:start}
+.menu-rejilla .mt{font-family:var(--display);font-size:clamp(1.9rem,3vw,2.5rem);line-height:.95}
+.menu-rejilla .mp{font-size:.82rem;line-height:1.35;opacity:.92}
+.menu-pie{width:min(1200px,100%);margin:1.5rem auto 0;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;font-size:.85rem}
+
+/* ===== 3. Separadores de sección (Biblia p.41) ===== */
+.separador{min-height:100vh;min-height:100svh;background:var(--c);color:var(--t);display:grid;align-content:center;position:relative;overflow:hidden;padding:7rem 0 5rem}
+.separador .envoltura{position:relative;z-index:1}
+.sep-num{font-family:var(--cifra);font-size:clamp(7rem,26vw,22rem);line-height:.8;position:absolute;right:-1vw;top:50%;transform:translateY(-50%);-webkit-text-stroke:3px var(--t);color:transparent;opacity:.35;pointer-events:none;z-index:0}
+.sep-kicker{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem}
+.sep-kicker .chip-et{background:var(--t);color:var(--c)}
+.sep-titulo{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,min(14vw,22vh),12.5rem);line-height:.84;margin:0;letter-spacing:.005em;max-width:11ch}
+.sep-promesa{font-size:clamp(1.1rem,2.2vw,1.45rem);line-height:1.45;max-width:34ch;margin:1.6rem 0 0;font-weight:500}
+.sep-bajar{margin-top:2.5rem;display:inline-flex;align-items:center;gap:.6rem;font-family:var(--etiqueta);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+.sep-bajar span{display:inline-block;width:34px;height:34px;border:2px solid currentColor;border-radius:50%;display:grid;place-items:center;transition:transform 200ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.sep-bajar:hover span{transform:translateY(4px)}}
+.separador .cinta-adh{top:6.5rem;right:14%;width:150px;transform:rotate(-4deg)}
+.separador .marco-sep{position:absolute;right:7%;bottom:8%;width:clamp(140px,22vw,320px);aspect-ratio:2.4;border:3px dashed var(--t);opacity:.4}
+
+/* ===== Revelado al hacer scroll ===== */
+.revela{opacity:0;transform:translateY(18px);transition:opacity 600ms ease,transform 700ms var(--ease-out)}
+.revela.visible{opacity:1;transform:none}
+.sin-js .revela{opacity:1;transform:none}
+
+/* ===== Bloques de contenido ===== */
+.bloque{padding:5.5rem 0 1rem;background:var(--fondo,var(--crema))}
+.bloque h3.titulo-mod{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5vw,3.8rem);line-height:.95;margin:.6rem 0 1rem}
+.entradilla{font-size:1.15rem;line-height:1.65;max-width:62ch}
+.dos-col{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start}
+@media (max-width:900px){.dos-col{grid-template-columns:1fr;gap:2rem}}
+
+/* ===== Fotorreportaje (Biblia p.43) ===== */
+.foto-cab{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}
+.carrusel{position:relative;margin-top:2rem;overflow:hidden;padding:.5rem 0 1.5rem;-webkit-mask:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.carrusel-pista{display:flex;gap:1.25rem;width:max-content;animation:desliza 55s linear infinite;padding-left:1.25rem}
+.carrusel:hover .carrusel-pista,.carrusel:focus-within .carrusel-pista,.carrusel.pausado .carrusel-pista,.carrusel:not(.en-vista) .carrusel-pista{animation-play-state:paused}
+@keyframes desliza{to{transform:translateX(-50%)}}
+.foto-tarjeta{width:clamp(220px,24vw,300px);flex:none;text-align:left;background:var(--negro);color:var(--crema);border-radius:4px;overflow:hidden;transition:transform 200ms var(--ease-out),box-shadow 200ms ease}
+.foto-tarjeta .arte{aspect-ratio:1/1;overflow:hidden}
+.foto-tarjeta .arte svg{width:100%;height:100%;transition:transform 500ms var(--ease-out)}
+.foto-tarjeta .pie{padding:.8rem 1rem 1rem;display:grid;gap:.15rem}
+.foto-tarjeta .pie b{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1}
+.foto-tarjeta .pie small{font-size:.78rem;opacity:.8}
+@media (hover:hover) and (pointer:fine){.foto-tarjeta:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:6px 6px 0 var(--rojo)}.foto-tarjeta:hover .arte svg{transform:scale(1.05)}}
+.foto-tarjeta:active{transform:scale(.98)}
+.btn-pausa{display:inline-flex;gap:.45rem;align-items:center;font-size:.8rem;font-weight:500;border:2px solid var(--negro);border-radius:999px;padding:.45rem .9rem;transition:transform 160ms var(--ease-out)}
+.btn-pausa:active{transform:scale(.96)}
+
+/* ===== Tarjeta de audio (Biblia p.45 · 9) ===== */
+.audio-tarjeta{display:grid;grid-template-columns:150px 1fr;gap:1.25rem;align-items:center;background:var(--negro);color:var(--crema);border-radius:6px;padding:1rem;position:relative}
+.audio-tarjeta .arte{aspect-ratio:1;border-radius:4px;overflow:hidden}
+.audio-tarjeta h4{font-family:var(--display);font-weight:400;font-size:2rem;line-height:.95;margin:.25rem 0 .4rem}
+.audio-tarjeta p{margin:0 0 .9rem;font-size:.9rem;line-height:1.5;opacity:.9}
+.audio-tarjeta .meta{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;font-size:.78rem}
+.btn-play{width:54px;height:54px;border-radius:50%;background:var(--amarillo);color:var(--negro);display:grid;place-items:center;transition:transform 160ms var(--ease-out),box-shadow 200ms ease;flex:none}
+.btn-play svg{width:22px;height:22px}
+.btn-play:active{transform:scale(.94)}
+@media (hover:hover) and (pointer:fine){.btn-play:hover{box-shadow:0 0 0 6px rgba(255,210,31,.3)}}
+@media (max-width:520px){.audio-tarjeta{grid-template-columns:1fr}.audio-tarjeta .arte{aspect-ratio:16/9}}
+.audios{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2rem}
+@media (max-width:900px){.audios{grid-template-columns:1fr}}
+
+/* ===== Texto largo (Biblia p.41 · 4) ===== */
+.apertura{position:relative;height:min(78vh,720px);min-height:420px;overflow:hidden;background:var(--negro)}
+.apertura svg{width:100%;height:100%;object-fit:cover}
+.apertura .leyenda{position:absolute;left:2.4rem;bottom:1rem;font-size:.75rem;color:var(--crema);background:rgba(17,17,17,.6);padding:.3rem .6rem;border-radius:3px}
+.articulo-cab{padding:3.5rem 0 1rem}
+.articulo-cab h3{font-family:var(--display);font-weight:400;font-size:clamp(3rem,7.5vw,6rem);line-height:.88;margin:.8rem 0 1.2rem}
+.articulo-cab .bajada{font-size:1.25rem;line-height:1.55;font-weight:500;margin:0 0 1.2rem}
+.firma{display:flex;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:#4a443d;border-top:2px solid var(--negro);padding-top:.8rem}
+.articulo{position:relative;display:grid;grid-template-columns:minmax(0,680px) 260px;gap:3.5rem;justify-content:center;width:min(1080px,100% - 3rem);margin:0 auto;padding-bottom:2rem}
+@media (max-width:1000px){.articulo{grid-template-columns:minmax(0,680px);gap:0}}
+.cuerpo p{margin:0 0 1.35rem}
+.cuerpo strong{background:linear-gradient(transparent 60%,rgba(255,210,31,.75) 60%);font-weight:700}
+.cuerpo .capitular::first-letter{font-family:var(--cifra);float:left;font-size:4.6rem;line-height:.8;padding:.35rem .6rem 0 0;color:var(--rojo)}
+.cuerpo h4{font-family:var(--etiqueta);font-size:1rem;letter-spacing:.03em;text-transform:uppercase;margin:2.4rem 0 .8rem}
+.destacada{font-family:var(--display);font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:.98;margin:2.4rem 0;padding:1.4rem 0 1.4rem 1.4rem;border-left:8px solid var(--fucsia);color:var(--negro)}
+.fig-lateral{margin:2rem 0;display:grid;gap:.5rem}
+.fig-lateral .arte{aspect-ratio:4/3;border-radius:4px;overflow:hidden}
+.fig-lateral figcaption,.galeria-lat figcaption{font-size:.78rem;line-height:1.45;color:#4a443d}
+@media (min-width:1001px){.fig-lateral.flota{float:right;width:300px;margin:.4rem -330px 1rem 2rem;shape-outside:none}}
+.galeria-lat{position:sticky;top:6.5rem;align-self:start;display:grid;gap:1rem}
+.galeria-lat button{display:block;width:100%;border-radius:4px;overflow:hidden;transition:transform 200ms var(--ease-out)}
+.galeria-lat button .arte{aspect-ratio:1}
+@media (hover:hover) and (pointer:fine){.galeria-lat button:hover{transform:rotate(-1.5deg) scale(1.02)}}
+@media (max-width:1000px){.galeria-lat{position:static;grid-template-columns:repeat(3,1fr);margin:1rem 0 2rem}.galeria-lat .kicker{grid-column:1/-1}.galeria-lat figcaption{display:none}}
+@media (max-width:1000px){.fig-lateral.flota{float:none;width:auto;margin:2rem 0}}
+
+/* ===== Cifras y gráficas simples (Sec. 5) ===== */
+.cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2.4rem 0}
+@media (max-width:760px){.cifras{grid-template-columns:1fr}}
+.cifra{background:var(--c);color:var(--t);padding:1.4rem 1.3rem;border-radius:4px;position:relative}
+.cifra b{display:block;font-family:var(--cifra);font-weight:400;font-size:clamp(2.2rem,4vw,3rem);line-height:1;margin-bottom:.5rem}
+.cifra span{font-size:.9rem;line-height:1.45;display:block}
+.grafica{background:var(--crema);border:3px solid var(--negro);border-radius:6px;padding:1.5rem;margin:2.4rem 0}
+.grafica h4{margin:0 0 .3rem;font-family:var(--etiqueta);text-transform:uppercase;font-size:.95rem}
+.grafica .sub{font-size:.8rem;margin:0 0 1.2rem;color:#4a443d}
+.barra{display:grid;grid-template-columns:minmax(120px,190px) 1fr 3rem;gap:.8rem;align-items:center;margin:.55rem 0;font-size:.88rem}
+.barra .pista{height:22px;background:var(--papel);border-radius:3px;overflow:hidden}
+.barra .relleno{height:100%;width:var(--v);background:var(--c);transform-origin:0 50%;transform:scaleX(0);transition:transform 900ms var(--ease-out)}
+.grafica.visible .relleno{transform:scaleX(1)}
+.barra b{font-family:var(--cifra);font-weight:400;font-size:1.1rem}
+@media (max-width:520px){.barra{grid-template-columns:1fr 2.6rem}.barra .pista{grid-column:1/-1;grid-row:2}}
+
+/* ===== Fichas de oficios (Sec. 3) ===== */
+.oficios{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.5rem}
+@media (max-width:1000px){.oficios{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.oficios{grid-template-columns:1fr}}
+.oficio{perspective:900px;min-height:230px}
+.oficio button{position:relative;width:100%;height:100%;min-height:230px;transform-style:preserve-3d;transition:transform 600ms var(--ease-in-out);text-align:left;border-radius:6px}
+.oficio button[aria-pressed="true"]{transform:rotateY(180deg)}
+.oficio .cara{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6px;padding:1.2rem;display:flex;flex-direction:column;justify-content:space-between;background:var(--c);color:var(--t);border:3px solid var(--negro)}
+.oficio .cara svg{width:56px;height:56px}
+.oficio .cara b{font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:.95}
+.oficio .cara small{font-size:.72rem;font-family:var(--etiqueta);letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.oficio .reverso{transform:rotateY(180deg);background:var(--negro);color:var(--crema);justify-content:flex-start;gap:.6rem;font-size:.88rem;line-height:1.5}
+.oficio .reverso b{font-size:1.5rem;color:var(--amarillo)}
+@media (hover:hover) and (pointer:fine){.oficio button:not([aria-pressed="true"]):hover{transform:rotateY(8deg) rotateX(-3deg)}}
+.oficio button:active .cara{filter:brightness(.97)}
+
+/* ===== Video (Biblia p.45 · 8) ===== */
+.video-tarjeta{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:var(--negro);color:var(--crema);text-align:left}
+.video-tarjeta .arte{position:absolute;inset:0}
+.video-tarjeta .arte svg{width:100%;height:100%;transition:transform 700ms var(--ease-out)}
+.video-tarjeta .sobre{position:absolute;inset:auto 0 0 0;padding:1.4rem 1.6rem;background:linear-gradient(transparent,rgba(17,17,17,.88));display:flex;gap:1.2rem;align-items:center}
+.video-tarjeta .sobre b{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,4vw,3rem);line-height:.95;display:block}
+.video-tarjeta .sobre small{font-size:.82rem;opacity:.9}
+.video-tarjeta .btn-play{width:78px;height:78px}
+.video-tarjeta .btn-play svg{width:30px;height:30px}
+@media (hover:hover) and (pointer:fine){.video-tarjeta:hover .arte svg{transform:scale(1.04)}.video-tarjeta:hover .btn-play{box-shadow:0 0 0 10px rgba(255,210,31,.3)}}
+.video-tarjeta:active .btn-play{transform:scale(.94)}
+@media (max-width:520px){.video-tarjeta{aspect-ratio:4/5}.video-tarjeta .sobre{flex-direction:column;align-items:flex-start}}
+
+/* ===== Carrusel 3D de línea de tiempo (Biblia p.44 · 7) ===== */
+.tl-escena{position:relative;height:520px;perspective:1600px;margin-top:2rem;overflow:hidden}
+.tl-anillo{position:absolute;left:50%;top:40px;width:300px;height:400px;margin-left:-150px;transform-style:preserve-3d;transition:transform 900ms var(--ease-in-out)}
+.tl-tarjeta{position:absolute;inset:0;background:var(--c);color:var(--t);border:3px solid var(--negro);border-radius:8px;padding:1.4rem;display:flex;flex-direction:column;text-align:left;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:opacity 500ms ease}
+.tl-tarjeta:not(.activa){opacity:.55}
+.tl-tarjeta.activa{box-shadow:10px 10px 0 var(--negro)}
+.tl-tarjeta .anio{font-family:var(--cifra);font-size:3.6rem;line-height:1}
+.tl-tarjeta h4{font-family:var(--display);font-weight:400;font-size:2rem;line-height:.95;margin:.6rem 0 .6rem}
+.tl-tarjeta p{margin:0;font-size:.9rem;line-height:1.5}
+.tl-tarjeta .lugar{margin-top:auto;font-family:var(--etiqueta);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding-top:.8rem;border-top:2px dashed currentColor}
+.tl-controles{display:flex;justify-content:center;align-items:center;gap:1rem;margin-top:.5rem}
+.tl-contador{font-family:var(--cifra);font-size:1.2rem;min-width:5ch;text-align:center}
+.tl-controles .btn-cab{height:52px}
+.tl-ayuda{text-align:center;font-size:.8rem;color:#4a443d;margin:.6rem 0 0}
+@media (max-width:760px),(prefers-reduced-motion:reduce){
+  .tl-escena{height:auto;perspective:none}
+  .tl-anillo{position:static;width:auto;height:auto;margin:0;transform:none!important;display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 1.2rem;-webkit-overflow-scrolling:touch}
+  .tl-tarjeta{position:relative;inset:auto;flex:0 0 min(280px,80vw);min-height:360px;transform:none!important;scroll-snap-align:center;opacity:1!important;filter:none!important}
+  .tl-tarjeta.activa{box-shadow:6px 6px 0 var(--negro)}
+}
+
+/* ===== Dosis de peli (Sec. 7) ===== */
+.filtros{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.5rem 0 2rem}
+.filtro{border:2px solid var(--negro);border-radius:999px;padding:.5rem 1rem;font-size:.85rem;font-weight:500;transition:background-color 200ms ease,color 200ms ease,transform 160ms var(--ease-out)}
+.filtro:active{transform:scale(.96)}
+.filtro[aria-pressed="true"]{background:var(--negro);color:var(--crema)}
+@media (hover:hover) and (pointer:fine){.filtro:not([aria-pressed="true"]):hover{background:var(--amarillo)}}
+.carteles{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+@media (max-width:1000px){.carteles{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.carteles{grid-template-columns:repeat(2,1fr);gap:.8rem}}
+.cartel{aspect-ratio:2/3;border-radius:4px;background:var(--c);color:var(--t);position:relative;overflow:hidden;text-align:left;padding:1rem;display:flex;flex-direction:column;justify-content:flex-end;border:3px solid var(--negro);transition:transform 220ms var(--ease-out),box-shadow 220ms ease,opacity 250ms ease}
+.cartel .forma{position:absolute;border-radius:50%;background:var(--f);width:80%;aspect-ratio:1;top:-12%;right:-22%;transition:transform 600ms var(--ease-out)}
+.cartel .forma.b{border-radius:0;width:45%;top:auto;bottom:38%;left:-10%;right:auto;transform:rotate(-12deg);background:var(--g)}
+.cartel .ca{position:relative;font-family:var(--cifra);font-size:1rem}
+.cartel .ct{position:relative;font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,2.6vw,2.4rem);line-height:.9;margin:.2rem 0 .4rem}
+.cartel .cd{position:relative;font-size:.74rem;line-height:1.3;opacity:.95}
+.cartel.oculto{display:none}
+@media (hover:hover) and (pointer:fine){.cartel:hover{transform:translateY(-6px) rotate(.6deg);box-shadow:8px 8px 0 var(--negro)}.cartel:hover .forma{transform:scale(1.15)}}
+.cartel:active{transform:scale(.98)}
+
+/* ===== ¿Sin plan? Mapa + lista (Biblia p.44 · 6) ===== */
+.mapa-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;margin-top:1.5rem}
+.mapa-caja{background:var(--lavanda);border:3px solid var(--negro);border-radius:8px;position:relative;padding:1rem;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:1rem}
+@media (max-width:900px){.mapa-caja{grid-template-columns:minmax(0,1fr)}}
+.mapa-caja svg{width:100%;height:auto;max-height:620px}
+.mapa-pais{fill:var(--verde-claro);stroke:var(--negro);stroke-width:2;stroke-linejoin:round}
+.mapa-ciudad{font-family:var(--etiqueta);font-size:10px;letter-spacing:.04em;fill:var(--negro)}
+.pin{cursor:pointer}
+.pin .halo{fill:var(--c);opacity:.25;transform-box:fill-box;transform-origin:center;animation:halo 2.4s ease-out infinite;animation-play-state:paused}
+.mapa-caja.en-vista .pin .halo{animation-play-state:running}
+.pin .punto{fill:var(--c);stroke:var(--negro);stroke-width:2;transition:transform 200ms var(--ease-out);transform-box:fill-box;transform-origin:center}
+.pin:hover .punto,.pin:focus .punto,.pin.resaltado .punto{transform:scale(1.45)}
+.pin:focus{outline:none}
+.pin:focus-visible .punto{stroke:var(--cobalto);stroke-width:4}
+@keyframes halo{0%{transform:scale(.6);opacity:.45}100%{transform:scale(2.2);opacity:0}}
+.leyenda-mapa{display:grid;gap:.6rem;align-content:start;font-size:.88rem}
+.leyenda-mapa h4{margin:0;font-family:var(--etiqueta);font-size:.9rem;text-transform:uppercase}
+.leyenda-mapa .li{display:flex;gap:.6rem;align-items:center}
+.leyenda-mapa .li i{width:16px;height:16px;border-radius:50%;background:var(--c);border:2px solid var(--negro);flex:none}
+.leyenda-mapa .aviso{font-size:.75rem;color:#4a443d}
+.lista-filtros{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.buscador{flex:1 1 220px;min-width:0;border:2px solid var(--negro);border-radius:999px;padding:.6rem 1rem;font:inherit;font-size:.9rem;background:var(--crema)}
+.lista-salas{list-style:none;padding:0;margin:1rem 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+@media (max-width:760px){.lista-salas{grid-template-columns:minmax(0,1fr)}}
+.lista-salas li,.lista-salas button{min-width:0}.lista-salas b,.lista-salas small{overflow-wrap:break-word}
+@media (max-width:420px){.lista-salas button{padding:.8rem;gap:.6rem}}
+.lista-salas button{width:100%;text-align:left;display:grid;grid-template-columns:auto 1fr auto;gap:.9rem;align-items:center;padding:1rem 1.1rem;background:var(--crema);border:2px solid var(--negro);border-radius:6px;transition:transform 160ms var(--ease-out),box-shadow 200ms ease,background-color 200ms ease}
+.lista-salas button i{width:14px;height:14px;border-radius:50%;background:var(--c);border:2px solid var(--negro)}
+.lista-salas b{display:block;font-weight:700;font-size:.98rem;line-height:1.3}
+.lista-salas small{font-size:.8rem;color:#4a443d}
+.lista-salas .fle{font-size:1.2rem;transition:transform 200ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.lista-salas button:hover,.lista-salas button.resaltado{box-shadow:4px 4px 0 var(--negro);background:var(--beige)}.lista-salas button:hover .fle{transform:translateX(4px)}}
+.lista-salas button:active{transform:scale(.98)}
+.lista-vacia{font-size:.9rem;padding:1rem 0}
+@media (max-width:900px){.mapa-layout .bloque-lista{order:-1}}
+.pulso{animation:pulso 1.2s var(--ease-out) 2}
+@keyframes pulso{50%{box-shadow:0 0 0 8px rgba(36,85,214,.35)}}
+
+/* ===== Futuro en proyección (Sec. 9) ===== */
+.futuro{background:var(--cobalto);color:var(--crema);padding:6rem 0}
+.futuro h3{font-family:var(--display);font-weight:400;font-size:clamp(3rem,8vw,6.5rem);line-height:.86;margin:0 0 1.4rem;max-width:12ch}
+.futuro p{max-width:56ch;font-size:1.1rem}
+.voces{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:3rem 0}
+@media (max-width:860px){.voces{grid-template-columns:1fr}}
+.voz{background:var(--crema);color:var(--negro);border-radius:6px;padding:1.3rem;position:relative}
+.voz::before{content:"“";font-family:var(--cifra);font-size:4rem;line-height:.6;color:var(--fucsia);display:block;height:2rem}
+.voz p{font-size:.95rem;margin:0 0 .8rem}
+.voz small{font-family:var(--etiqueta);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase}
+.suscripcion{background:var(--amarillo);color:var(--negro);border-radius:8px;padding:2rem;display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:center;margin-top:2rem}
+@media (max-width:860px){.suscripcion{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.suscripcion{padding:1.4rem}.suscripcion h4{font-size:2.1rem}.suscripcion input{flex-basis:100%}.suscripcion .btn{width:100%;justify-content:center}}
+.suscripcion h4{font-family:var(--display);font-weight:400;font-size:2.6rem;line-height:.95;margin:0 0 .4rem}
+.suscripcion form{display:flex;gap:.6rem;flex-wrap:wrap}
+.suscripcion input{flex:1 1 220px;min-width:0;border:3px solid var(--negro);border-radius:999px;padding:.9rem 1.2rem;font:inherit;background:var(--crema)}
+.suscripcion .estado{flex-basis:100%;font-size:.85rem;min-height:1.4em;margin:0}
+.pie{background:var(--negro);color:var(--crema);padding:4rem 0 3rem}
+.pie-rejilla{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem}
+@media (max-width:760px){.pie-rejilla{grid-template-columns:minmax(0,1fr)}}
+.pie h5{font-family:var(--etiqueta);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 .8rem;color:var(--amarillo)}
+.pie ul{list-style:none;padding:0;margin:0;font-size:.9rem;line-height:1.9}
+.pie a{text-decoration:none}
+.pie a:hover{text-decoration:underline}
+.pie .legal{margin-top:3rem;padding-top:1rem;border-top:1px solid rgba(245,232,205,.25);font-size:.78rem;opacity:.75;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* ===== Ventanas emergentes (audio, video, fichas, historias) ===== */
+dialog{border:0;padding:0;background:transparent;color:inherit;max-width:none;max-height:none;overflow:visible}
+dialog::backdrop{background:rgba(17,17,17,.84);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;transition:opacity 300ms ease}
+dialog.abierto::backdrop{opacity:1}
+.ventana{width:min(720px,calc(100vw - 2rem));max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);overflow:auto;background:var(--crema);color:var(--negro);border-radius:10px;position:relative;opacity:0;transform:translateY(16px) scale(.97);transition:opacity 250ms ease,transform 350ms var(--ease-out)}
+dialog.abierto .ventana{opacity:1;transform:none}
+dialog.cerrando .ventana{opacity:0;transform:translateY(8px) scale(.98);transition-duration:180ms}
+dialog.cerrando::backdrop{opacity:0}
+.cerrar{position:absolute;top:.8rem;right:.8rem;width:44px;height:44px;border-radius:50%;background:var(--negro);color:var(--crema);display:grid;place-items:center;z-index:3;transition:transform 160ms var(--ease-out),background-color 200ms ease}
+.cerrar:active{transform:scale(.92)}
+@media (hover:hover) and (pointer:fine){.cerrar:hover{background:var(--rojo)}}
+.cerrar svg{width:18px;height:18px}
+/* Reproductor de audio */
+.rep{display:grid;grid-template-columns:220px 1fr;background:var(--negro);color:var(--crema)}
+@media (max-width:620px){.rep{grid-template-columns:1fr}.rep .arte{aspect-ratio:16/9}}
+.rep .arte{aspect-ratio:1}
+.rep .info{padding:1.8rem 1.6rem 1.5rem;display:grid;gap:.5rem;align-content:start}
+.rep h3{font-family:var(--display);font-weight:400;font-size:2.4rem;line-height:.95;margin:.3rem 2.5rem .2rem 0}
+.rep p{margin:0;font-size:.9rem;line-height:1.55;opacity:.9}
+.rep-controles{display:flex;align-items:center;gap:.8rem;margin-top:1rem}
+.rep-controles .salto{width:44px;height:44px;border-radius:50%;border:2px solid rgba(245,232,205,.5);display:grid;place-items:center;font-size:.72rem;font-weight:700;transition:transform 160ms var(--ease-out)}
+.rep-controles .salto:active{transform:scale(.92)}
+.rep-barra{display:grid;grid-template-columns:auto 1fr auto;gap:.7rem;align-items:center;font-size:.78rem;font-variant-numeric:tabular-nums;margin-top:.6rem}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--amarillo) var(--av,0%),rgba(245,232,205,.25) var(--av,0%));cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--amarillo);border:2px solid var(--negro)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--amarillo);border:2px solid var(--negro)}
+.ondas{display:flex;gap:3px;align-items:flex-end;height:24px}
+.ondas i{width:4px;background:var(--amarillo);border-radius:2px;height:100%;transform:scaleY(.2);transform-origin:50% 100%}
+.rep.sonando .ondas i{animation:onda .9s ease-in-out infinite alternate}
+.ondas i:nth-child(2){animation-delay:-.2s!important}.ondas i:nth-child(3){animation-delay:-.45s!important}.ondas i:nth-child(4){animation-delay:-.7s!important}.ondas i:nth-child(5){animation-delay:-.1s!important}
+@keyframes onda{from{transform:scaleY(.2)}to{transform:scaleY(1)}}
+.audio-por{font-size:.8rem;letter-spacing:.02em;margin:.1rem 0 .5rem;opacity:.9}.audio-por b{font-weight:700}
+#d-audio .audio-por{color:var(--amarillo);margin:0}
+.genially{margin:2.4rem 0 3.4rem;max-width:1200px}
+.genially-marco{position:relative;width:100%;aspect-ratio:16/9;background:var(--negro);border:3px solid var(--negro);border-radius:8px;overflow:hidden;box-shadow:8px 8px 0 var(--rojo)}
+.genially{display:block;color:inherit;text-decoration:none}
+.genially-marco{background:var(--rojo)}
+.genially-txt{position:absolute;left:6%;bottom:10%;z-index:2;display:grid;gap:.6rem;color:var(--blanco,#fff)}
+.genially-txt .kicker{color:var(--amarillo)}
+.genially-txt b{font-family:var(--titulo,inherit);font-size:clamp(2.4rem,7vw,6rem);line-height:.9;font-weight:400;text-transform:uppercase}
+.genially-btn{justify-self:start;background:var(--amarillo);color:var(--negro);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;padding:.8rem 1.2rem;border-radius:999px;transition:transform 200ms var(--ease-out)}
+.genially-rec{position:absolute;inset:0;z-index:1;pointer-events:none}.genially-marco .rec{position:absolute}
+.gr1{right:-4%;top:6%;width:44%;transform:rotate(-8deg)}.gr2{right:10%;bottom:-6%;width:26%;transform:rotate(6deg)}.gr3{right:40%;top:4%;width:14%;transform:rotate(14deg)}
+@media (hover:hover) and (pointer:fine){.genially:hover .genially-btn{transform:translateY(-2px)}}
+.genially:active .genially-btn{transform:scale(.97)}
+.genially:focus-visible{outline:3px solid var(--amarillo);outline-offset:6px;border-radius:8px}
+@media (max-width:640px){.genially-marco{aspect-ratio:16/9}.gr1{width:56%}.gr2{width:24%;right:auto;left:6%;bottom:auto;top:6%;transform:rotate(-6deg)}.gr3{right:46%;top:22%}}
+.genially figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1rem;margin-top:1rem;font-size:.85rem}
+.genially-abrir{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem;color:var(--negro);text-decoration:underline;text-underline-offset:3px}
+.tl-kicker{display:block;margin-bottom:.4rem}
+@media (max-width:640px){.genially-marco{box-shadow:5px 5px 0 var(--rojo)}.genially{margin:1.6rem 0 2.6rem}}
+.rep-sc{margin-top:.4rem;display:grid;gap:.8rem;justify-items:start}.rep-sc p{margin:0}.rep-sc-btn{background:var(--amarillo);color:var(--negro)}
+.rep-sc-enlace{justify-self:start;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amarillo);text-decoration:underline;text-underline-offset:3px;margin-top:.2rem}
+.rep.con-sc .rep-controles,.rep.con-sc .rep-barra,.rep.con-sc .aviso-muestra{display:none}
+.aviso-muestra{font-size:.72rem;opacity:.7;margin-top:.8rem!important}
+/* Video */
+.ventana.v-video{width:min(1100px,calc(100vw - 2rem));background:var(--negro);color:var(--crema)}
+.ventana.v-video video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.ventana.v-video .info{padding:1rem 1.4rem 1.3rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
+.ventana.v-video h3{font-family:var(--display);font-weight:400;font-size:2rem;margin:0}
+.ventana.v-video .cerrar{background:var(--crema);color:var(--negro)}
+/* Fichas */
+.ficha-cab{background:var(--c);color:var(--t);padding:2rem 1.6rem 1.6rem}
+.ficha-cab h3{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,6vw,3.6rem);line-height:.92;margin:.4rem 3rem .4rem 0}
+.ficha-cuerpo{padding:1.4rem 1.6rem 1.8rem}
+.ficha-cuerpo h4{font-family:var(--etiqueta);font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin:1.4rem 0 .5rem}
+.ficha-datos{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem 1rem;font-size:.88rem;margin:0}
+.ficha-datos dt{font-weight:700}
+.ficha-datos dd{margin:0 0 .2rem}
+.tabla-mini{width:100%;border-collapse:collapse;font-size:.86rem}
+.tabla-mini th,.tabla-mini td{text-align:left;padding:.45rem .3rem;border-bottom:1px solid #cfc6b6}
+.resenas{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}
+.resenas li{background:var(--beige);padding:.8rem 1rem;border-radius:6px;font-size:.88rem}
+.resenas li b{display:block;font-size:.8rem}
+.form-resena{display:grid;gap:.6rem;margin-top:1rem}
+.form-resena input,.form-resena textarea{border:2px solid var(--negro);border-radius:6px;padding:.7rem .9rem;font:inherit;font-size:.9rem;background:#fffaf0}
+.form-resena textarea{min-height:90px;resize:vertical}
+.form-resena .estado{font-size:.8rem;margin:0;min-height:1.2em}
+/* Historia del fotorreportaje (página independiente) */
+dialog.historia .ventana{width:100vw;max-width:100vw;height:100vh;height:100dvh;max-height:none;border-radius:0}
+.hist-hero{position:relative;height:min(70vh,640px);background:var(--negro)}
+.hist-hero svg{width:100%;height:100%}
+.hist-hero .titular{position:absolute;left:0;right:0;bottom:0;padding:2rem 2.4rem;background:linear-gradient(transparent,rgba(17,17,17,.85));color:var(--crema)}
+.hist-hero h3{font-family:var(--display);font-weight:400;font-size:clamp(3rem,9vw,7rem);line-height:.86;margin:.4rem 0 .4rem}
+.hist-cuerpo{width:min(760px,100% - 3rem);margin:0 auto;padding:2.5rem 0 4rem}
+.hist-galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:2rem 0}
+@media (max-width:620px){.hist-galeria{grid-template-columns:1fr 1fr}}
+.hist-galeria figure{margin:0}
+.hist-galeria .arte{aspect-ratio:1;border-radius:4px;overflow:hidden}
+.hist-galeria figcaption{font-size:.75rem;margin-top:.3rem;color:#4a443d}
+.hist-nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:2px solid var(--negro);padding-top:1.4rem}
+
+
+/* ===== v2 · Navegación superior ===== */
+.nav-sup{display:flex;align-items:center;gap:.15rem;background:var(--crema);border-radius:999px;padding:.3rem;box-shadow:3px 3px 0 var(--negro);border:2px solid var(--negro)}
+.nav-sup a,.nav-sup .nav-drop>button{display:inline-flex;align-items:center;gap:.35rem;height:36px;padding:0 .95rem;border-radius:999px;text-decoration:none;font-family:var(--etiqueta);font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--negro);transition:background-color 200ms ease,color 200ms ease,transform 160ms var(--ease-out)}
+.nav-sup a:active,.nav-sup .nav-drop>button:active{transform:scale(.96)}
+@media (hover:hover) and (pointer:fine){.nav-sup a:hover,.nav-sup .nav-drop>button:hover{background:var(--amarillo)}}
+.nav-sup a[aria-current="true"],.nav-sup .nav-drop>button.activo{background:var(--negro);color:var(--crema)}
+.nav-drop{position:relative}
+.nav-drop>button svg{width:12px;height:12px;transition:transform 250ms var(--ease-out)}
+.nav-drop>button[aria-expanded="true"] svg{transform:rotate(180deg)}
+.nav-panel{position:absolute;top:calc(100% + .7rem);left:50%;width:min(560px,80vw);transform:translate(-50%,-6px);background:var(--crema);border:2px solid var(--negro);border-radius:10px;box-shadow:6px 6px 0 var(--negro);padding:.7rem;display:grid;grid-template-columns:1fr 1fr;gap:.45rem;opacity:0;visibility:hidden;transition:opacity 180ms ease,transform 220ms var(--ease-out),visibility 0s linear 220ms}
+.nav-drop.abierto .nav-panel{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity 180ms ease,transform 220ms var(--ease-out),visibility 0s}
+.nav-panel a{display:flex!important;height:auto!important;padding:.7rem .8rem!important;border-radius:6px!important;background:var(--c);color:var(--t)!important;gap:.7rem!important;text-transform:none!important;letter-spacing:0!important;font-family:var(--texto)!important;font-size:.86rem!important;font-weight:500;line-height:1.25}
+.nav-panel a b{font-family:var(--cifra);font-weight:400;font-size:1.15rem}
+@media (hover:hover) and (pointer:fine){.nav-panel a:hover{background:var(--c)!important;box-shadow:3px 3px 0 var(--negro)}}
+@media (max-width:1180px){.nav-sup{display:none}}
+.menu-atajos{width:min(1200px,100%);margin:0 auto 1.2rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.menu-atajos a{font-family:var(--etiqueta);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:2px solid var(--negro);border-radius:999px;padding:.55rem 1rem;transition:background-color 200ms ease,transform 160ms var(--ease-out)}
+.menu-atajos a:active{transform:scale(.96)}
+@media (hover:hover) and (pointer:fine){.menu-atajos a:hover{background:var(--amarillo)}}
+.menu-atajos a[aria-current="true"]{background:var(--negro);color:var(--crema)}
+
+/* ===== v2 · Portada (Inicio) ===== */
+.portada{min-height:100vh;min-height:100svh;background:var(--negro);color:var(--crema);display:grid;align-content:center;position:relative;overflow:hidden;padding:8rem 0 5rem}
+.portada .envoltura{position:relative;z-index:1}
+.portada-logo{width:min(420px,70vw);margin-bottom:2rem}
+.portada h2{font-family:var(--display);font-weight:400;font-size:clamp(3.4rem,9vw,8.5rem);line-height:.86;margin:0;max-width:13ch}
+.portada h2 em{font-style:normal;color:var(--amarillo)}
+.portada p{font-size:clamp(1.05rem,1.8vw,1.3rem);max-width:46ch;margin:1.5rem 0 2rem;line-height:1.55}
+.portada .acciones{display:flex;gap:.8rem;flex-wrap:wrap}
+.portada .btn-claro{box-shadow:4px 4px 0 var(--rojo)}
+.btn-borde{background:transparent;color:var(--crema);border:2px solid var(--crema)}
+@media (hover:hover) and (pointer:fine){.btn-borde:hover{background:var(--crema);color:var(--negro);box-shadow:none}}
+.portada .cifras-portada{display:flex;gap:2.2rem;flex-wrap:wrap;margin-top:3rem;font-size:.82rem}
+.portada .cifras-portada b{display:block;font-family:var(--cifra);font-weight:400;font-size:2.4rem;line-height:1;color:var(--amarillo)}
+
+/* ===== v2 · Nosotros ===== */
+.nosotros{background:var(--crema);padding:6rem 0 5rem}
+.nosotros h3{font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,6vw,5rem);line-height:.9;margin:.8rem 0 1.2rem}
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:3rem 0}
+@media (max-width:860px){.pilares{grid-template-columns:minmax(0,1fr)}}
+.pilar{min-width:0}.pilar b,.pilar p{overflow-wrap:break-word;hyphens:auto}
+.pilar{background:var(--c);color:var(--t);border:3px solid var(--negro);border-radius:8px;padding:1.4rem;box-shadow:6px 6px 0 var(--negro)}
+.pilar b{display:block;font-family:var(--display);font-weight:400;font-size:2rem;line-height:.95;margin-bottom:.6rem}
+.pilar p{margin:0;font-size:.92rem;line-height:1.55}
+.equipo{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.4rem}
+@media (max-width:1000px){.equipo{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.equipo{grid-template-columns:1fr}}
+.persona{border-top:4px solid var(--negro);padding-top:.9rem}
+.persona .ini{width:64px;height:64px;border-radius:50%;background:var(--c);color:var(--t);display:grid;place-items:center;font-family:var(--cifra);font-size:1.5rem;margin-bottom:.8rem;border:3px solid var(--negro)}
+.persona b{display:block;font-size:1rem}
+.persona span{display:block;font-family:var(--etiqueta);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;margin:.2rem 0 .4rem;color:var(--rojo)}
+.persona p{margin:0;font-size:.85rem;line-height:1.5;color:#3a3530}
+
+/* ===== v2 · Escena 3D de fondo y transiciones ===== */
+#fondo3d{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:none;pointer-events:none}
+html.con3d #fondo3d{display:block}
+main,footer{position:relative;z-index:1}
+html.con3d body{background:var(--negro)}
+html.con3d .separador,html.con3d .portada{background:transparent}
+
+.contenido-sec{position:relative}
+.contenido-int{position:relative}
+.sep-titulo .pal{display:inline-block;white-space:nowrap}
+.sep-titulo .car{display:inline-block;transform-origin:50% 100%}
+.sep-titulo{perspective:900px;text-shadow:0 3px 0 rgba(17,17,17,.14)}
+.separador .envoltura{transform-style:preserve-3d}
+html.con3d .separador .marco-sep{opacity:.65}
+.sep-velo{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 30% 60%,transparent 35%,rgba(0,0,0,.18));z-index:0}
+
+
+/* ===== Reportaje "Luces, cámara y… ¿presupuesto?" · diseño editorial ===== */
+.reportaje .articulo-cab h3{max-width:14ch}
+.rep-voces{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+@media (max-width:700px){.rep-voces{grid-template-columns:1fr}}
+.rep-voces li{display:flex;gap:.7rem;align-items:center;border:2px solid var(--negro);border-radius:8px;padding:.7rem .8rem;background:#fffaf0}
+.rep-voces .ini{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:var(--t);font-family:var(--cifra);font-size:1.05rem;border:2px solid var(--negro)}
+.rep-voces b{display:block;font-size:.88rem;line-height:1.25}
+.rep-voces small{display:block;font-size:.74rem;line-height:1.3;color:#4a443d}
+.articulo-rep{grid-template-columns:minmax(0,680px) 240px;margin-top:3rem}
+@media (max-width:1000px){.articulo-rep{grid-template-columns:minmax(0,680px)}}
+.cuerpo .nom{font-weight:700}
+.cuerpo .peli{font-style:italic;color:var(--rojo);font-weight:500}
+.cuerpo .peli.fuerte{font-weight:700}
+.cuerpo p.capitular::first-letter{font-family:var(--cifra);float:left;font-size:5.2rem;line-height:.78;padding:.4rem .6rem 0 0;color:var(--terracota)}
+.sub-rep{display:flex!important;align-items:center;gap:.8rem;font-family:var(--display)!important;font-weight:400;font-size:clamp(2.2rem,4.4vw,3rem)!important;letter-spacing:.01em!important;text-transform:none!important;line-height:1;margin:3.4rem 0 1.2rem!important;padding-top:1.2rem;border-top:3px dashed var(--negro)}
+.sub-rep span{flex:none;display:grid;place-items:center;width:2.2em;height:2.2em;border-radius:50%;background:var(--terracota);color:var(--negro);font-family:var(--cifra);font-size:.5em;border:3px solid var(--negro)}
+.cifras-rep{grid-template-columns:repeat(3,1fr);margin:2rem 0 .5rem}
+.cifras-rep .cifra b{font-size:clamp(1.8rem,3.2vw,2.5rem)}
+@media (max-width:620px){.cifras-rep{grid-template-columns:1fr}}
+.cita{margin:2.6rem 0;padding:0 0 0 1.4rem;border-left:8px solid var(--a);position:relative}
+.cita p{margin:0;font-family:var(--display);font-size:clamp(2.1rem,4.4vw,3.2rem);line-height:.98;color:var(--negro)}
+.cita footer{margin-top:.8rem;font-family:var(--etiqueta);font-size:.74rem;letter-spacing:.07em;text-transform:uppercase}
+.cita footer::before{content:"— "}
+.cita-banda{border:0;background:var(--fondo-cita);color:var(--tc);padding:2.4rem 2.2rem 2rem 4.6rem;border-radius:4px;box-shadow:8px 8px 0 var(--a)}
+.cita-banda::before{content:"“";position:absolute;left:1.1rem;top:1.2rem;font-family:var(--cifra);font-size:5.5rem;line-height:.8;color:var(--a)}
+.cita-banda p{color:var(--tc);font-size:clamp(1.9rem,3.8vw,2.8rem)}
+@media (min-width:1260px){.cita-banda{margin-left:-110px;margin-right:-110px}}
+@media (max-width:520px){.cita-banda{padding:3.6rem 1.3rem 1.5rem}.cita-banda::before{left:1rem;top:.9rem;font-size:4.2rem}}
+.dato-caja{background:var(--c);color:var(--t);border:3px solid var(--negro);border-radius:6px;box-shadow:6px 6px 0 var(--negro);padding:1.3rem 1.4rem;margin:2.2rem 0;font-size:.9rem;line-height:1.5}
+.dato-caja p{margin:.6rem 0 0}
+.dato-caja .kicker{display:block;margin-bottom:.7rem}
+.dato-fila{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.dato-fila b{font-family:var(--cifra);font-weight:400;font-size:2.6rem;line-height:1}
+.medidor{height:14px;background:rgba(17,17,17,.15);border-radius:10px;overflow:hidden;margin-top:.9rem;position:relative}
+.medidor i{display:block;height:100%;width:var(--v);background:var(--negro);border-radius:10px;transform-origin:0 50%;transform:scaleX(0);transition:transform 1100ms var(--ease-out)}
+.dato-caja.visible .medidor i{transform:scaleX(1)}
+.medidor.grande{height:22px;background:rgba(245,232,205,.2);overflow:visible}
+.medidor.grande i{background:var(--amarillo)}
+.medidor .marca{position:absolute;right:0;top:-1.5rem;font-family:var(--cifra);font-size:.85rem;color:var(--amarillo)}
+.medidor.grande::after{content:"";position:absolute;right:0;top:-4px;bottom:-4px;width:3px;background:var(--amarillo)}
+.comparativo ul{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+.comparativo li{display:grid;grid-template-columns:1fr auto;gap:.2rem .8rem;align-items:center}
+.comparativo li span{font-weight:500}
+.comparativo li small{display:block;font-size:.75rem;color:#4a443d;font-weight:400}
+.comparativo li b{font-family:var(--cifra);font-weight:400;font-size:1.5rem}
+.comparativo li i{grid-column:1/-1;height:12px;border-radius:8px;background:linear-gradient(90deg,var(--c) var(--v),rgba(17,17,17,.1) var(--v));min-width:6px}
+.pie-dato{font-size:.75rem!important;opacity:.85}
+.linea-acuerdos{list-style:none;margin:.4rem 0 0;padding:1.4rem 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;position:relative}
+.linea-acuerdos::before{content:"";position:absolute;left:8px;right:8px;top:.45rem;height:3px;background:var(--negro)}
+.linea-acuerdos li{position:relative;font-weight:500;font-size:.9rem;line-height:1.3}
+.linea-acuerdos li::before{content:"";position:absolute;left:0;top:-1.35rem;width:16px;height:16px;border-radius:50%;background:var(--amarillo);border:3px solid var(--negro)}
+.linea-acuerdos b{display:block;font-family:var(--cifra);font-weight:400;font-size:1.7rem;line-height:1}
+.linea-acuerdos small{display:block;font-size:.74rem;font-weight:400;color:#3a3530}
+.estudio-rejilla{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media (max-width:520px){.estudio-rejilla{grid-template-columns:1fr}}
+.estudio-rejilla div{border-left:6px solid var(--c);padding:.2rem 0 .2rem .8rem}
+.estudio-rejilla b{display:block;font-family:var(--cifra);font-weight:400;font-size:2.2rem;line-height:1;color:var(--negro)}
+.estudio-rejilla span{font-size:.84rem;line-height:1.4}
+.estudio-rejilla em{font-style:normal;font-weight:700}
+.meta-cifras{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.8rem}
+.meta-cifras b{display:block;font-family:var(--cifra);font-weight:400;font-size:2.6rem;line-height:1;color:var(--amarillo)}
+.meta-cifras span{font-size:.84rem}
+@media (max-width:480px){.meta-cifras{grid-template-columns:1fr}}
+.grafica h5{margin:0 0 .3rem;font-family:var(--etiqueta);text-transform:uppercase;font-size:.95rem}
+.fin-rep{color:var(--terracota);font-size:1.2rem;margin-top:-.6rem!important}
+.rail-cifras{position:sticky;top:6.5rem;align-self:start;display:grid;gap:1rem;padding:1.2rem;border:3px solid var(--negro);border-radius:8px;background:#fffaf0;box-shadow:6px 6px 0 var(--negro)}
+.rail-cifras div{border-left:6px solid var(--c);padding-left:.7rem}
+.rail-cifras b{display:block;font-family:var(--cifra);font-weight:400;font-size:1.9rem;line-height:1}
+.rail-cifras span{font-size:.8rem;line-height:1.35;display:block}
+@media (max-width:1000px){.rail-cifras{display:none}}
+
+
+/* ===== v4 · Entradas con IntersectionObserver (solo transform y opacity) ===== */
+html.anim .separador .car{opacity:0;transform:translate3d(0,105%,0) rotateX(-80deg);transition:transform 750ms var(--ease-out),opacity 450ms ease;transition-delay:calc(var(--i) * 24ms)}
+html.anim .separador .sep-num{opacity:0;transform:translate3d(0,-50%,0) scale(1.6);transition:transform 1100ms var(--ease-out),opacity 900ms ease}
+html.anim .separador .marco-sep{opacity:0;transform:scale(.45) rotate(-18deg);transition:transform 1000ms var(--ease-out) 150ms,opacity 700ms ease 150ms}
+html.anim .separador .cinta-adh{opacity:0;transform:translate3d(140%,0,0) rotate(28deg);transition:transform 900ms var(--ease-out) 250ms,opacity 400ms ease 250ms}
+html.anim .separador .sep-kicker,html.anim .separador .sep-promesa,html.anim .separador .sep-bajar{opacity:0;transform:translate3d(0,28px,0);transition:transform 700ms var(--ease-out),opacity 600ms ease}
+html.anim .separador .sep-kicker{transition-delay:120ms}
+html.anim .separador .sep-promesa{transition-delay:420ms}
+html.anim .separador .sep-bajar{transition-delay:560ms}
+html.anim .separador.en-escena .car{opacity:1;transform:none}
+html.anim .separador.en-escena .sep-num{opacity:.35;transform:translate3d(0,-50%,0)}
+html.anim .separador.en-escena .marco-sep{opacity:.65;transform:none}
+html.anim .separador.en-escena .cinta-adh{opacity:.95;transform:rotate(-4deg)}
+html.anim .separador.en-escena .sep-kicker,html.anim .separador.en-escena .sep-promesa,html.anim .separador.en-escena .sep-bajar{opacity:1;transform:none}
+html.anim .separador:not(.listo) .car,html.anim .separador:not(.listo) .sep-num{will-change:transform,opacity}
+/* Portada: entrada escalonada al cruzar la pantalla de inicio */
+html.anim .portada .envoltura>*{opacity:0;transform:translate3d(0,26px,0);transition:transform 800ms var(--ease-out),opacity 700ms ease}
+html.anim body.dentro .portada .envoltura>*{opacity:1;transform:none}
+html.anim .portada .envoltura>*:nth-child(1){transition-delay:350ms}
+html.anim .portada .envoltura>*:nth-child(2){transition-delay:450ms}
+html.anim .portada .envoltura>*:nth-child(3){transition-delay:530ms}
+html.anim .portada .envoltura>*:nth-child(4){transition-delay:620ms}
+html.anim .portada .envoltura>*:nth-child(5){transition-delay:700ms}
+html.anim .portada .envoltura>*:nth-child(6){transition-delay:780ms}
+
+
+/* ===== v5 · Estética collage: recortes en lugar de figuras geométricas ===== */
+.rec{display:block;height:auto;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none;filter:drop-shadow(3px 5px 0 rgba(17,17,17,.28))}
+.arte,.apertura,.hist-hero{position:relative}
+.collage{position:absolute;inset:0;z-index:0;background:var(--fondo);overflow:hidden;container-type:size}
+.video-tarjeta .sobre,.hist-hero .titular{z-index:2}
+.collage .trama{position:absolute;inset:0;background-image:radial-gradient(rgba(17,17,17,.15) 1.1px,transparent 1.6px);background-size:9px 9px;z-index:0}
+.collage .rec{position:absolute;width:calc(var(--w) * 1%);width:calc(var(--w) * 1cqmin);transform:translate(-50%,-50%) rotate(var(--r))}
+.collage .cinta-c{position:absolute;left:7%;top:6%;width:30%;height:8%;max-height:24px;background:var(--amarillo);opacity:.92;transform:rotate(var(--r));clip-path:polygon(2% 10%,30% 0,62% 8%,98% 2%,100% 88%,66% 100%,34% 92%,0 100%);z-index:30}
+.foto-tarjeta .arte .collage,.video-tarjeta .arte .collage,.galeria-lat .collage{transition:transform 500ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.foto-tarjeta:hover .arte .collage{transform:scale(1.05)}.video-tarjeta:hover .arte .collage{transform:scale(1.03)}}
+.apertura .collage .rec{filter:drop-shadow(6px 9px 0 rgba(17,17,17,.3))}
+/* Separadores */
+.sep-recortes{position:absolute;inset:0;pointer-events:none;z-index:0}
+.sep-recortes .rec{position:absolute;transform:rotate(var(--r));filter:drop-shadow(5px 8px 0 rgba(17,17,17,.3))}
+.sep-recortes .sr1{right:4%;top:15%;width:clamp(130px,16vw,250px);--r:-6deg}
+.sep-recortes .sr2{right:7%;bottom:8%;width:clamp(110px,13vw,200px);--r:8deg}
+.sep-recortes .sr3{right:21%;bottom:30%;width:clamp(70px,8vw,130px);--r:-12deg}
+@media (max-width:760px){
+ .sep-recortes .sr1{right:3%;top:auto;bottom:4%;width:38vw}
+ .sep-recortes .sr2{right:42%;bottom:3%;width:28vw}
+ .sep-recortes .sr3{display:none}
+}
+html.anim .separador .sep-recortes .rec{opacity:0;transform:translate3d(0,50px,0) rotate(calc(var(--r) - 16deg)) scale(.7);transition:transform 950ms var(--ease-out),opacity 500ms ease}
+html.anim .separador .sep-recortes .sr1{transition-delay:220ms}
+html.anim .separador .sep-recortes .sr2{transition-delay:380ms}
+html.anim .separador .sep-recortes .sr3{transition-delay:520ms}
+html.anim .separador.en-escena .sep-recortes .rec{opacity:1;transform:rotate(var(--r))}
+html.anim .separador.listo .sep-recortes .rec{animation:flota 6s ease-in-out infinite alternate}
+html.anim .separador.listo .sep-recortes .sr2{animation-duration:7.5s;animation-delay:-2s}
+html.anim .separador.listo .sep-recortes .sr3{animation-duration:5.2s;animation-delay:-1s}
+.separador:not(.en-vista) .sep-recortes .rec,#inicio:not(.en-vista) .rec{animation-play-state:paused!important}
+@keyframes flota{from{transform:rotate(var(--r)) translate3d(0,0,0)}to{transform:rotate(calc(var(--r) + 3deg)) translate3d(0,-12px,0)}}
+/* Menú */
+.menu-rejilla .rec-menu{position:absolute;right:-3%;bottom:-12%;width:40%;max-width:150px;transform:rotate(-8deg);transition:transform 400ms var(--ease-out)}
+.menu-rejilla .mn,.menu-rejilla .mt,.menu-rejilla .mp{position:relative;z-index:1}
+@media (hover:hover) and (pointer:fine){.menu-rejilla a:hover .rec-menu{transform:rotate(-2deg) translate3d(-4px,-8px,0) scale(1.06)}}
+@media (max-width:520px){.menu-rejilla .rec-menu{width:24%;bottom:-18%}}
+/* Fichas de oficios y carteles */
+.oficio .cara .rec-oficio{width:104px;max-height:96px;object-fit:contain;object-position:left top;transform:rotate(-6deg);transform-origin:left top}
+.cartel .rec-cartel{position:absolute;right:-8%;top:-3%;width:80%;transform:rotate(-8deg);transition:transform 600ms var(--ease-out);z-index:0}
+@media (hover:hover) and (pointer:fine){.cartel:hover .rec-cartel{transform:rotate(-2deg) scale(1.07)}}
+/* Portada */
+.portada-collage{position:absolute;inset:0;pointer-events:none;z-index:0}
+.portada-collage .rec{position:absolute;filter:drop-shadow(6px 9px 0 rgba(0,0,0,.35))}
+.portada-collage .pc1{right:4%;top:20%;width:clamp(160px,19vw,310px);transform:rotate(4deg)}
+.portada-collage .pc2{right:24%;top:13%;width:clamp(90px,11vw,170px);transform:rotate(-8deg)}
+.portada-collage .pc3{right:2%;bottom:10%;width:clamp(110px,13vw,200px);transform:rotate(-14deg)}
+.portada-collage .pc4{right:26%;bottom:22%;width:clamp(70px,8vw,120px);transform:rotate(12deg)}
+.portada-collage .pc5{right:18%;bottom:6%;width:clamp(120px,14vw,220px);transform:rotate(-6deg)}
+@media (max-width:900px){.portada-collage .rec{opacity:.9}.portada-collage .pc1{width:34vw;top:auto;bottom:4%;right:4%}.portada-collage .pc2{top:6.5rem;right:6%;width:20vw}.portada-collage .pc3,.portada-collage .pc4{display:none}.portada-collage .pc5{width:26vw;bottom:3%;right:42%}}
+html.anim .portada-collage .rec{opacity:0;translate:0 40px;transition:opacity 700ms ease,translate 900ms var(--ease-out)}
+html.anim body.dentro .portada-collage .rec{opacity:1;translate:0 0}
+html.anim .portada-collage .pc1{transition-delay:500ms}.portada-collage .pc2{transition-delay:620ms}.portada-collage .pc3{transition-delay:720ms}.portada-collage .pc4{transition-delay:820ms}.portada-collage .pc5{transition-delay:900ms}
+/* Pantalla de inicio */
+.ini-recortes .rec{position:absolute;pointer-events:none;filter:drop-shadow(5px 7px 0 rgba(17,17,17,.3));animation:flota 7s ease-in-out infinite alternate}
+.ini-recortes .ir1{left:5%;top:14%;width:clamp(90px,12vw,190px);--r:-10deg;transform:rotate(var(--r))}
+.ini-recortes .ir2{right:5%;bottom:12%;width:clamp(90px,11vw,170px);--r:12deg;transform:rotate(var(--r));animation-duration:8.5s}
+.ini-recortes .ir3{right:12%;top:12%;width:clamp(60px,7vw,110px);--r:6deg;transform:rotate(var(--r));animation-duration:5.5s}
+@media (max-width:640px){.ini-recortes .ir1{top:auto;bottom:6rem;left:6%;width:24vw}.ini-recortes .ir2{bottom:auto;top:5rem;right:6%;width:20vw}.ini-recortes .ir3{display:none}}
+/* Nosotros, futuro, pie, citas */
+.pilar{position:relative}
+.pilar .rec-pilar{position:absolute;right:-14px;top:-34px;width:96px;transform:rotate(9deg)}
+.pilar b{padding-right:4.5rem}
+.futuro{position:relative;overflow:hidden}
+.futuro .envoltura{position:relative;z-index:1}
+.futuro-recortes .rec{position:absolute;pointer-events:none}
+.futuro-recortes .fr1{right:4%;top:6%;width:clamp(150px,18vw,280px);transform:rotate(-10deg)}
+.futuro-recortes .fr2{right:20%;top:2.5rem;width:clamp(100px,11vw,170px);transform:rotate(8deg)}
+@media (max-width:860px){.futuro-recortes .fr1{width:30vw;top:1.5rem;right:3%}.futuro-recortes .fr2{display:none}}
+.pie-recortes{display:flex;gap:1.5rem;align-items:flex-end;margin-top:2.5rem}
+.pie-recortes .rec{width:clamp(70px,8vw,110px)}
+.pie-recortes .pr1{transform:rotate(-8deg)}.pie-recortes .pr2{transform:rotate(6deg)}.pie-recortes .pr3{transform:rotate(-4deg);width:clamp(90px,10vw,140px)}
+.cita-banda .rec-cita{position:absolute;right:-18px;top:-38px;width:92px;transform:rotate(10deg)}
+@media (max-width:520px){.cita-banda .rec-cita{width:64px;right:-6px;top:-30px}}
+
+
+/* ===== v7 · Inicio: el trazo que colorea el cuadro ===== */
+#ini-lienzo{position:absolute;inset:0;width:100%;height:100%;display:block}
+#ini-trazo{position:absolute;left:0;top:0;width:2px;height:2px;opacity:0;pointer-events:none}
+#inicio.listo{background:var(--rojo)}
+.ini-accion{position:absolute;left:0;right:0;top:62%;display:flex;justify-content:center;z-index:3}
+#btn-entrar{opacity:0;visibility:hidden;transform:translate3d(0,14px,0) scale(.92);transition:opacity 400ms ease,transform 600ms var(--ease-out),visibility 0s linear 400ms}
+#inicio.listo #btn-entrar{opacity:1;visibility:visible;transform:none;transition:opacity 400ms ease,transform 600ms var(--ease-out),visibility 0s}
+#inicio .ini-kicker,#inicio .ini-pie{opacity:0;transition:opacity 700ms ease}
+#inicio.listo .ini-kicker,#inicio.listo .ini-pie{opacity:.9}
+#inicio .ini-recortes .rec{opacity:0;translate:0 30px;transition:opacity 600ms ease,translate 800ms var(--ease-out)}
+#inicio.listo .ini-recortes .rec{opacity:1;translate:0 0}
+#inicio.listo .ini-recortes .ir2{transition-delay:120ms}
+#inicio.listo .ini-recortes .ir3{transition-delay:220ms}
+#inicio .tira-ini{z-index:2}
+
+
+/* ===== v8 · Inicio: los textos suben para dejar el piso libre a los recortes que caen ===== */
+#inicio .ini-pie{bottom:auto;top:3.4rem;left:2.6rem;right:auto;text-align:left;z-index:2}
+#inicio .ini-kicker{z-index:2}
+@media (max-width:640px){#inicio .ini-kicker{top:1.4rem;bottom:auto;left:1.8rem;right:auto;text-align:left}#inicio .ini-pie{top:2.9rem;left:1.8rem;max-width:70vw}}
+
+/* ===== Responsive: red de seguridad para pantallas angostas ===== */
+@media (max-width:420px){.envoltura{width:calc(100% - 2rem)}h1,h2,h3,h4,p,li,blockquote{overflow-wrap:break-word}.mapa-caja{padding:.6rem}}
+/* ===== Movimiento reducido ===== */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}
+  .revela{transform:none;transition:opacity 300ms ease}
+  .carrusel{overflow-x:auto;-webkit-mask:none;mask:none}
+  .carrusel-pista{animation:none}
+  #menu,body.menu-abierto #menu{transition:none;transform:none}
+  .ventana{transform:none!important}
+  .tl-anillo{transition:none}
+  .oficio button{transition:none}
+}
+</style>
+</head>
+<body class="bloqueado sin-js">
+<script>document.body.classList.remove('sin-js')</script>
+<div class="tira" aria-hidden="true"></div>
+<div class="progreso-lectura" id="progreso-lectura" aria-hidden="true"></div>
+
+<!-- ============ 1. PANTALLA DE INICIO ============ -->
+<div id="inicio" role="dialog" aria-modal="true" aria-labelledby="ini-titulo">
+  <canvas id="ini-lienzo" aria-hidden="true"></canvas>
+  <video id="ini-trazo" src="media/trazo.mp4" muted playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+  <div class="tira-ini" aria-hidden="true"></div><div class="tira-ini der" aria-hidden="true"></div>
+  <span class="ini-kicker">Especial convergente · Periodismo cultural</span>
+  <h1 id="ini-titulo" class="sr">Fuera de Cuadro</h1>
+  <div class="ini-accion" id="ini-accion"><button class="btn btn-claro" id="btn-entrar" type="button" disabled>Entrar <span aria-hidden="true">→</span></button></div>
+  <p class="sr" id="ini-estado" aria-live="polite">Cargando la presentación…</p>
+  <p class="ini-pie">El cine colombiano y lo que ocurre fuera del encuadre</p>
+</div>
+
+<!-- ============ 2. CABECERA FIJA + MENÚ ============ -->
+<header class="cabecera">
+  <a class="logo-mini" href="#portada" aria-label="Fuera de Cuadro, volver al comienzo"><span class="lm" data-logo aria-hidden="true"></span></a>
+  <nav class="nav-sup" id="nav-sup" aria-label="Navegación principal">
+    <a href="#portada" data-nav="portada">Inicio</a>
+    <a href="#nosotros" data-nav="nosotros">Nosotros</a>
+    <div class="nav-drop" id="nav-drop">
+      <button type="button" aria-expanded="false" aria-controls="nav-panel" data-nav="secciones">Secciones <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg></button>
+      <div class="nav-panel" id="nav-panel"></div>
+    </div>
+    <a href="#creditos" data-nav="creditos">Podcast</a>
+    <a href="#sinplan" data-nav="sinplan">Mapa</a>
+    <a href="#contacto" data-nav="contacto">Contacto</a>
+  </nav>
+  <div class="cab-der">
+    
+    <button class="btn-cab" id="btn-menu" type="button" aria-expanded="false" aria-controls="menu"><span id="txt-menu">Menú</span><span class="hamb" aria-hidden="true"><i></i><i></i><i></i></span></button>
+  </div>
+</header>
+
+<nav id="menu" aria-label="Secciones de Fuera de Cuadro">
+  <div class="menu-cab">
+    <h2>Todo lo que pasa<br>fuera de cuadro</h2>
+    <p>Nueve paradas por el cine colombiano. Salta directo a la que quieras: el recorrido no se rompe.</p>
+  </div>
+  <div class="menu-atajos" id="menu-atajos">
+    <a href="#portada" data-nav="portada">Inicio</a><a href="#nosotros" data-nav="nosotros">Nosotros</a><a href="#creditos" data-nav="creditos">Podcast</a><a href="#sinplan" data-nav="sinplan">Mapa</a><a href="#contacto" data-nav="contacto">Contacto</a>
+  </div>
+  <ul class="menu-rejilla" id="menu-rejilla"></ul>
+  <div class="menu-pie"><span class="kicker">Convergencia 2026-2</span><span>·</span><a href="#futuro">Suscríbete al boletín</a></div>
+</nav>
+
+<canvas id="fondo3d" aria-hidden="true"></canvas>
+<main id="contenido">
+
+<!-- =================== INICIO (PORTADA) =================== -->
+<section id="portada" class="portada" aria-labelledby="t-portada" data-estacion="negro" data-tema="portada">
+  <div class="portada-collage" aria-hidden="true" data-recortes="camara-tripode:pc1,ojo:pc2,reflector-trama:pc3,estrella:pc4,boleta:pc5"></div>
+  <div class="envoltura">
+    <div class="portada-logo" data-logo aria-hidden="true"></div>
+    <span class="chip-et">Especial convergente · Periodismo cultural</span>
+    <h2 id="t-portada" style="margin-top:1.2rem">El cine colombiano y lo que ocurre <em>fuera del encuadre</em></h2>
+    <p>Nueve paradas por las historias, las personas y los procesos que existen detrás y alrededor de una película. No hace falta ser cinéfilo: basta con tener curiosidad.</p>
+    <div class="acciones">
+      <a class="btn btn-claro" href="#identidad">Empezar el recorrido <span aria-hidden="true">→</span></a>
+      <a class="btn btn-borde" href="#nosotros">Quiénes somos</a>
+    </div>
+    <div class="cifras-portada" aria-label="El especial en cifras">
+      <div><b>09</b>secciones</div><div><b>02</b>podcasts</div><div><b>01</b>documental corto</div><div><b>12</b>hitos del cine latinoamericano</div>
+    </div>
+  </div>
+  <span class="cinta-adh" aria-hidden="true" style="top:7rem;right:10%;width:170px;transform:rotate(5deg)"></span>
+</section>
+
+<!-- =================== NOSOTROS =================== -->
+<section id="nosotros" class="nosotros rasgado" aria-labelledby="t-nosotros">
+  <div class="envoltura">
+    <div class="dos-col">
+      <div class="revela">
+        <span class="chip-et">Nosotros</span>
+        <h3 id="t-nosotros">No hay que ser cinéfilo para entrar al cine</h3>
+      </div>
+      <div class="revela">
+        <p class="entradilla" style="margin-top:.6rem">Fuera de Cuadro es un especial de periodismo cultural sobre el cine colombiano en diálogo con Latinoamérica. Partimos de una idea: una película nunca habla únicamente de sí misma. Detrás de cada una hay historias, personas, procesos y contextos que hablan de nuestra identidad, nuestra memoria y nuestra realidad.</p>
+        <p style="margin:0">Lo contamos en distintos formatos —textos, podcast, video, fotografía, infografías y redes sociales— para que cada quien entre por la puerta que prefiera.</p>
+      </div>
+    </div>
+    <div class="pilares">
+      <div class="pilar revela" style="--c:var(--amarillo);--t:var(--negro)"><span data-recortes="exclamacion:rec-pilar"></span><b>Sin lenguaje complicado</b><p>No te pedimos que sepas de directores ni de técnica. Usamos las películas como excusa para hablar de música, moda, historias reales y lo que vivimos a diario.</p></div>
+      <div class="pilar revela" style="--c:var(--fucsia);--t:var(--negro)"><span data-recortes="manos:rec-pilar"></span><b>Expertos y gente del común</b><p>No solo habla la crítica: juntamos a quienes hacen el cine con las preguntas y reacciones de quienes van a verlo.</p></div>
+      <div class="pilar revela" style="--c:var(--cobalto);--t:var(--crema)"><span data-recortes="palomitas:rec-pilar"></span><b>Aprender entreteniéndose</b><p>Nada de clase universitaria: contenidos dinámicos e interactivos, pensados para el consumo de todos los días.</p></div>
+    </div>
+    <div class="revela">
+      <span class="kicker">El equipo</span>
+      <div class="equipo">
+        <div class="persona"><div class="ini" style="--c:var(--rojo);--t:var(--crema)">SS</div><b>Silvana Segura</b><span>Dirección de arte y web</span><p>Identidad visual, piezas gráficas, infografías y montaje de la página.</p></div>
+        <div class="persona"><div class="ini" style="--c:var(--amarillo);--t:var(--negro)">CV</div><b>Catalina Vela</b><span>Producción audiovisual y sonora</span><p>Grabación de entrevistas y edición de audio y video.</p></div>
+        <div class="persona"><div class="ini" style="--c:var(--lima);--t:var(--negro)">MJ</div><b>María José García</b><span>Edición de contenidos y guiones</span><p>Guiones, textos periodísticos y control editorial.</p></div>
+        <div class="persona"><div class="ini" style="--c:var(--cobalto);--t:var(--crema)">LS</div><b>Laura Sofía Flórez</b><span>Investigación, datos y redes</span><p>Fuentes, base de datos del mapa de salas y estrategia de redes.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =================== SECCIÓN 1 · IDENTIDAD EN PANTALLA =================== -->
+<section id="identidad" data-sep="1" aria-labelledby="t-identidad">
+  <div class="bloque" style="--fondo:var(--crema)">
+    <div class="envoltura">
+      <div class="dos-col">
+        <div class="revela">
+          <span class="chip-et">Fotorreportaje · ¿Y aquí qué pasó?</span>
+          <h3 class="titulo-mod">Las locaciones que marcaron nuestras pantallas</h3>
+          <p class="entradilla">Pasamos todos los días por lugares donde se grabaron telenovelas, series y películas que marcaron a Colombia, sin saberlo. Volvimos a esas locaciones, las comparamos con la escena original y las intervenimos con recortes y collage para mirarlas de nuevo.</p>
+        </div>
+        <div class="revela">
+          <article class="audio-tarjeta" aria-labelledby="t-audio-inm">
+            <div class="arte" data-arte="sonido" data-paleta="amarillo"></div>
+            <div>
+              <span class="kicker" style="color:var(--amarillo)">Audio inmersivo</span>
+              <h4 id="t-audio-inm">Ecos del conflicto</h4>
+              <p>Una recreación sonora en 3D de cómo el cine latinoamericano ha contado la violencia. Ponte audífonos y cierra los ojos.</p>
+              <div class="meta"><button class="btn-play" type="button" data-audio="inmersivo" aria-label="Reproducir Ecos del conflicto"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button><span>Con audífonos · Muestra 0:40</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="foto-cab revela" style="margin-top:3.5rem">
+        <p class="kicker" style="margin:0">Toca una foto para ver la historia completa</p>
+        <button class="btn-pausa" id="btn-pausa-carrusel" type="button" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="ico-pausa" d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>Pausar carrusel</span></button>
+      </div>
+    </div>
+    <div class="carrusel revela" id="carrusel" aria-label="Fotorreportaje ¿Y aquí qué pasó?: carrusel de locaciones">
+      <div class="carrusel-pista" id="carrusel-pista"></div>
+    </div>
+    <div class="cta-cierre"><button class="btn" type="button" data-audio="inmersivo">Escucha el audio completo <span class="fle" aria-hidden="true">→</span></button></div>
+  </div>
+</section>
+
+<!-- =================== SECCIÓN 2 · DIRECTORAS DE HISTORIA =================== -->
+<section id="directoras" data-sep="2" aria-labelledby="t-directoras">
+  <div class="apertura revela" data-arte="encuadre" data-paleta="rojo">
+  </div>
+  <div class="bloque" style="--fondo:var(--crema);padding-top:0">
+    <div class="lectura articulo-cab revela">
+      <span class="chip-et">Perfil · Romper el encuadre</span>
+      <h3>Las que movieron la cámara</h3>
+      <p class="bajada">Durante décadas el cine colombiano se contó en masculino. Esta es la historia de las mujeres que dirigieron, produjeron y filmaron a pesar de eso, y de las que hoy están cambiando quién se sienta en la silla de dirección.</p>
+      <div class="firma"><span>Por <b>Equipo Fuera de Cuadro</b></span><span>Con las voces de Leonor Manotas, Nathashia Franco y Neila Macea</span><span>Lectura de 6 min</span></div>
+    </div>
+    <div class="articulo">
+      <div class="cuerpo">
+        <p class="nota-muestra"><b>Nota del equipo:</b> este es el texto de muestra que ocupa el lugar del perfil final, construido con las entrevistas a Leonor Manotas (productora de cine), Nathashia Franco y Neila Macea. Los datos que aparecen aquí deben verificarse con las fuentes antes de publicar.</p>
+        <p class="capitular">En 1972, cuando casi nadie en Colombia pensaba en el documental como una forma de hacer periodismo, <strong>Marta Rodríguez y Jorge Silva estrenaron <em>Chircales</em></strong>, una película sobre una familia que fabricaba ladrillos a mano en las afueras de Bogotá. No había efectos, ni estrellas, ni presupuesto de estudio. Había tiempo: años de convivir con esa familia hasta que la cámara dejó de ser una intrusa.</p>
+        <figure class="fig-lateral flota">
+          <div class="arte" data-arte="chircales" data-paleta="terracota"></div>
+          <figcaption>Imagen lateral de muestra · Collage sobre el oficio de los chircales.</figcaption>
+        </figure>
+        <p>Esa manera de mirar —paciente, cercana, puesta del lado de quienes casi nunca salen en pantalla— se volvió una escuela. Y la abrió, en buena parte, una mujer que todavía hoy es referencia para quienes empiezan a hacer documental en el país.</p>
+        <blockquote class="destacada revela">Antes de que existieran las cuotas y los estímulos, ya había mujeres filmando. Lo que faltaba era que alguien las nombrara.</blockquote>
+        <h4>La primera silla de dirección</h4>
+        <p>En la ficción, el camino fue más lento. <strong>En 1984 Camila Loboguerrero estrenó <em>Con su música a otra parte</em></strong>, reconocida como el primer largometraje de ficción dirigido por una mujer en Colombia. Piénsalo un segundo: el cine había llegado al país casi noventa años antes.</p>
+        <p>Detrás de cámaras pasaba algo parecido. Montajistas, guionistas, script, maquilladoras, productoras de campo: muchas de las personas que sostenían los rodajes eran mujeres, pero sus nombres quedaban en letra pequeña, al final de los créditos, cuando la sala ya estaba prendiendo las luces.</p>
+        <figure class="fig-lateral">
+          <div class="arte" data-arte="claqueta" data-paleta="amarillo"></div>
+          <figcaption>Imagen de muestra · El rodaje como trabajo colectivo.</figcaption>
+        </figure>
+        <h4>De producir a dirigir</h4>
+        <p>Si hay un nombre que muestra cómo cambió la industria es el de <strong>Cristina Gallego</strong>. Como productora estuvo detrás de películas que pusieron a Colombia en los festivales más grandes del mundo, y en 2018 codirigió <em>Pájaros de verano</em>, una historia sobre una familia wayuu en los años de la bonanza marimbera.</p>
+        <blockquote class="destacada revela">Producir también es contar: decidir qué historia merece años de trabajo y plata que casi nunca alcanza.</blockquote>
+        <p>Y luego está <strong>Laura Mora</strong>. Su segundo largometraje, <em>Los reyes del mundo</em>, sigue a cinco muchachos de Medellín que viajan a reclamar una tierra que les prometieron. En 2022 ganó la Concha de Oro del Festival de San Sebastián: <strong>la primera vez que una película colombiana se llevaba ese premio</strong>.</p>
+        <h4>Lo que sigue fuera de cuadro</h4>
+        <p>Los premios ayudan a contar la historia, pero no la resuelven. Las brechas siguen ahí: en quién consigue financiación para su ópera prima, en quién se sostiene en un set de doce horas mientras cuida a alguien en casa, en quién recibe la segunda oportunidad después de una primera película que no funcionó.</p>
+        <p>Por eso este perfil no termina con un nombre sino con una pregunta: ¿cuántas historias nos perdimos porque nadie le dio la cámara a la persona correcta? En la siguiente parada te presentamos a otras manos que tampoco suelen salir en pantalla.</p>
+      </div>
+      <aside class="galeria-lat" aria-label="Galería lateral">
+        <span class="kicker">Galería</span>
+        <figure style="margin:0"><button type="button" data-ampliar="0" aria-label="Ampliar imagen: el set"><div class="arte" data-arte="camara" data-paleta="fucsia"></div></button><figcaption>El set · muestra</figcaption></figure>
+        <figure style="margin:0"><button type="button" data-ampliar="1" aria-label="Ampliar imagen: la sala de montaje"><div class="arte" data-arte="montaje" data-paleta="cobalto"></div></button><figcaption>La sala de montaje · muestra</figcaption></figure>
+        <figure style="margin:0"><button type="button" data-ampliar="2" aria-label="Ampliar imagen: el estreno"><div class="arte" data-arte="sillas" data-paleta="lima"></div></button><figcaption>El estreno · muestra</figcaption></figure>
+      </aside>
+    </div>
+    <div class="cta-cierre"><a class="btn" href="#creditos">Conoce a quienes están detrás <span class="fle" aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<!-- =================== SECCIÓN 3 · REVELACIÓN DE CRÉDITOS =================== -->
+<section id="creditos" data-sep="3" aria-labelledby="t-creditos">
+  <div class="bloque" style="--fondo:var(--beige)">
+    <div class="envoltura">
+      <div class="revela">
+        <span class="chip-et">Podcasts · Sin libreto y Créditos</span>
+        <h3 class="titulo-mod">Dos podcasts, dos lados de la pantalla</h3>
+        <p class="entradilla">Dos podcasts, dos lados de la pantalla. En <b>Sin libreto</b> hablan actores y actrices sobre su camino en el oficio; en <b>Créditos</b>, las personas que hacen posible el cine detrás de cámaras. Conversaciones íntimas y sin tecnicismos.</p>
+      </div>
+      <div class="audios">
+        <article class="audio-tarjeta revela" aria-labelledby="t-ep1">
+          <div class="arte" data-arte="bocas" data-paleta="fucsia"></div>
+          <div>
+            <span class="kicker" style="color:var(--amarillo)">Podcast · Actores y actrices</span>
+            <h4 id="t-ep1">Sin libreto</h4>
+            <p>Conversaciones con Fernando Bocanegra, Chedy Piza y el actor emergente Alejandro Molina sobre lo que pasa cuando se apaga la cámara.</p>
+            <p class="audio-por">Realización: <b>Laura Sofía Flórez</b></p>
+            <div class="meta"><button class="btn-play" type="button" data-audio="ep1" aria-label="Reproducir el podcast Sin libreto"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button><span>Episodio completo · 9:33</span></div>
+          </div>
+        </article>
+        <article class="audio-tarjeta revela" aria-labelledby="t-ep2">
+          <div class="arte" data-arte="creditos" data-paleta="cobalto"></div>
+          <div>
+            <span class="kicker" style="color:var(--amarillo)">Podcast · Detrás de cámaras</span>
+            <h4 id="t-ep2">Créditos</h4>
+            <p>Conversaciones con Carlos Hernández, Mauricio Vidal y Andrés Morales Duarte sobre el trabajo que sostiene una producción y casi nunca se ve.</p>
+            <p class="audio-por">Realización: <b>María José García</b></p>
+            <div class="meta"><button class="btn-play" type="button" data-audio="ep2" aria-label="Reproducir el podcast Créditos"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button><span>Escúchalo completo · SoundCloud</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="revela" style="margin-top:4.5rem">
+        <span class="kicker">Fichas de oficios</span>
+        <h3 class="titulo-mod" style="font-size:clamp(2rem,4vw,3rem)">¿Quién hace qué en un rodaje?</h3>
+        <p style="margin:0;max-width:60ch">Toca cada ficha para darle la vuelta.</p>
+      </div>
+      <div class="oficios" id="oficios"></div>
+    </div>
+    <div class="cta-cierre"><a class="btn" href="#guion">Mira el documental <span class="fle" aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<!-- =================== SECCIÓN 4 · DEL GUION A LA SALA =================== -->
+<section id="guion" data-sep="4" aria-labelledby="t-guion">
+  <div class="bloque" style="--fondo:var(--crema)">
+    <div class="envoltura">
+      <div class="revela">
+        <span class="chip-et">Documental corto · Cazando cine</span>
+        <h3 class="titulo-mod">Un festival visto desde adentro</h3>
+        <p class="entradilla">Nos fuimos al festival Ojo al Sancocho a cazar cine: funciones, público, organizadores y realizadores, con las voces de Yaneth Alba (productora del festival), Phill Anderson, Alfonso Pareja y Daniel Bejarano. Tú le das play: el video no arranca solo.</p>
+      </div>
+      <button class="video-tarjeta revela" type="button" id="btn-video" aria-label="Reproducir el documental corto Cazando cine" style="margin-top:2rem">
+        <div class="arte" data-arte="cazando" data-paleta="negro"></div>
+        <div class="sobre">
+          <span class="btn-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          <span><b>Cazando cine</b><small>Documental corto · Ojo al Sancocho · Video de muestra 0:24 · Reproducción manual</small></span>
+        </div>
+      </button>
+    </div>
+    <div class="cta-cierre"><a class="btn" href="#costo">¿Y quién paga todo esto? <span class="fle" aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<!-- =================== SECCIÓN 5 · EL COSTO DE UN SUEÑO =================== -->
+<section id="costo" data-sep="5" aria-labelledby="t-costo">
+  <div class="bloque reportaje" style="--fondo:var(--crema)">
+    <header class="lectura articulo-cab revela">
+      <span class="chip-et">Reportaje · Prod. 6</span>
+      <h3>Luces, cámara y… ¿presupuesto?</h3>
+      <p class="bajada">Producir una película en Colombia es una tarea compleja, financiarla necesita de un capital muchas veces inalcanzable y que las audiencias la vean es aún más raro. Tres voces del sector cinematográfico explican cómo es sobrevivir en esta industria.</p>
+      <div class="firma"><span>Por: <b>Laura Sofía Flórez Bonilla</b></span><span>Lectura de 7 min</span><span>Reportaje · Texto narrativo 2</span></div>
+    </header>
+
+    <div class="lectura revela">
+      <p class="kicker" style="margin:2rem 0 .8rem">Las voces de este reportaje</p>
+      <ul class="rep-voces">
+        <li style="--c:var(--rojo);--t:var(--crema)"><span class="ini" aria-hidden="true">JF</span><span><b>Jorge Flórez ‘Nanimark’</b><small>Productor y creador audiovisual</small></span></li>
+        <li style="--c:var(--amarillo);--t:var(--negro)"><span class="ini" aria-hidden="true">OR</span><span><b>Olfar Rodríguez</b><small>Productor y creador audiovisual emergente</small></span></li>
+        <li style="--c:var(--cobalto);--t:var(--crema)"><span class="ini" aria-hidden="true">AM</span><span><b>Andrés Moreno</b><small>Gerente de distribución de Cineplex</small></span></li>
+      </ul>
+    </div>
+
+    <div class="articulo articulo-rep">
+      <div class="cuerpo">
+        <p class="capitular">“Siempre es como un kamikaze”, dice <b class="nom">Jorge Flórez</b>, refiriéndose a cómo paga sus películas. Gracias a su arduo trabajo de ocho años ganó un premio en el <b class="nom">Festival de Oldenburg</b>, en Alemania, con el cortometraje <cite class="peli">‘La flor del miedo’</cite>. Para filmar sus siguientes proyectos, comenta, tiene que arriesgar el arriendo y hasta la vida diaria.</p>
+        <p>Su caso resume una paradoja que viven la mayoría de productores independientes en el cine colombiano. En 2025 se estrenaron <strong>77 películas nacionales en salas</strong>, el segundo año con más estrenos, según Proimágenes Colombia. Aun así, solo <strong>1,5 de cada 100 espectadores</strong> vio una película colombiana, es decir, <strong>747.588 asistentes de un total de 49,55 millones</strong>. La distancia entre hacer cine y que el público lo vea tiene varias razones. La principal es conseguir el dinero, otra es cumplir con los requisitos y el papeleo necesario para acceder a financiación externa y finalmente la etapa de distribución del proyecto, a la cual pocos llegan.</p>
+
+        <div class="cifras cifras-rep revela" role="list" aria-label="Datos clave de 2025">
+          <div class="cifra" role="listitem" style="--c:var(--rojo);--t:var(--crema)"><b>77</b><span>películas colombianas estrenadas en salas en 2025</span></div>
+          <div class="cifra" role="listitem" style="--c:var(--amarillo);--t:var(--negro)"><b>1,5 / 100</b><span>espectadores vio una película colombiana</span></div>
+          <div class="cifra" role="listitem" style="--c:var(--cobalto);--t:var(--crema)"><b>747.588</b><span>asistentes de un total de 49,55 millones</span></div>
+        </div>
+
+        <h4 class="sub-rep"><span aria-hidden="true">01</span>Dinero vs. pasión</h4>
+        <p><b class="nom">Jorge Flórez</b>, conocido como <b class="nom">‘Nanimark’</b>, lleva alrededor de <strong>25 años</strong> haciendo videos musicales los cuales le han ayudado a financiar sus proyectos audiovisuales. <cite class="peli">‘La flor del miedo’</cite>, su cortometraje de fantasía hecho con maquetas, prótesis y decorados armados a mano tardó <strong>ocho años</strong> en terminarse. Cuenta que costó unos <strong>150 millones de pesos</strong> aproximadamente, entre trabajo y equipos prestados.</p>
+        <p>“Plata para el cine sí hay”, es lo que dice. En 2025 el Fondo para el Desarrollo Cinematográfico (FDC) comprometió <strong>$32.788 millones</strong>, y la ley exige que al menos el <strong>70% de sus recursos vaya a producción</strong>. El problema es llegar a este dinero. “Hay muchas entidades que apoyan el cine, pero son muchas las personas que aplican”, dice Flórez. “Casi que es una lotería ganarse esos premios”. Él aplicó a becas para financiar sus películas durante años, pero nunca ganó una. Lo que lo llevó a seguir intentando fue su pasión por el arte.</p>
+
+        <aside class="dato-caja revela" style="--c:var(--lima);--t:var(--negro)" aria-label="Dato: el Fondo para el Desarrollo Cinematográfico">
+          <span class="kicker">FDC · 2025</span>
+          <div class="dato-fila"><b>$32.788</b><span>millones comprometidos por el Fondo para el Desarrollo Cinematográfico</span></div>
+          <div class="medidor" aria-hidden="true"><i style="--v:70%"></i></div>
+          <p>Al menos el <b>70%</b> de sus recursos debe ir a producción, según la ley.</p>
+        </aside>
+
+        <blockquote class="cita revela" style="--a:var(--fucsia)"><p>“Casi que es una lotería ganarse esos premios”.</p><footer>Jorge Flórez ‘Nanimark’</footer></blockquote>
+
+        <p>“Más que el dinero, tiene que ser las ganas de hacerlo”, afirma, y defiende hacer cine “con lo que tengamos”. Para él, “no hay ninguna excusa para hacerlo”.</p>
+
+        <h4 class="sub-rep"><span aria-hidden="true">02</span>El papeleo</h4>
+        <p>Esa fuerza de voluntad y amor por el arte tiene un costo que no todos pueden pagar. <b class="nom">Olfar Rodríguez</b>, de último semestre de Creación y Producción Audiovisual en la Universidad Javeriana y originario de los Llanos Orientales, grabó en Vista Hermosa Meta, <cite class="peli fuerte">‘El regreso’</cite>, un cortometraje en homenaje a su hermana fallecida que ganó un premio en el <b class="nom">Festival de Cine Pele el Ojo</b> como mejor cortometraje realizado en municipios. Costó unos <strong>8 millones de pesos</strong> en total. Además, cuenta que cada corto producido a lo largo de su carrera le costó en promedio <strong>3 millones</strong>, y el semestre, cuenta, vale aproximadamente <strong>18 millones</strong>, inversiones bastante altas de costear para estar empezando en el medio audiovisual.</p>
+
+        <aside class="dato-caja comparativo revela" style="--c:var(--beige);--t:var(--negro)" aria-label="Comparación de costos mencionados en el reportaje">
+          <span class="kicker">Lo que cuesta un corto</span>
+          <ul>
+            <li><span><cite class="peli">‘La flor del miedo’</cite><small>Jorge Flórez · 8 años de trabajo</small></span><b>~$150 M</b><i style="--v:100%;--c:var(--rojo)"></i></li>
+            <li><span><cite class="peli">‘El regreso’</cite><small>Olfar Rodríguez · Vista Hermosa, Meta</small></span><b>~$8 M</b><i style="--v:5.3%;--c:var(--fucsia)"></i></li>
+            <li><span>Un corto de su carrera<small>Promedio, según Rodríguez</small></span><b>~$3 M</b><i style="--v:2%;--c:var(--cobalto)"></i></li>
+          </ul>
+          <p class="pie-dato">Cifras aproximadas, en pesos colombianos, según los entrevistados.</p>
+        </aside>
+
+        <p>Para financiarse recurrió a colectas e inversión propia. Aunque conoce las convocatorias del FDC y de Proimágenes, cuenta que no se ha postulado pues “piden demasiado papeleo” y no tiene el tiempo para la realización de todos los trámites. “He hecho dos cooperaciones internacionales y todavía no he hecho la primera nacional”, dice. Desde su experiencia —no una comparación estadísticamente medida— la cooperación internacional es “más asequible” pues pide objetivos de impacto social, mientras que el Estado exige facturas electrónicas de todo. “Nos vamos a grabar a una vereda y donde nos podemos abastecer es en la tiendita de la vereda. ¿Qué factura electrónica va a tener?”, explica.</p>
+
+        <blockquote class="cita cita-banda revela" style="--a:var(--amarillo);--fondo-cita:var(--negro);--tc:var(--crema)"><span data-recortes="exclamacion:rec-cita"></span><p>“Nos vamos a grabar a una vereda y donde nos podemos abastecer es en la tiendita de la vereda. ¿Qué factura electrónica va a tener?”</p><footer>Olfar Rodríguez</footer></blockquote>
+
+        <p>La convocatoria 2026 del FDC para distribuir películas colombianas enseña cómo funciona ese trámite. <strong>Ocho documentos</strong>, entre ellos un certificado de existencia y representación legal de máximo 30 días. No es para quienes producen, pero muestra el tipo de requisitos de los que habla Olfar. Colombia también tiene acuerdos de coproducción con <b class="nom">Francia</b> (desde 2013), <b class="nom">Canadá</b> (2002) y el <b class="nom">Acuerdo Iberoamericano</b> (2016), que da acceso a Ibermedia, pero la documentación igual debe radicarse en el Ministerio de Cultura. Rodríguez reconoce que el Ministerio ha intentado llegar a los territorios con asesorías, no obstante, para los pequeños creadores como él, acceder a este tipo de financiaciones sigue siendo bastante complejo.</p>
+
+        <aside class="dato-caja revela" style="--c:var(--azul-claro);--t:var(--negro)" aria-label="Acuerdos de coproducción de Colombia">
+          <span class="kicker">Acuerdos de coproducción</span>
+          <ol class="linea-acuerdos">
+            <li><b>2002</b>Canadá</li>
+            <li><b>2013</b>Francia</li>
+            <li><b>2016</b>Acuerdo Iberoamericano<small>acceso a Ibermedia</small></li>
+          </ol>
+          <p class="pie-dato">La documentación debe radicarse en el Ministerio de Cultura.</p>
+        </aside>
+
+        <h4 class="sub-rep"><span aria-hidden="true">03</span>¿Quién va a ver cine colombiano?</h4>
+        <p>Terminar la película no garantiza que alguien la vea. <b class="nom">Andrés Moreno</b>, gerente de distribución de <b class="nom">Cineplex</b>, cuenta que su empresa distribuye como máximo “tres, cuatro títulos colombianos al año” y que una de las grandes limitantes es la promoción. El presupuesto de marketing de las producciones independientes es muy limitado, y a la hora de comercializar, las distribuidoras económicamente no dan abasto, además recalca que los recursos del FDC para promover, también pueden tener ciertas restricciones. Sumado a esto, invertir fuerte en publicidad digital puede ser un riesgo gigantesco para una productora independiente porque el interés del público es muy bajo. Sin promoción, hay poco público; y sin público, no se justifica promover.</p>
+
+        <blockquote class="cita revela" style="--a:var(--rojo)"><p>Sin promoción, hay poco público; y sin público, no se justifica promover.</p></blockquote>
+
+        <p>Los números sustentan lo que dice. Los 77 estrenos colombianos representaron el <strong>18,9% de los 408 de 2025</strong>, pero el cine colombiano en conjunto se quedó solo con el <strong>1,5% de los espectadores</strong>. El estudio de públicos del CNACC y el Ministerio de las Culturas (2024-2025) muestra una causa de este fenómeno: el <strong>56,8 %</strong> cree que se estrenan solo de uno a cinco largometrajes colombianos al año, cuando en 2024 fueron <strong>79</strong>. El voz a voz es la principal vía para enterarse (<strong>64,5%</strong>) y el <strong>27,6%</strong> iría más con más publicidad. Aun así, la disposición existe ya que según el estudio el <strong>69,5%</strong> recomendaría cine colombiano.</p>
+
+        <figure class="grafica revela" style="margin-inline:0">
+          <h5>Muchos estrenos, poco público</h5>
+          <p class="sub">Participación del cine colombiano en 2025</p>
+          <div class="barra" style="--c:var(--rojo);--v:94.5%"><span>De los 408 estrenos</span><div class="pista"><div class="relleno"></div></div><b>18,9%</b></div>
+          <div class="barra" style="--c:var(--amarillo);--v:7.5%"><span>De los espectadores</span><div class="pista"><div class="relleno"></div></div><b>1,5%</b></div>
+          <figcaption class="sub" style="margin:1rem 0 0">Escala de 0 a 20%. Fuente: Proimágenes Colombia, citado en el reportaje.</figcaption>
+        </figure>
+
+        <aside class="dato-caja estudio revela" style="--c:var(--crema);--t:var(--negro)" aria-label="Estudio de públicos del CNACC y el Ministerio de las Culturas, 2024-2025">
+          <span class="kicker">Estudio de públicos · CNACC y MinCulturas (2024-2025)</span>
+          <div class="estudio-rejilla">
+            <div style="--c:var(--fucsia)"><b>56,8%</b><span>cree que se estrenan solo de uno a cinco largometrajes colombianos al año <em>(en 2024 fueron 79)</em></span></div>
+            <div style="--c:var(--cobalto)"><b>64,5%</b><span>se entera por el voz a voz</span></div>
+            <div style="--c:var(--terracota)"><b>27,6%</b><span>iría más con más publicidad</span></div>
+            <div style="--c:var(--lima)"><b>69,5%</b><span>recomendaría cine colombiano</span></div>
+          </div>
+        </aside>
+
+        <p>Los espectadores consultados para este reportaje en el <b class="nom">Cine Colombia del centro comercial Avenida Chile</b>, reconocido por transmitir cine alternativo, confirman buena parte de esos hallazgos. <b class="nom">María Estela Rojas</b>, que no es consumidora habitual de cine colombiano, pero sí de cine independiente, no recuerda la última película colombiana que vio y dice que en la sala donde la entrevistaron no ha visto una cartelera de cine colombiano. <b class="nom">Gabriela Iregui</b>, artista visual, no tiene “ni idea” de cuántas películas se producen en el país y reconoce que le gustaría consumir más proyectos locales. Solo <b class="nom">Fabio Galvis</b> se acerca a la cifra real de películas producidas al año ya que calcula entre 30 y 90. Aun así, dice que lo motivaría más ver cine colombiano si la temática fuera positiva, porque este “resalta los aspectos negativos de Colombia”, la misma crítica de representación de narcotráfico y violencia que el estudio de públicos toma como reiterada.</p>
+        <p>La cartelera saturada de estrenos comerciales internacionales es otro problema para la industria nacional ya que el espectador elige “ir a lo seguro” con películas más reconocidas publicitariamente y que tienen un furor internacional. El precio es otra determinante a la hora de ir a cine, ya que Moreno calcula la boleta promedio en <strong>12.500 pesos</strong> y si el plan es una salida familiar, el gasto podría estar cerca de los <strong>100.000</strong>, por ejemplo, con cuatro boletas de 25.000, valor que, según él, alcanzan algunos teatros los fines de semana. Por eso, dice, una película colombiana que supera los <strong>10.000 espectadores</strong> ya logró “superar una brecha”, aunque sea un resultado “irrisorio” frente a otros estrenos. Es así como, según Proimágenes, con los <strong>673.930 espectadores</strong> de los 77 estrenos, hay un promedio de unos <strong>8.750 por película</strong> y el propio FDC pide 10.000 espectadores para recibir el estímulo de distribución que va hasta <strong>20 millones por película</strong>.</p>
+
+        <aside class="dato-caja meta revela" style="--c:var(--negro);--t:var(--crema)" aria-label="Promedio de espectadores frente a la meta del FDC">
+          <span class="kicker" style="color:var(--amarillo)">La meta de los 10.000</span>
+          <div class="meta-cifras"><div><b>8.750</b><span>espectadores en promedio por estreno colombiano</span></div><div><b>10.000</b><span>los que pide el FDC para el estímulo de distribución (hasta $20 millones)</span></div></div>
+          <div class="medidor grande" role="img" aria-label="El promedio llega al 87,5% de la meta"><i style="--v:87.5%"></i><span class="marca">10.000</span></div>
+          <p class="pie-dato">Boleta promedio: $12.500 · Salida familiar: cerca de $100.000.</p>
+        </aside>
+
+        <p>Moreno y Rodríguez coinciden en la raíz del problema de públicos: su formación. Moreno cita a Argentina, Chile y Brasil, lugares donde afirma que las audiencias aprenden desde pequeñas a ver cine local. “Se hace mucho cine en Colombia, demasiado. Pero no hay público”, resume Rodríguez.</p>
+
+        <blockquote class="cita revela" style="--a:var(--cobalto)"><p>“Se hace mucho cine en Colombia, demasiado. Pero no hay público”.</p><footer>Olfar Rodríguez</footer></blockquote>
+
+        <p>Detrás de ese 1,5 de cada 100 espectadores que ven una película colombiana hay un corto que tardó ocho años, producciones pagadas con colectas y creadores que ponen sus gastos básicos en juego. Flórez, mientras diseña a mano los decorados de <cite class="peli">‘Los últimos humanos’</cite>, su nuevo proyecto, entre ellos una estación lunar, dice que, si toca cambiar la estética para contar la historia, pues se cambia y lo acota diciendo: “Ahora no me para nadie, yo voy a hacer películas y películas hasta que me muera”.</p>
+
+        <blockquote class="cita cita-banda revela" style="--a:var(--amarillo);--fondo-cita:var(--rojo);--tc:var(--crema)"><span data-recortes="carrete:rec-cita"></span><p>“Ahora no me para nadie, yo voy a hacer películas y películas hasta que me muera”.</p><footer>Jorge Flórez ‘Nanimark’</footer></blockquote>
+
+        <p>En la calle, la disposición está. <b class="nom">María Estela Rojas</b> ve en televisión actores colombianos que le parecen excelentes y cree que lo que falta son más anuncios, más propaganda. “Si de pronto yo viera una película colombiana aquí, yo vengo y la veo. Porque es nuestro sitio preferido para venir”.</p>
+        <p class="fin-rep" aria-hidden="true">■</p>
+      </div>
+      <aside class="rail-cifras" aria-label="El reportaje en cifras">
+        <span class="kicker">En cifras</span>
+        <div style="--c:var(--rojo)"><b>77</b><span>estrenos colombianos en 2025</span></div>
+        <div style="--c:var(--amarillo)"><b>1,5%</b><span>de los espectadores vio cine colombiano</span></div>
+        <div style="--c:var(--lima)"><b>$32.788 M</b><span>comprometió el FDC en 2025</span></div>
+        <div style="--c:var(--cobalto)"><b>8.750</b><span>espectadores en promedio por estreno</span></div>
+        <p class="pie-dato">Fuentes: Proimágenes Colombia; Estudio de públicos CNACC y MinCulturas (2024-2025); convocatorias del FDC.</p>
+      </aside>
+    </div>
+    <div class="cta-cierre"><a class="btn" href="#continental">Echa un vistazo al cine latinoamericano <span class="fle" aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<!-- =================== SECCIÓN 6 · MIRADA CONTINENTAL =================== -->
+<section id="continental" data-sep="6" aria-labelledby="t-continental">
+  <div class="bloque" style="--fondo:var(--papel)">
+    <div class="envoltura">
+      <div class="revela">
+        <span class="chip-et">Infografía estática · Viaje fílmico</span>
+        <h3 class="titulo-mod">Cine latinoamericano en 12 momentos</h3>
+        <p class="entradilla">Un recorrido en 12 momentos por los hitos, leyes, escuelas y premios que conectan al cine colombiano con el del resto de la región. Avanza tarjeta por tarjeta.</p>
+      </div>
+      <figure class="genially revela" style="margin-left:0;margin-right:0">
+        <div class="genially-marco">
+          <iframe title="Viaje fílmico · infografía interactiva en Genially" src="https://view.genially.com/6ae3f40e712c51d8464b51e9" loading="lazy" allowfullscreen allow="fullscreen" scrolling="yes" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+        </div>
+        <figcaption style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1rem;margin-top:1rem;font-size:.85rem"><span>Toca la infografía para recorrerla.</span><a class="genially-abrir" href="https://view.genially.com/6ae3f40e712c51d8464b51e9" target="_blank" rel="noopener">Ver en pantalla completa ↗</a></figcaption>
+      </figure>
+      <span class="kicker tl-kicker">La línea de tiempo · 12 momentos</span>
+      <div class="tl-escena revela" id="tl-escena">
+        <div class="tl-anillo" id="tl-anillo" aria-live="polite"></div>
+      </div>
+      <div class="tl-controles">
+        <button class="btn-cab" type="button" id="tl-ant" aria-label="Hito anterior">← Anterior</button>
+        <span class="tl-contador" id="tl-contador" aria-hidden="true">01/12</span>
+        <button class="btn-cab" type="button" id="tl-sig" aria-label="Hito siguiente">Siguiente →</button>
+      </div>
+      <p class="tl-ayuda">También puedes usar las flechas del teclado o tocar una tarjeta.</p>
+    </div>
+    <div class="cta-cierre"><a class="btn" href="#dosis">Ahora sí, ¿qué veo? <span class="fle" aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<!-- =================== SECCIÓN 7 · DOSIS DE PELI =================== -->
+<section id="dosis" data-sep="7" aria-labelledby="t-dosis">
+  <div class="bloque" style="--fondo:var(--crema)">
+    <div class="envoltura">
+      <div class="revela">
+        <span class="chip-et">Curaduría</span>
+        <h3 class="titulo-mod">Doce puertas de entrada</h3>
+        <p class="entradilla">No hace falta ser cinéfilo. Elige por dónde quieres entrar y te contamos dónde buscar cada película.</p>
+      </div>
+      <div class="filtros" id="filtros-pelis" role="group" aria-label="Filtrar películas por puerta de entrada"></div>
+      <p class="sr" id="pelis-estado" aria-live="polite"></p>
+      <div class="carteles" id="carteles"></div>
+    </div>
+    <div class="cta-cierre"><a class="btn" href="#sinplan">¿Prefieres verla en sala? <span class="fle" aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<!-- =================== SECCIÓN 8 · ¿SIN PLAN? =================== -->
+<section id="sinplan" data-sep="8" aria-labelledby="t-sinplan">
+  <div class="bloque" style="--fondo:var(--beige)">
+    <div class="envoltura">
+      <div class="revela">
+        <span class="chip-et">Infografía interactiva · ¿Sin plan?</span>
+        <h3 class="titulo-mod">Dónde ver cine colombiano</h3>
+        <p class="entradilla">Cinematecas, salas independientes y festivales. Toca un punto del mapa o elige de la lista para ver la ficha de cada lugar: cartelera, precios, reseñas y tu propia opinión.</p>
+      </div>
+      <div class="mapa-layout">
+        <div class="mapa-caja revela">
+          <div id="mapa"></div>
+          <div class="leyenda-mapa">
+            <h4>Convenciones</h4>
+            <div class="li" style="--c:var(--rojo)"><i></i>Cinemateca</div>
+            <div class="li" style="--c:var(--cobalto)"><i></i>Sala independiente</div>
+            <div class="li" style="--c:var(--amarillo)"><i></i>Festival</div>
+            <p class="aviso">Mapa esquemático, no está a escala. Cartelera, horarios y precios se confirman con cada lugar.</p>
+          </div>
+        </div>
+        <div class="bloque-lista revela">
+          <div class="lista-filtros">
+            <div class="filtros" id="filtros-salas" role="group" aria-label="Filtrar lugares por tipo" style="margin:0"></div>
+            <label class="sr" for="buscar-sala">Buscar por nombre o ciudad</label>
+            <input class="buscador" id="buscar-sala" type="search" placeholder="Busca por nombre o ciudad" autocomplete="off">
+          </div>
+          <ul class="lista-salas" id="lista-salas"></ul>
+          <p class="sr" id="salas-estado" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+    <div class="cta-cierre"><button class="btn" type="button" id="cta-resena">Cuéntanos a qué fuiste <span class="fle" aria-hidden="true">→</span></button></div>
+  </div>
+</section>
+
+<!-- =================== SECCIÓN 9 · FUTURO EN PROYECCIÓN =================== -->
+<section id="futuro" data-sep="9" aria-labelledby="t-futuro">
+  <div class="futuro">
+    <div class="futuro-recortes" aria-hidden="true" data-recortes="megafono:fr1,camara-8mm:fr2"></div>
+    <div class="envoltura">
+      <div class="revela">
+        <span class="chip-et" style="background:var(--amarillo);color:var(--negro)">Cierre editorial</span>
+        <h3 style="margin-top:1rem">La próxima película la estás pensando tú</h3>
+        <p>Nuevas narrativas, celulares que filman como cámaras de cine, festivales que nacen en pueblos pequeños y una generación que ya no espera permiso para contar. El futuro del cine colombiano no está solo en la pantalla grande: está en quién se anima a mirar distinto.</p>
+      </div>
+      <div class="voces">
+        <div class="voz revela"><p>Espacio para el testimonio de una voz joven del cine colombiano.</p><small>Voz joven · por confirmar</small></div>
+        <div class="voz revela"><p>Espacio para el testimonio de una estudiante o realizadora emergente.</p><small>Voz joven · por confirmar</small></div>
+        <div class="voz revela"><p>Espacio para el testimonio de alguien que programa o gestiona una sala.</p><small>Voz joven · por confirmar</small></div>
+      </div>
+      <div class="suscripcion revela">
+        <div>
+          <h4>Sigue fuera de cuadro</h4>
+          <p style="margin:0;font-size:.95rem">Un correo cada dos semanas con estrenos, festivales y nuevas historias del convergente.</p>
+        </div>
+        <form id="form-suscripcion" novalidate>
+          <label class="sr" for="correo">Correo electrónico</label>
+          <input id="correo" name="correo" type="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+          <button class="btn" type="submit">Déjanos tu correo</button>
+          <p class="estado" id="estado-suscripcion" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pie" id="contacto" aria-labelledby="t-contacto">
+  <div class="envoltura">
+    <div class="pie-rejilla">
+      <div>
+        <span class="lm" aria-hidden="true" style="position:relative;display:block;width:150px;height:70px;font-family:var(--display);line-height:1">
+          <span style="position:absolute;left:0;top:0;width:126px;height:46px;border:2px dashed var(--crema)"></span>
+          <b style="position:absolute;left:9px;top:15px;font-weight:400;font-size:1.7rem">FUERA DE</b>
+          <em style="position:absolute;left:54px;top:44px;font-style:normal;font-size:1.7rem;color:var(--amarillo)">CUADRO →</em>
+        </span>
+        <p style="font-size:.9rem;max-width:34ch;margin-top:1.2rem">El cine colombiano y lo que ocurre fuera del encuadre. Un especial convergente de periodismo cultural.</p>
+      </div>
+      <div><h5>Recorrido</h5><ul id="pie-secciones"></ul></div>
+      <div><h5 id="t-contacto">Contacto</h5><ul><li>Instagram · @usuario por confirmar</li><li>TikTok · @usuario por confirmar</li><li>X · @usuario por confirmar</li><li><a href="#futuro">Suscríbete al boletín</a></li></ul><h5 style="margin-top:1.6rem">Equipo</h5><ul><li>Silvana Segura</li><li>Catalina Vela</li><li>María José García</li><li>Laura Sofía Flórez</li></ul></div>
+    </div>
+    <div class="pie-recortes" aria-hidden="true" data-recortes="claqueta:pr1,palomitas:pr2,boleta:pr3"></div>
+    <div class="legal"><span>Fuera de Cuadro · Convergencia 2026-2</span><span>Audios, video e imágenes de esta versión son marcadores de muestra.</span><span id="estado-3d" role="status">Efectos 3D: cargando…</span><a href="#portada">Volver arriba ↑</a></div>
+  </div>
+</footer>
+
+<!-- Ventanas emergentes -->
+<dialog id="d-audio" aria-labelledby="rep-titulo">
+  <div class="ventana" style="width:min(820px,calc(100vw - 2rem))">
+    <button class="cerrar" type="button" data-cerrar aria-label="Cerrar reproductor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    <div class="rep" id="rep">
+      <div class="arte" id="rep-arte"></div>
+      <div class="info">
+        <span class="kicker" id="rep-kicker" style="color:var(--amarillo)"></span>
+        <h3 id="rep-titulo"></h3>
+        <p id="rep-desc"></p>
+        <p class="audio-por" id="rep-por" hidden></p>
+        <div class="rep-controles">
+          <button class="salto" type="button" id="rep-atras" aria-label="Retroceder 10 segundos">−10</button>
+          <button class="btn-play" type="button" id="rep-play" aria-label="Pausar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="rep-ico" d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+          <button class="salto" type="button" id="rep-adelante" aria-label="Adelantar 10 segundos">+10</button>
+          <span class="ondas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="rep-barra"><span id="rep-actual">0:00</span><input type="range" id="rep-pos" min="0" max="100" step="0.1" value="0" aria-label="Posición del audio"><span id="rep-total">0:00</span></div>
+        <p class="aviso-muestra">Audio de muestra: reemplazar con el archivo final del podcast.</p>
+        <div class="rep-sc" id="rep-sc" hidden></div>
+        <a class="rep-sc-enlace" id="rep-sc-enlace" target="_blank" rel="noopener" hidden>Escuchar en SoundCloud ↗</a>
+      </div>
+    </div>
+    <audio id="reproductor" preload="none"></audio>
+  </div>
+</dialog>
+
+<dialog id="d-video" aria-labelledby="vid-titulo">
+  <div class="ventana v-video">
+    <button class="cerrar" type="button" data-cerrar aria-label="Cerrar video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    <video id="video" controls playsinline preload="none"></video>
+    <div class="info"><h3 id="vid-titulo">Cazando cine</h3><span style="font-size:.8rem;opacity:.8">Documental corto · video de muestra, reemplazar con la pieza final</span></div>
+  </div>
+</dialog>
+
+<dialog id="d-ficha" aria-labelledby="ficha-titulo">
+  <div class="ventana" id="ficha-ventana">
+    <button class="cerrar" type="button" data-cerrar aria-label="Cerrar ficha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    <div id="ficha-contenido"></div>
+  </div>
+</dialog>
+
+<dialog id="d-historia" class="historia" aria-labelledby="hist-titulo">
+  <div class="ventana">
+    <button class="cerrar" type="button" data-cerrar aria-label="Volver al fotorreportaje" style="position:fixed;top:1rem;right:1rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    <div id="hist-contenido"></div>
+  </div>
+</dialog>
+
+
+
+<script type="importmap">{"imports":{"three":"./lib/three.module.js"}}</script>
+<script type="module">
+/* Escena 3D de fondo: un túnel de cuadros, carretes y una tira de película que se recorre con el scroll.
+   El color de fondo se funde de una sección a la siguiente. Si three.js o WebGL no están disponibles,
+   la página conserva los colores planos de cada separador. */
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const est=t=>{const e=document.getElementById('estado-3d');if(e)e.textContent=t;console.info('[Fuera de Cuadro] '+t)};
+import('three')
+ .catch(()=>import('https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js'))
+ .then(THREE=>iniciar(THREE))
+ .catch(err=>est('Efectos 3D: no cargaron ('+(err&&err.message||'error desconocido')+')'));
+function iniciar(THREE){
+ const canvas=document.getElementById('fondo3d');
+ const movil=Math.min(innerWidth,innerHeight)<700||matchMedia('(pointer: coarse)').matches;
+ let renderer;
+ try{renderer=new THREE.WebGLRenderer({canvas,antialias:!movil,powerPreference:'high-performance'})}catch(e){est('Efectos 3D: este navegador no tiene WebGL disponible');return}
+ let calidad=Math.min(devicePixelRatio,movil?1.25:1.5); renderer.setPixelRatio(calidad);
+ renderer.setSize(innerWidth,innerHeight,false);
+ const HEX={crema:0xF5E8CD,negro:0x111111,rojo:0xE52B18,amarillo:0xFFD21F,fucsia:0xF2387A,cobalto:0x2455D6,lima:0xA8C92B,terracota:0xC86A58,azulp:0x1B3FA3,rosa:0xFF8FAB,naranja:0xF5B800};
+ const scene=new THREE.Scene();
+ const bg=new THREE.Color(HEX.negro);
+ scene.background=bg; scene.fog=new THREE.Fog(bg.clone(),8,46);
+ const camera=new THREE.PerspectiveCamera(62,innerWidth/innerHeight,.1,52);
+ scene.add(new THREE.HemisphereLight(0xffffff,0x6b5a50,2.4));
+ const sol=new THREE.DirectionalLight(0xffffff,1.6); sol.position.set(4,6,8); scene.add(sol);
+
+ /* Recortes como planos con textura (estética collage) */
+ const REC=window.FDC_REC||{}, TEMAS=window.FDC_TEMAS||{};
+ const cargador=new THREE.TextureLoader(), texs={};
+ const textura=n=>texs[n]||(texs[n]=(()=>{const t=cargador.load('img/'+n+'.webp');t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;return t})());
+ const geoPlano=new THREE.PlaneGeometry(1,1), mats={};
+ const matDe=n=>mats[n]||(mats[n]=new THREE.MeshBasicMaterial({map:textura(n),transparent:true,alphaTest:.04,depthWrite:false,side:THREE.DoubleSide}));
+ const recorte=(n,alto)=>{const d=REC[n]||[1,1];const m=new THREE.Mesh(geoPlano,matDe(n));m.scale.set(alto*d[0]/d[1],alto,1);return m};
+ const GENERICOS=['estrella','carrete','boleta','claqueta','palomitas','camara-8mm','reflector','exclamacion','tira-pelicula','ojo','microfono','televisor'];
+ /* Estaciones: la portada y los nueve separadores */
+ const estEls=[...document.querySelectorAll('[data-estacion]')];
+ const PASO=34;
+ const ACENTOS={negro:['amarillo','rojo','crema','fucsia'],rojo:['amarillo','crema','negro'],fucsia:['amarillo','crema','negro','cobalto'],cobalto:['amarillo','crema','fucsia'],
+  amarillo:['rojo','negro','cobalto'],terracota:['amarillo','crema','negro'],lima:['cobalto','crema','negro'],azulp:['amarillo','fucsia','crema'],rosa:['negro','amarillo','cobalto']};
+ const rnd=(a,b)=>a+Math.random()*(b-a);
+ const grupos=estEls.map((el,i)=>{
+  const g=new THREE.Group(); g.position.z=-i*PASO; scene.add(g);
+  const lista=[...(TEMAS[el.dataset.tema]||[]),...GENERICOS.slice(i%4)];
+  const n=movil?6:10;
+  for(let k=0;k<n;k++){
+   const nombre=lista[k%lista.length], m=recorte(nombre,rnd(1.3,2.6));
+   const a=k/n*Math.PI*2+rnd(-.2,.2), r=rnd(5,8.5);
+   m.position.set(Math.cos(a)*r*1.3,Math.sin(a)*r*.8,rnd(-12,10));
+   m.rotation.set(0,rnd(-.35,.35),rnd(-.35,.35));
+   m.userData={ry:m.rotation.y,rz:m.rotation.z,y0:m.position.y,fase:rnd(0,6.3),vel:rnd(.5,1.1),gira:nombre.indexOf('carrete')===0,flecha:nombre==='flecha-trama'};
+   g.add(m);
+  }
+  return g;
+ });
+
+ /* Tira de película en espiral que atraviesa todo el recorrido */
+ const tela=document.createElement('canvas'); tela.width=64; tela.height=256; const cx=tela.getContext('2d');
+ cx.fillStyle='#111111'; cx.fillRect(0,0,64,256);
+ for(let y=6;y<256;y+=32){cx.fillStyle='#F5E8CD';cx.fillRect(4,y,9,16);cx.fillRect(51,y,9,16)}
+ cx.fillStyle='#5a5550'; cx.fillRect(18,8,28,108); cx.fillRect(18,136,28,108);
+ cx.fillStyle='#d9d0c0'; for(let y=10;y<250;y+=5)for(let x=20;x<46;x+=5){if((y>116&&y<136))continue;const rr=.4+Math.random()*1.4;cx.beginPath();cx.arc(x+(y%10?2.5:0),y,rr,0,6.3);cx.fill()}
+ const tex=new THREE.CanvasTexture(tela); tex.colorSpace=THREE.SRGBColorSpace; tex.wrapS=tex.wrapT=THREE.RepeatWrapping;
+ const ptsCurva=[]; const largo=estEls.length*PASO+30;
+ for(let i=0;i<=estEls.length*3;i++){const t=i/(estEls.length*3);ptsCurva.push(new THREE.Vector3(Math.sin(i*.9)*6.5,Math.cos(i*.7)*3.6,18-t*largo))}
+ const curva=new THREE.CatmullRomCurve3(ptsCurva);
+ const SEG=movil?260:520, ancho=.9, pos=[], uv=[], idx=[], arriba=new THREE.Vector3(0,1,0), lado=new THREE.Vector3();
+ for(let i=0;i<=SEG;i++){const t=i/SEG,p=curva.getPointAt(t),tg=curva.getTangentAt(t);lado.crossVectors(tg,arriba).normalize().multiplyScalar(ancho/2);
+  pos.push(p.x-lado.x,p.y-lado.y,p.z-lado.z,p.x+lado.x,p.y+lado.y,p.z+lado.z); uv.push(0,t*largo/2.6,1,t*largo/2.6);
+  if(i<SEG){const a=i*2;idx.push(a,a+1,a+2,a+1,a+3,a+2)}}
+ const geoTira=new THREE.BufferGeometry(); geoTira.setAttribute('position',new THREE.Float32BufferAttribute(pos,3)); geoTira.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2)); geoTira.setIndex(idx); geoTira.computeVertexNormals();
+ const tira=new THREE.Mesh(geoTira,new THREE.MeshBasicMaterial({map:tex,side:THREE.DoubleSide})); tira.frustumCulled=false; scene.add(tira);
+
+ /* Confeti instanciado en los colores de la paleta */
+ const N=movil?36:80, conf=new THREE.InstancedMesh(new THREE.PlaneGeometry(.62,.76),new THREE.MeshBasicMaterial({map:textura('estrella'),transparent:true,alphaTest:.04,depthWrite:false,side:THREE.DoubleSide}),N);
+ const tmp=new THREE.Object3D(), col=new THREE.Color(), nombres=['rojo','amarillo','fucsia','cobalto','lima','crema','naranja'], datos=[];
+ for(let i=0;i<N;i++){const a=rnd(0,Math.PI*2),r=rnd(2.5,11);datos.push({x:Math.cos(a)*r,y:Math.sin(a)*r*.7,z:rnd(20,-largo),rx:0,ry:rnd(0,6),v:rnd(.4,1.2)})}
+ conf.frustumCulled=false; scene.add(conf);
+
+ /* Estado del scroll */
+ const colores=estEls.map(el=>new THREE.Color(HEX[el.dataset.estacion]||HEX.negro));
+ let camZ=12, objZ=12, velocidad=0, ultimoY=scrollY, mx=0, my=0, tmx=0, tmy=0, visible=true, activo=0;
+ addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth*2-1;tmy=e.clientY/innerHeight*2-1},{passive:true});
+ addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight,false)});
+ /* Posiciones de cada estación, medidas una sola vez (y al cambiar el tamaño de la página) */
+ let zonas=[];
+ const medir=()=>{zonas=estEls.map(el=>{let y=0,e=el;while(e){y+=e.offsetTop;e=e.offsetParent}return {top:y,h:el.offsetHeight}})};
+ medir();
+ let tMedir; const remedir=()=>{clearTimeout(tMedir);tMedir=setTimeout(medir,150)};
+ addEventListener('resize',remedir); if(window.ResizeObserver) new ResizeObserver(remedir).observe(document.body);
+ const tiraEl=document.querySelector('.tira'); let hexPrevio='';
+ const suave=t=>t*t*(3-2*t);
+ function estado(){
+  const vh=innerHeight, y=scrollY; let mejor=-1, vis=0, prog=0;
+  for(let i=0;i<zonas.length;i++){const z=zonas[i], top=z.top-y, v=Math.min(vh,top+z.h)-Math.max(0,top);if(v>vis){vis=v;mejor=i;prog=(vh-top)/(z.h+vh)}}
+  visible=vis>2;
+  if(mejor<0) return;
+  activo=mejor; prog=Math.max(0,Math.min(1,prog));
+  objZ=-mejor*PASO+13-prog*26;
+  const prev=colores[Math.max(0,mejor-1)], act=colores[mejor];
+  const mezcla=mejor===0?1:suave(Math.min(1,prog/.42));
+  bg.lerpColors(prev,act,mezcla); scene.fog.color.copy(bg);
+  const hex=bg.getHexString(); if(hex!==hexPrevio&&tiraEl){hexPrevio=hex;tiraEl.style.backgroundColor='#'+hex}
+ }
+ let antes=performance.now(), acum=0, cuadros=0;
+ /* Calidad adaptable: si los cuadros tardan demasiado, baja la resolución del lienzo */
+ function ajustar(ms){acum+=ms;cuadros++;if(cuadros<45)return;const media=acum/cuadros;acum=0;cuadros=0;
+  if(media>21&&calidad>.6){calidad=Math.max(.6,calidad-.25);renderer.setPixelRatio(calidad)}
+  else if(media<14&&calidad<Math.min(devicePixelRatio,movil?1.25:1.5)){calidad=Math.min(Math.min(devicePixelRatio,movil?1.25:1.5),calidad+.25);renderer.setPixelRatio(calidad)}}
+ renderer.setAnimationLoop(()=>{
+  const ahora=performance.now(), ms=ahora-antes, dt=Math.min(.05,ms/1000); antes=ahora;
+  const dy=scrollY-ultimoY; ultimoY=scrollY; velocidad+=(Math.min(60,Math.abs(dy))-velocidad)*.12;
+  estado();
+  if(!visible){acum=0;cuadros=0;return}
+  ajustar(ms);
+  if(reduce){camZ=-activo*PASO+9}else camZ+=(objZ-camZ)*Math.min(1,dt*4.5);
+  if(!reduce){mx+=(tmx-mx)*dt*2.5; my+=(tmy-my)*dt*2.5}
+  camera.position.set(mx*1.4,-my*.9,camZ); camera.rotation.set(-my*.06,-mx*.08,Math.sin(ahora*.0003)*.04+velocidad*.0025);
+  const impulso=reduce?0:1+velocidad*.09;
+  const tt=ahora*.001;
+  grupos.forEach((g,i)=>{g.visible=Math.abs(i-activo)<=1;if(!g.visible)return; g.rotation.z+=dt*.03*impulso*(i%2?1:-1);
+   g.children.forEach(m=>{const u=m.userData;
+    if(u.flecha){m.position.x+=dt*impulso*1.2;if(m.position.x>9)m.position.x=-9}
+    if(u.gira){m.rotation.z+=dt*.8*u.vel*impulso}else{m.rotation.z=u.rz+Math.sin(tt*u.vel+u.fase)*.12}
+    m.rotation.y=u.ry+Math.sin(tt*.7*u.vel+u.fase)*.35*Math.min(2,impulso);
+    m.position.y=u.y0+Math.sin(tt*.9*u.vel+u.fase)*.25})});
+  for(let i=0;i<N;i++){const d=datos[i];d.ry+=dt*d.v*impulso;tmp.position.set(d.x,d.y,d.z);tmp.rotation.set(d.rx,d.ry,0);tmp.updateMatrix();conf.setMatrixAt(i,tmp.matrix)}
+  conf.instanceMatrix.needsUpdate=true;
+  tex.offset.y-=dt*.15*impulso;
+  renderer.render(scene,camera);
+ });
+ document.documentElement.classList.add('con3d');
+ window.__fdc3d=true;
+ est(reduce?'Efectos 3D: en modo suave, porque tu sistema tiene activada la opción de reducir el movimiento':'Efectos 3D: activos (three.js r'+THREE.REVISION+')');
+}
+</script>
+<script>
+(function(){
+"use strict";
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const P={crema:'#F5E8CD',negro:'#111111',rojo:'#E52B18',amarillo:'#FFD21F',fucsia:'#F2387A',cobalto:'#2455D6',lima:'#A8C92B',papel:'#E3DDD2',terracota:'#C86A58',rosa:'#FF8FAB',amarilloc:'#FFD75A',naranja:'#F5B800',azulc:'#7EA6F7',azulp:'#1B3FA3',verdec:'#CBE8A1',lavanda:'#E6E6F7',beige:'#F8E4D6',coral:'#D81B60'};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function logoSVG(marco,fd,cu){return `<svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="width:78%;overflow:visible"><rect x="8" y="8" width="210" height="96" fill="none" stroke="${marco}" stroke-width="3.5" stroke-dasharray="14 7"/><text x="24" y="86" font-family="Bebas Neue,Anton,Impact,sans-serif" font-size="52" fill="${fd}" textLength="150" lengthAdjust="spacingAndGlyphs">FUERA DE</text><text x="98" y="150" font-family="Bebas Neue,Anton,Impact,sans-serif" font-size="52" fill="${cu}" textLength="112" lengthAdjust="spacingAndGlyphs">CUADRO</text><path d="M220 132 H286 M276 123 L287 132 L276 141" fill="none" stroke="${cu}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`}
+/* ---------- Datos de las secciones (Biblia p.47 · mapa de navegación) ---------- */
+const SECCIONES=[
+ {id:'identidad',n:'01',sn:'Identidad en pantalla',t:'¿Y aquí qué pasó?',p:'Por qué estas historias también hablan de ti.',c:'rojo',tx:'crema',k:'Fotorreportaje + audio inmersivo'},
+ {id:'directoras',n:'02',sn:'Directoras de historia',t:'Romper el encuadre',p:'Las mujeres que lo hicieron posible.',c:'fucsia',tx:'negro',k:'Perfil'},
+ {id:'creditos',n:'03',sn:'Revelación de créditos',t:'Sin libreto y Créditos',p:'Los oficios que nadie nombra en los créditos.',c:'cobalto',tx:'crema',k:'Podcasts'},
+ {id:'guion',n:'04',sn:'Del guion a la sala',t:'Cazando cine',p:'El cine también se vive afuera de la pantalla: así se siente un festival.',c:'amarillo',tx:'negro',k:'Documental corto'},
+ {id:'costo',n:'05',sn:'El costo de un sueño',t:'Luces, cámara… ¿presupuesto?',p:'Cuánto cuesta, de verdad, hacer una película acá.',c:'terracota',tx:'negro',k:'Reportaje'},
+ {id:'continental',n:'06',sn:'Mirada continental',t:'Viaje fílmico',p:'Cómo nos vemos al lado del resto de Latinoamérica.',c:'lima',tx:'negro',k:'Infografía estática'},
+ {id:'dosis',n:'07',sn:'Dosis de peli',t:'Dosis de peli',p:'Qué ver si nunca has visto cine colombiano.',c:'negro',tx:'crema',k:'Curaduría'},
+ {id:'sinplan',n:'08',sn:'¿Sin plan?',t:'¿Sin plan?',p:'Dónde ver cine colombiano esta semana.',c:'azulp',tx:'crema',k:'Infografía interactiva'},
+ {id:'futuro',n:'09',sn:'Futuro en proyección',t:'Futuro en proyección',p:'Qué viene ahora y qué puedes hacer tú.',c:'rosa',tx:'negro',k:'Cierre editorial'}
+];
+const etiquetaSec=s=>s.sn===s.t?s.k:s.sn+' · '+s.k;
+
+/* ---------- Arte generativo tipo collage (marcadores de las fotos reales) ---------- */
+let uid=0;
+function rnd(seed){let s=seed*9301+49297;return()=>{s=(s*9301+49297)%233280;return s/233280}}
+const REC={"ojo":[454,451],"espejo-roto":[282,505],"carrete-cinta":[293,520],"estrella":[423,520],"boleta":[329,209],"casa":[235,329],"caracol":[279,390],"camara-8mm":[407,346],"televisor":[370,378],"tira-pelicula":[515,210],"carrete":[387,387],"manos":[520,388],"claqueta":[381,441],"exclamacion":[399,247],"bocas":[311,520],"reflector":[228,252],"camara-tripode":[448,520],"reflector-trama":[223,196],"microfono":[292,515],"megafono":[469,409],"palomitas":[354,520],"silla-director":[395,520],"audifonos":[491,460],"flecha-trama":[520,287]};
+window.FDC_REC=REC;
+const recImg=(n,cls='',style='')=>REC[n]?`<img class="rec ${cls}" src="img/${n}.webp" width="${REC[n][0]}" height="${REC[n][1]}" alt="" loading="lazy" decoding="async"${style?` style="${style}"`:''}>`:'';
+const FONDOS={rojo:P.rojo,fucsia:P.fucsia,cobalto:P.cobalto,amarillo:P.amarillo,lima:P.lima,terracota:P.terracota,negro:P.negro,crema:P.crema,rosa:P.rosa,naranja:P.naranja,azulc:P.azulc,azulp:P.azulp,verdec:P.verdec,beige:P.beige,
+ desierto:P.amarilloc,selva:P.lima,ciudad:P.rosa,centro:P.terracota,cana:P.naranja,montana:P.azulc};
+/* Composiciones de collage: [recorte, x%, y%, tamaño (% del lado menor), rotación] */
+const COMPOS={
+ tv:[['televisor',48,54,66,-4],['estrella',80,20,28,12]],
+ reyes:[['televisor',44,56,58,5],['estrella',20,22,26,-10],['estrella',82,80,20,18]],
+ caracol:[['casa',62,52,52,3],['caracol',28,64,40,-8]],
+ delirio:[['espejo-roto',46,54,50,-6],['ojo',78,24,32,0]],
+ primeravez:[['ojo',50,50,64,0],['exclamacion',78,82,34,-12]],
+ semaforo:[['manos',50,58,82,-3],['exclamacion',22,20,32,8]],
+ universal:[['camara-8mm',50,48,70,-6],['tira-pelicula',50,88,92,3]],
+ primeranoche:[['reflector-trama',36,38,52,-10],['estrella',72,70,34,8]],
+ dosangeles:[['boleta',50,52,72,-8],['estrella',22,22,26,0],['estrella',82,80,22,15]],
+ vecinos:[['casa',34,56,44,-4],['casa',70,58,38,5]],
+ camara:[['camara-tripode',54,56,66,0],['reflector',20,24,30,-15]],
+ claqueta:[['claqueta',44,52,58,-8],['silla-director',78,70,36,8]],
+ bocas:[['bocas',40,52,48,-5],['microfono',76,54,32,8]],
+ creditos:[['claqueta',42,54,54,-7],['reflector-trama',76,26,36,12]],
+ sonido:[['audifonos',50,48,56,-6],['exclamacion',78,80,34,10],['ojo',22,22,28,0]],
+ chircales:[['casa',44,54,58,-3],['manos',74,80,48,-6]],
+ montaje:[['tira-pelicula',50,38,92,-6],['carrete',58,70,52,0]],
+ sillas:[['silla-director',42,56,58,-4],['boleta',74,26,42,12]],
+ encuadre:[['espejo-roto',34,52,62,-8],['camara-8mm',64,56,58,6],['estrella',86,22,26,10],['exclamacion',13,24,24,-12]],
+ cazando:[['camara-tripode',30,56,62,0],['boleta',62,26,36,-10],['palomitas',80,62,34,8],['tira-pelicula',58,92,80,-3]]
+};
+function collage(cod,palNombre,seed){
+ const piezas=COMPOS[cod]||COMPOS.camara, r=rnd(seed||1), j=v=>v+(r()-.5)*7;
+ return `<div class="collage" aria-hidden="true" style="--fondo:${FONDOS[palNombre]||P.rojo}"><span class="trama"></span>${piezas.map(([n,x,y,w,rot],k)=>recImg(n,'',`left:${j(x)}%;top:${j(y)}%;--w:${w};--r:${(rot+(r()-.5)*8).toFixed(1)}deg;z-index:${k+1}`)).join('')}<span class="cinta-c" style="--r:${(-9+r()*7).toFixed(1)}deg"></span></div>`;
+}
+/* Recortes que acompañan cada separador de sección */
+const SEP_REC={portada:['camara-tripode','ojo','reflector-trama','estrella','carrete'],identidad:['televisor','ojo','estrella'],directoras:['espejo-roto','camara-8mm','exclamacion'],creditos:['bocas','microfono','claqueta'],
+ guion:['camara-tripode','boleta','palomitas'],costo:['manos','megafono','exclamacion'],continental:['carrete-cinta','flecha-trama','estrella'],
+ dosis:['palomitas','televisor','boleta'],sinplan:['silla-director','reflector-trama','boleta'],futuro:['megafono','camara-8mm','estrella']};
+window.FDC_TEMAS=SEP_REC;
+function pintarArtes(c=document){$$('[data-arte]',c).forEach((el,i)=>{if(el.dataset.pintado)return;el.insertAdjacentHTML('afterbegin',collage(el.dataset.arte,el.dataset.paleta,i+3,+el.dataset.ancho||400,+el.dataset.alto||400));el.dataset.pintado=1})}
+
+/* ---------- Separadores a pantalla completa (Biblia p.41) ---------- */
+SECCIONES.forEach(s=>{
+ const sec=document.getElementById(s.id);
+ const div=document.createElement('div');
+ div.className='separador rasgado';
+ div.style.cssText=`--c:${P[s.c]};--t:${P[s.tx]}`;
+ div.innerHTML=`<span class="sep-velo" aria-hidden="true"></span><span class="sep-num" aria-hidden="true">${s.n}</span><span class="cinta-adh" aria-hidden="true" style="${s.c==='amarillo'?'background:var(--rojo)':''}"></span><span class="sep-recortes" aria-hidden="true">${(SEP_REC[s.id]||[]).map((n,k)=>recImg(n,"sr"+(k+1))).join("")}</span>
+ <div class="envoltura"><div class="sep-kicker"><span class="chip-et">${s.n} / 09</span><span class="kicker">${esc(etiquetaSec(s))}</span></div>
+ <h2 class="sep-titulo" id="t-${s.id}" aria-label="${esc(s.t)}"><span aria-hidden="true">${(()=>{let k=0;return s.t.split(' ').map(w=>`<span class="pal">${[...w].map(c=>`<span class="car" style="--i:${k++}">${esc(c)}</span>`).join('')}</span>`).join(' ')})()}</span></h2><p class="sep-promesa">${esc(s.p)}</p>
+ <a class="sep-bajar" href="#${s.id}-contenido"><span aria-hidden="true">↓</span>Entrar a la sección</a></div>`;
+ sec.prepend(div);
+ const wrap=document.createElement('div'); wrap.className='contenido-sec'; wrap.id=s.id+'-contenido';
+ const int=document.createElement('div'); int.className='contenido-int'; wrap.appendChild(int);
+ while(div.nextSibling) int.appendChild(div.nextSibling);
+ sec.appendChild(wrap);
+ div.dataset.estacion=s.c; div.dataset.tema=s.id;
+});
+/* Menú y pie */
+$('#menu-rejilla').innerHTML=SECCIONES.map((s,i)=>`<li><a href="#${s.id}" style="--c:${P[s.c]};--t:${P[s.tx]};--i:${i}">${recImg((SEP_REC[s.id]||[])[0],"rec-menu")}<span class="mn">${s.n}</span><span class="mt">${esc(s.t)}</span><span class="mp">${esc(etiquetaSec(s))}</span></a></li>`).join('');
+$('#pie-secciones').innerHTML=SECCIONES.map(s=>`<li><a href="#${s.id}">${s.n} · ${esc(s.t)}</a></li>`).join('');
+
+/* Sin música de fondo: el sitio solo suena cuando la persona reproduce un podcast, un audio o el video */
+function pausarMusicaPorMedio(){}
+function reanudarMusica(){}
+
+/* ---------- Pantalla de inicio: el trazo que colorea el cuadro (5 s) ---------- */
+const ini=$('#inicio'), lienzo=$('#ini-lienzo'), lcx=lienzo.getContext('2d'), trazo=$('#ini-trazo'), btnEntrar=$('#btn-entrar');
+trazo.muted=true;
+const ROJO=P.rojo, AMARILLO=P.amarillo;
+const DUR=5, T_PINTA=1.5, T_FIN=4.6;
+const MW=innerWidth<700?720:960, MH=Math.round(MW*9/16);
+const mascara=document.createElement('canvas'); mascara.width=MW; mascara.height=MH;
+const mcx=mascara.getContext('2d',{willReadFrequently:true});
+const pintura=document.createElement('canvas'); pintura.width=MW; pintura.height=MH;
+const pcx=pintura.getContext('2d');
+const mascaraDura=document.createElement('canvas'); mascaraDura.width=MW; mascaraDura.height=MH; const dcx=mascaraDura.getContext('2d');
+const capa2=document.createElement('canvas'), k2=capa2.getContext('2d');
+const capa=document.createElement('canvas'), kcx=capa.getContext('2d');
+let VW,VH,dpr,escL,ox,oy,inicioT=null,terminado=false,videoListo=false,videoFalla=false,hayPintura=false;
+const FUENTE='52px "Bebas Neue", Anton, Impact, "Arial Narrow", sans-serif';
+const lim=v=>Math.max(0,Math.min(1,v)), salida=t=>1-Math.pow(1-t,3);
+function medirIni(){
+ dpr=Math.min(devicePixelRatio||1,2); VW=innerWidth; VH=innerHeight;
+ lienzo.width=Math.round(VW*dpr); lienzo.height=Math.round(VH*dpr); capa.width=lienzo.width; capa.height=lienzo.height; capa2.width=lienzo.width; capa2.height=lienzo.height;
+ const bajo=VH<520, bot=$('#btn-entrar').offsetHeight||48;
+ /* el logo cabe a lo ancho y a lo alto, dejando sitio para el botón debajo */
+ const ancho=Math.min(560,VW*.82,(VH*(bajo?.74:.62)-bot-30)/168*300); escL=Math.max(.6,ancho/300);
+ ox=VW/2-147.5*escL; oy=bajo?(VH-(152*escL+bot+24))/2-8*escL:VH/2-80*escL;
+ $('#ini-accion').style.top=Math.round(bajo?oy+152*escL+18:oy+168*escL+26)+'px';
+}
+/* Recorrido del marco punteado (rectángulo del logo: 8,8,210,96) */
+const MARCO=[[8,8],[218,8],[218,104],[8,104],[8,8]];
+function marcoParcial(ctx,p){
+ const total=2*(210+96); let resta=p*total; ctx.beginPath(); ctx.moveTo(8,8);
+ for(let i=1;i<MARCO.length&&resta>0;i++){const [x0,y0]=MARCO[i-1],[x1,y1]=MARCO[i],l=Math.hypot(x1-x0,y1-y0),f=Math.min(1,resta/l);ctx.lineTo(x0+(x1-x0)*f,y0+(y1-y0)*f);resta-=l}
+ ctx.stroke();
+}
+function letras(ctx,texto,x,y,ancho,t0,paso,t,color,pop){
+ ctx.font=FUENTE; const total=ctx.measureText(texto).width, sx=ancho/total;
+ for(let i=0;i<texto.length;i++){
+  const a=lim((t-(t0+i*paso))/.28); if(a<=0||texto[i]===' ') continue;
+  const px=x+sx*ctx.measureText(texto.slice(0,i)).width, e=salida(a);
+  ctx.save(); ctx.globalAlpha*=a; ctx.translate(px,y+(1-e)*16);
+  if(pop){const sc=.6+.4*e+Math.sin(e*Math.PI)*.12; ctx.translate(0,-18); ctx.scale(sc,sc); ctx.translate(0,18)}
+  ctx.scale(sx,1); ctx.fillStyle=color; ctx.fillText(texto[i],0,0); ctx.restore();
+ }
+}
+function logoBase(ctx,t,color){ /* marco + "FUERA DE" */
+ ctx.save(); ctx.setTransform(dpr*escL,0,0,dpr*escL,dpr*ox,dpr*oy);
+ ctx.lineWidth=3.5; ctx.strokeStyle=color; ctx.setLineDash([14,7]); ctx.lineCap='butt';
+ marcoParcial(ctx,salida(lim(t/.9))); ctx.setLineDash([]);
+ letras(ctx,'FUERA DE',24,86,150,.7,.1,t,color,false);
+ ctx.restore();
+}
+function logoCuadro(ctx,t){ /* "CUADRO" y la flecha, siempre en amarillo */
+ ctx.save(); ctx.setTransform(dpr*escL,0,0,dpr*escL,dpr*ox,dpr*oy);
+ letras(ctx,'CUADRO',98,150,112,1.5,.07,t,AMARILLO,true);
+ const pa=salida(lim((t-1.9)/.5));
+ if(pa>0){ctx.strokeStyle=AMARILLO;ctx.lineWidth=3.5;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();ctx.moveTo(220,132);ctx.lineTo(220+66*pa,132);ctx.stroke();
+  const pc=lim((pa-.75)/.25); if(pc>0){ctx.globalAlpha=pc;ctx.beginPath();ctx.moveTo(276,123);ctx.lineTo(287,132);ctx.lineTo(276,141);ctx.stroke()}}
+ ctx.restore();
+}
+const imgPint=pcx.createImageData(MW,MH), rr=parseInt(ROJO.slice(1,3),16), rg=parseInt(ROJO.slice(3,5),16), rb=parseInt(ROJO.slice(5,7),16);
+for(let i=0;i<imgPint.data.length;i+=4){imgPint.data[i]=rr;imgPint.data[i+1]=rg;imgPint.data[i+2]=rb;imgPint.data[i+3]=0}
+const BQ=8, GW=Math.ceil(MW/BQ), GH=Math.ceil(MH/BQ), rejilla=document.createElement('canvas'); rejilla.width=GW; rejilla.height=GH;
+const rcx=rejilla.getContext('2d'), imgRej=rcx.createImageData(GW,GH), sumas=new Float32Array(GW*GH);
+function actualizarPintura(t){
+ if(videoListo&&!videoFalla&&trazo.readyState>=2){
+  mcx.drawImage(trazo,0,0,MW,MH); const src=mcx.getImageData(0,0,MW,MH).data, dst=imgPint.data;
+  sumas.fill(0);
+  for(let y=0,i=0;y<MH;y++){const fila=((y/BQ)|0)*GW; for(let x=0;x<MW;x++,i+=4){const a=src[i]; dst[i+3]=a; sumas[fila+((x/BQ)|0)]+=a}}
+  const du=imgRej.data, n=BQ*BQ; /* cobertura promedio por bloque → el logo cambia a blanco por zonas, sin rayarse */
+  for(let k=0;k<sumas.length;k++){const m=sumas[k]/n; du[k*4+3]=m<55?0:m>95?255:(m-55)*6.4}
+  pcx.putImageData(imgPint,0,0); rcx.putImageData(imgRej,0,0);
+  dcx.clearRect(0,0,MW,MH); dcx.imageSmoothingEnabled=true; dcx.filter='blur(6px)'; dcx.drawImage(rejilla,0,0,MW,MH); dcx.filter='none'; hayPintura=true;
+ } else if(videoFalla){ /* respaldo: barrido diagonal sin video */
+  const p=salida(lim((t-T_PINTA)/(T_FIN-T_PINTA))); pcx.clearRect(0,0,MW,MH); pcx.fillStyle=ROJO;
+  pcx.beginPath(); pcx.moveTo(0,0); pcx.lineTo(MW*2.4*p,0); pcx.lineTo(0,MH*2.4*p*1.2); pcx.closePath(); pcx.fill(); dcx.clearRect(0,0,MW,MH); dcx.drawImage(pintura,0,0); hayPintura=true;
+ }
+}
+function pintarCubriendo(ctx,fuente){ /* dibuja la pintura cubriendo toda la pantalla */
+ const s2=Math.max(lienzo.width/MW,lienzo.height/MH), dw=MW*s2, dh=MH*s2;
+ ctx.drawImage(fuente||pintura,(lienzo.width-dw)/2,(lienzo.height-dh)/2,dw,dh);
+}
+function cuadro(t){
+ const c=lcx; c.setTransform(1,0,0,1,0,0);
+ c.fillStyle='#FFFFFF'; c.fillRect(0,0,lienzo.width,lienzo.height);
+ const fin=lim((t-T_FIN)/(DUR-T_FIN));
+ if(t>=T_PINTA&&hayPintura){
+  pintarCubriendo(c);
+  kcx.setTransform(1,0,0,1,0,0); kcx.globalCompositeOperation='source-over'; kcx.clearRect(0,0,capa.width,capa.height);
+  logoBase(kcx,t,P.negro); kcx.globalCompositeOperation='destination-out'; pintarCubriendo(kcx,mascaraDura); kcx.globalCompositeOperation='source-over';
+  k2.setTransform(1,0,0,1,0,0); k2.globalCompositeOperation='source-over'; k2.clearRect(0,0,capa2.width,capa2.height);
+  logoBase(k2,t,'#FFFFFF'); k2.globalCompositeOperation='destination-in'; pintarCubriendo(k2,mascaraDura); k2.globalCompositeOperation='source-over';
+  c.drawImage(capa,0,0); c.drawImage(capa2,0,0);
+ } else logoBase(c,t,P.negro);
+ if(fin>0){c.globalAlpha=fin; c.fillStyle=ROJO; c.fillRect(0,0,lienzo.width,lienzo.height); c.globalAlpha=fin; logoBase(c,t,'#FFFFFF'); c.globalAlpha=1}
+ logoCuadro(c,t);
+}
+function terminar(){
+ if(terminado) return; terminado=true;
+ cuadro(DUR+1); ini.classList.add('listo'); btnEntrar.disabled=false; iniciarCaida();
+ $('#ini-estado').textContent='Fuera de Cuadro. Ya puedes entrar.';
+}
+document.addEventListener('keydown',e=>{if(terminado&&!document.body.classList.contains('dentro')&&(e.key==='Enter'||e.key===' ')&&document.activeElement!==btnEntrar){e.preventDefault();entrar()}});
+
+/* ---------- Lluvia de recortes que se acumulan abajo, sin pasar del botón Entrar ---------- */
+const CAEN=['ojo','espejo-roto','carrete-cinta','estrella','camara-8mm','televisor','tira-pelicula','carrete','manos','claqueta','exclamacion','bocas','reflector','camara-tripode','reflector-trama']
+ .map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]);
+const imgsCaen={}; CAEN.forEach(n=>{const im=new Image(); im.decoding='async'; im.src='img/'+n+'.webp'; imgsCaen[n]=im});
+const fondoFinal=document.createElement('canvas'), fcx=fondoFinal.getContext('2d');
+let caidaIniciada=false, areaUsada=0, cuerpos=[], limiteY=0, caidaActiva=false, ultimoPaso=0, generados=0, proximo=0, tamMax=0;
+const maxCuerpos=()=>VW<700?36:70;
+function cachearFondo(){cuadro(DUR+1);fondoFinal.width=lienzo.width;fondoFinal.height=lienzo.height;fcx.drawImage(lienzo,0,0)}
+function medirLimite(){limiteY=$('#ini-accion').offsetTop+btnEntrar.offsetHeight+14; tamMax=Math.max(60,Math.min(150,Math.min(VW,VH)*.15))*1.25}
+function nuevoCuerpo(){
+ const n=CAEN[generados%CAEN.length]; generados++;
+ const d=REC[n]||[100,100], base=Math.max(56,Math.min(150,Math.min(VW,VH)*.15))*(.75+Math.random()*.5);
+ const k=base/Math.max(d[0],d[1]), w=d[0]*k, h=d[1]*k, r=.36*(w+h)/2;
+ areaUsada+=w*h*.7; cuerpos.push({edad:0,im:imgsCaen[n],w,h,r,x:r+Math.random()*Math.max(1,VW-2*r),y:-h-Math.random()*80,vx:(Math.random()-.5)*140,vy:Math.random()*120,
+  a:(Math.random()-.5)*1.2,va:(Math.random()-.5)*5,quieto:0,dormido:false,alfa:1,saliendo:false});
+}
+function topePila(){let t=VH;for(const c of cuerpos){if(!c.saliendo&&(c.dormido||(c.edad>.8&&Math.abs(c.vy)<200)))t=Math.min(t,c.y-c.r)}return t}
+function puedeGenerar(){return generados<maxCuerpos()&&areaUsada<VW*(VH-limiteY)*.95&&topePila()-tamMax*.45>limiteY}
+function paso(dt){
+ const g=2600;
+ for(const c of cuerpos){ if(c.dormido) continue;
+  c.vy+=g*dt; c.x+=c.vx*dt; c.y+=c.vy*dt; c.a+=c.va*dt;
+  if(c.y+c.r>VH){c.y=VH-c.r; if(c.vy>0)c.vy*=-.22; c.vx*=.86; c.va=c.vx/c.r*.6}
+  if(c.x-c.r<0){c.x=c.r;c.vx=Math.abs(c.vx)*.3} if(c.x+c.r>VW){c.x=VW-c.r;c.vx=-Math.abs(c.vx)*.3}
+ }
+ for(let i=0;i<cuerpos.length;i++){const A=cuerpos[i];
+  for(let j=i+1;j<cuerpos.length;j++){const B=cuerpos[j]; if(A.dormido&&B.dormido) continue;
+   const dx=B.x-A.x, dy=B.y-A.y, min=A.r+B.r, d2=dx*dx+dy*dy; if(d2>=min*min||d2===0) continue;
+   const d=Math.sqrt(d2), nx=dx/d, ny=dy/d, sol=min-d, ma=A.dormido?0:1, mb=B.dormido?0:1, tot=ma+mb;
+   A.x-=nx*sol*ma/tot; A.y-=ny*sol*ma/tot; B.x+=nx*sol*mb/tot; B.y+=ny*sol*mb/tot;
+   const rv=(B.vx-A.vx)*nx+(B.vy-A.vy)*ny;
+   if(rv<0){const imp=-1.2*rv/tot; A.vx-=imp*nx*ma; A.vy-=imp*ny*ma; B.vx+=imp*nx*mb; B.vy+=imp*ny*mb; A.vx*=.97; B.vx*=.97;
+    A.va+=(Math.random()-.5)*.4*ma; B.va+=(Math.random()-.5)*.4*mb}
+  }}
+ for(const c of cuerpos){ if(c.dormido) continue; c.va*=.985;
+  c.edad+=dt; const v=Math.abs(c.vx)+Math.abs(c.vy); c.quieto=((v<22||(c.edad>2.5&&v<160))&&c.y>0)?c.quieto+dt:0;
+  if(c.quieto>.35){c.dormido=true;c.vx=c.vy=c.va=0; if(c.y-c.r<limiteY) c.saliendo=true} }
+}
+function dibujarCaida(sinFondo){
+ const c=lcx; c.setTransform(1,0,0,1,0,0); if(!sinFondo) c.drawImage(fondoFinal,0,0);
+ c.setTransform(dpr,0,0,dpr,0,0); c.shadowColor='rgba(17,17,17,.3)'; c.shadowOffsetX=3*dpr; c.shadowOffsetY=5*dpr; c.shadowBlur=0;
+ for(const o of cuerpos){ if(!o.im.complete||!o.im.naturalWidth) continue;
+  c.save(); c.globalAlpha=o.alfa; c.translate(o.x,o.y); c.rotate(o.a); c.drawImage(o.im,-o.w/2,-o.h/2,o.w,o.h); c.restore() }
+ c.shadowColor='transparent'; c.setTransform(1,0,0,1,0,0);
+}
+function avanzar(dt,ahora){
+ if(puedeGenerar()&&ahora>=proximo){nuevoCuerpo();proximo=ahora+(VW<700?95:60)}
+ for(let k=0;k<4;k++) paso(dt/4);
+ for(const o of cuerpos){ if(o.saliendo){o.alfa-=dt*2.5} }
+ cuerpos=cuerpos.filter(o=>o.alfa>0);
+}
+function bucleCaida(ahora){
+ if(document.body.classList.contains('dentro')){caidaActiva=false;return}
+ const dt=Math.min(.033,(ahora-(ultimoPaso||ahora))/1000); ultimoPaso=ahora;
+ avanzar(dt,ahora); dibujarCaida();
+ if(!puedeGenerar()&&cuerpos.every(o=>o.dormido&&!o.saliendo)){caidaActiva=false;ultimoPaso=0;return}
+ requestAnimationFrame(bucleCaida);
+}
+function iniciarCaida(){
+ cachearFondo(); medirLimite();
+ if(reduce){ /* sin animación: se calcula la pila de una vez y se dibuja quieta */
+  let t=0; for(let i=0;i<2400;i++){t+=1000/120; avanzar(1/120,t); if(!puedeGenerar()&&cuerpos.every(o=>o.dormido))break}
+  cuerpos=cuerpos.filter(o=>!o.saliendo); Promise.all(Object.values(imgsCaen).map(im=>im.decode?im.decode().catch(()=>{}):0)).then(dibujarCaida); return }
+ if(!caidaActiva){caidaActiva=true;requestAnimationFrame(bucleCaida)}
+}
+addEventListener('resize',()=>{ if(!terminado||document.body.classList.contains('dentro')) return;
+ cachearFondo(); medirLimite(); areaUsada=cuerpos.reduce((a,o)=>a+o.w*o.h*.7,0);
+ for(const o of cuerpos){o.x=Math.min(Math.max(o.x,o.r),VW-o.r); o.y=Math.min(o.y,VH-o.r); o.dormido=false; o.quieto=0}
+ if(reduce){dibujarCaida();return}
+ if(!caidaActiva){caidaActiva=true;requestAnimationFrame(bucleCaida)} });
+function bucle(ahora){
+ if(document.body.classList.contains('dentro')) return;
+ if(inicioT===null) inicioT=ahora;
+ const t=(ahora-inicioT)/1000;
+ if(t>=T_PINTA&&!trazo.dataset.lanzado){trazo.dataset.lanzado=1;trazo.playbackRate=4/(T_FIN-T_PINTA);const pr=trazo.play();if(pr&&pr.catch)pr.catch(()=>{videoFalla=true})}
+ if(t>=T_PINTA) actualizarPintura(t);
+ if(t>=DUR){terminar();return}
+ cuadro(t);
+ if(t>=T_FIN){ if(!caidaIniciada){caidaIniciada=true;medirLimite();ultimoPaso=ahora}
+  const dt=Math.min(.033,(ahora-ultimoPaso)/1000); ultimoPaso=ahora; avanzar(dt,ahora); dibujarCaida(true) }
+ requestAnimationFrame(bucle);
+}
+trazo.addEventListener('loadeddata',()=>{videoListo=true});
+trazo.addEventListener('playing',()=>{videoListo=true});
+trazo.addEventListener('error',()=>{videoFalla=true});
+setTimeout(()=>{if(!videoListo)videoFalla=true},(T_PINTA+1.2)*1000);
+medirIni();
+addEventListener('resize',()=>{if(document.body.classList.contains('dentro'))return;medirIni();if(terminado&&!cuerpos.length)cuadro(DUR+1)});
+const fuentes=document.fonts&&document.fonts.load?Promise.race([document.fonts.load(FUENTE),new Promise(r=>setTimeout(r,1200))]):Promise.resolve();
+fuentes.then(()=>{ if(reduce){terminar()} else requestAnimationFrame(bucle) });
+function entrar(){
+ if(document.body.classList.contains('dentro')) return;
+ document.body.classList.add('dentro'); document.body.classList.remove('bloqueado');
+ $('#inicio').classList.add('salida'); $('#inicio').setAttribute('aria-hidden','true');
+ setTimeout(()=>{$('#inicio').style.display='none'; trazo.pause(); trazo.removeAttribute('src'); trazo.load(); $('.logo-mini').focus({preventScroll:true})}, reduce?0:900);
+ history.replaceState(null,'',location.pathname+location.search);
+ window.scrollTo(0,0);
+}
+$('#btn-entrar').addEventListener('click',entrar);
+
+/* ---------- Menú a pantalla completa ---------- */
+const btnMenu=$('#btn-menu');
+function menu(v){
+ document.body.classList.toggle('menu-abierto',v); btnMenu.setAttribute('aria-expanded',v); $('#txt-menu').textContent=v?'Cerrar':'Menú';
+ document.body.style.overflow=v?'hidden':'';
+ if(v) setTimeout(()=>$('#menu a').focus({preventScroll:true}),200);
+}
+btnMenu.addEventListener('click',()=>menu(!document.body.classList.contains('menu-abierto')));
+$('#menu').addEventListener('click',e=>{if(e.target.closest('a')) menu(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('menu-abierto')){menu(false);btnMenu.focus()}});
+
+/* ---------- Indicador de sección y barra de lectura ---------- */
+/* Enlace activo en la navegación superior */
+const NAV_DE={portada:'portada',nosotros:'nosotros',creditos:'creditos',sinplan:'sinplan',contacto:'contacto',futuro:'contacto'};
+function marcarNav(clave){$$('[data-nav]').forEach(a=>{const on=a.dataset.nav===clave;if(a.tagName==='A')a.setAttribute('aria-current',on?'true':'false');else a.classList.toggle('activo',on)})}
+const ioSec=new IntersectionObserver(ents=>{ents.forEach(en=>{if(en.isIntersecting)marcarNav(NAV_DE[en.target.id]||'secciones')})},{rootMargin:'-45% 0px -50% 0px'});
+['portada','nosotros',...SECCIONES.map(s=>s.id),'contacto'].forEach(id=>{const el=document.getElementById(id);if(el)ioSec.observe(el)});
+/* Panel desplegable de secciones */
+const drop=$('#nav-drop'), dropBtn=drop.querySelector('button');
+$('#nav-panel').innerHTML=SECCIONES.map(s=>`<a href="#${s.id}" style="--c:${P[s.c]};--t:${P[s.tx]}"><b>${s.n}</b>${esc(s.t)}</a>`).join('');
+function panel(v){drop.classList.toggle('abierto',v);dropBtn.setAttribute('aria-expanded',v)}
+dropBtn.addEventListener('click',()=>panel(!drop.classList.contains('abierto')));
+if(matchMedia('(hover: hover) and (pointer: fine)').matches){let tm;drop.addEventListener('mouseenter',()=>{clearTimeout(tm);panel(true)});drop.addEventListener('mouseleave',()=>{tm=setTimeout(()=>panel(false),180)})}
+$('#nav-panel').addEventListener('click',e=>{if(e.target.closest('a'))panel(false)});
+document.addEventListener('click',e=>{if(!drop.contains(e.target))panel(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drop.classList.contains('abierto')){panel(false);dropBtn.focus()}});
+$('#menu-atajos').addEventListener('click',e=>{if(e.target.closest('a'))menu(false)});
+const barraL=$('#progreso-lectura'), arts=$$('.articulo');
+
+/* ---------- Entrada de los separadores: una vez, al entrar en pantalla ---------- */
+if(!reduce){
+ document.documentElement.classList.add('anim');
+ const ioSep=new IntersectionObserver(ents=>{ents.forEach(en=>{if(en.isIntersecting){const el=en.target;el.classList.add('en-escena');ioSep.unobserve(el);
+   setTimeout(()=>el.classList.add('listo'),1800)}})},{threshold:.3});
+ $$('.separador').forEach(el=>ioSep.observe(el));
+}
+/* ---------- Pausar animaciones que están fuera de pantalla ---------- */
+const ioPausa=new IntersectionObserver(ents=>ents.forEach(en=>en.target.classList.toggle('en-vista',en.isIntersecting)),{rootMargin:'100px'});
+$$('.mapa-caja,.carrusel,.separador,#inicio').forEach(el=>ioPausa.observe(el));
+/* ---------- Revelado ---------- */
+const ioRev=new IntersectionObserver(ents=>{ents.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');ioRev.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+$$('.revela').forEach(el=>ioRev.observe(el));
+
+/* ---------- Ventanas emergentes ---------- */
+let origenFoco=null;
+function abrir(d){
+ origenFoco=document.activeElement; d.classList.remove('cerrando'); d.showModal(); document.body.style.overflow='hidden';
+ requestAnimationFrame(()=>requestAnimationFrame(()=>d.classList.add('abierto')));
+}
+function cerrar(d){
+ if(!d.open) return; d.classList.add('cerrando'); d.classList.remove('abierto');
+ setTimeout(()=>{d.close();d.classList.remove('cerrando')}, reduce?0:200);
+}
+$$('dialog').forEach(d=>{
+ d.addEventListener('cancel',e=>{e.preventDefault();cerrar(d)});
+ d.addEventListener('click',e=>{if(e.target===d||e.target.closest('[data-cerrar]')) cerrar(d)});
+ d.addEventListener('close',()=>{
+  document.body.style.overflow=document.body.classList.contains('menu-abierto')?'hidden':'';
+  if(d.id==='d-audio'){rep.pause(); const cj=$('#rep-sc'); if(cj&&cj.dataset.url){cj.innerHTML='';cj.dataset.url=''}} if(d.id==='d-video'){video.pause()}
+  if(d.id==='d-audio'||d.id==='d-video') reanudarMusica();
+  if(origenFoco&&origenFoco.focus) origenFoco.focus({preventScroll:true});
+ });
+});
+
+/* ---------- Reproductor de audio (Biblia p.45 · 9) ---------- */
+const AUDIOS={
+ inmersivo:{src:'media/audio-inmersivo.mp3',k:'Audio inmersivo',t:'Ecos del conflicto',d:'Recreación sonora con efectos tridimensionales, atmósferas y fragmentos de testimonios sobre cómo el cine latinoamericano ha representado la violencia y el conflicto social.',a:'sonido',p:'amarillo'},
+ ep1:{src:'media/sin-libreto.mp3',final:true,por:'Laura Sofía Flórez',k:'Podcast · Actores y actrices',t:'Sin libreto',d:'Conversaciones con Fernando Bocanegra, Chedy Piza y el actor emergente Alejandro Molina.',a:'bocas',p:'fucsia'},
+ ep2:{src:'media/podcast-ep2.mp3',k:'Podcast · Detrás de cámaras',t:'Créditos',d:'Conversaciones con Carlos Hernández, Mauricio Vidal y Andrés Morales Duarte.',a:'creditos',p:'cobalto',por:'María José García',sc:'https://on.soundcloud.com/sGRUQMHoW5XxIZm1Ao'}
+};
+const rep=$('#reproductor'), dAudio=$('#d-audio'), pos=$('#rep-pos');
+const fmt=t=>isFinite(t)?Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0'):'0:00';
+function iconoRep(){const on=!rep.paused;$('#rep-ico').setAttribute('d',on?'M6 4h4v16H6zM14 4h4v16h-4z':'M7 4.5v15l13-7.5z');$('#rep-play').setAttribute('aria-label',on?'Pausar':'Reproducir');$('#rep').classList.toggle('sonando',on)}
+function abrirAudio(clave){
+ const a=AUDIOS[clave]; if(!a) return;
+ const rp=$('#rep-por'); rp.hidden=!a.por; rp.innerHTML=a.por?'Realización: <b>'+esc(a.por)+'</b>':'';
+ $('#rep-kicker').textContent=a.k; $('#rep-titulo').textContent=a.t; $('#rep-desc').textContent=a.d;
+ $('#rep-arte').innerHTML=collage(a.a,a.p,clave.length*7,400,400);
+ const caja=$('#rep-sc'), enl=$('#rep-sc-enlace');
+ if(a.sc){ /* episodio publicado en SoundCloud: reproductor oficial en lugar del audio local */
+  rep.pause(); $('#rep').classList.add('con-sc'); caja.hidden=false; enl.hidden=false; enl.href=a.sc;
+  caja.dataset.url=a.sc; caja.innerHTML='<p>El episodio completo está publicado en SoundCloud.</p><a class="btn rep-sc-btn" href="'+esc(a.sc)+'" target="_blank" rel="noopener">Escuchar en SoundCloud ↗</a>'; enl.hidden=true;
+  pausarMusicaPorMedio(); abrir(dAudio); return }
+ $('#rep').classList.remove('con-sc'); caja.hidden=true; enl.hidden=true; $('.aviso-muestra').hidden=!!a.final;
+ if(caja.dataset.url){caja.innerHTML='';caja.dataset.url=''}
+ if(rep.dataset.clave!==clave){rep.src=a.src;rep.dataset.clave=clave;pos.value=0;pos.style.setProperty('--av','0%');$('#rep-actual').textContent='0:00';$('#rep-total').textContent='0:00'}
+ pausarMusicaPorMedio(); abrir(dAudio);
+ const pr=rep.play(); if(pr&&pr.catch) pr.catch(()=>iconoRep());
+}
+$$('[data-audio]').forEach(b=>b.addEventListener('click',()=>abrirAudio(b.dataset.audio)));
+$('#rep-play').addEventListener('click',()=>{rep.paused?rep.play().catch(()=>{}):rep.pause()});
+$('#rep-atras').addEventListener('click',()=>{rep.currentTime=Math.max(0,rep.currentTime-10)});
+$('#rep-adelante').addEventListener('click',()=>{if(isFinite(rep.duration))rep.currentTime=Math.min(rep.duration,rep.currentTime+10)});
+['play','pause','ended'].forEach(ev=>rep.addEventListener(ev,iconoRep));
+rep.addEventListener('loadedmetadata',()=>{$('#rep-total').textContent=fmt(rep.duration)});
+rep.addEventListener('timeupdate',()=>{if(!isFinite(rep.duration))return;const p=rep.currentTime/rep.duration*100;pos.value=p;pos.style.setProperty('--av',p+'%');$('#rep-actual').textContent=fmt(rep.currentTime)});
+pos.addEventListener('input',()=>{if(isFinite(rep.duration)){rep.currentTime=pos.value/100*rep.duration;pos.style.setProperty('--av',pos.value+'%')}});
+
+/* ---------- Video (Biblia p.45 · 8): reproducción manual en módulo ---------- */
+const video=$('#video'), dVideo=$('#d-video');
+$('#btn-video').addEventListener('click',()=>{
+ if(!video.src) video.src='media/minidocumental.mp4';
+ pausarMusicaPorMedio(); abrir(dVideo); const pr=video.play(); if(pr&&pr.catch) pr.catch(()=>{});
+});
+
+/* ---------- Fotorreportaje (Biblia p.43) ---------- */
+const FOTOS=[
+ {id:'betty',t:'Betty la fea',f:'Telenovela',arte:'tv',p:'rosa'},
+ {id:'reyes',t:'Los Reyes',f:'Telenovela',arte:'reyes',p:'amarillo'},
+ {id:'caracol',t:'La estrategia del caracol',f:'Película',arte:'caracol',p:'terracota'},
+ {id:'delirio',t:'Delirio',f:'Serie',arte:'delirio',p:'azulc'},
+ {id:'primeravez',t:'La primera vez',f:'Serie',arte:'primeravez',p:'cobalto'},
+ {id:'semaforo',t:'La sociedad del semáforo',f:'Película',arte:'semaforo',p:'naranja'},
+ {id:'universal',t:'La gente de la Universal',f:'Película',arte:'universal',p:'fucsia'},
+ {id:'primeranoche',t:'La primera noche',f:'Película',arte:'primeranoche',p:'negro'},
+ {id:'dosangeles',t:'Dos ángeles y medio',f:'Película',arte:'dosangeles',p:'rojo'},
+ {id:'vecinos',t:'Vecinos',f:'Telenovela',arte:'vecinos',p:'lima'}
+].map(f=>Object.assign(f,{h:'La locación hoy',txt:['Aquí va la historia completa de la locación donde se grabó «'+f.t+'»: cómo se veía en la escena original, qué pasó durante la grabación y qué queda hoy en ese lugar.','Texto de muestra: reemplazar con la crónica y las fotos del recorrido por la locación.']}));
+const pista=$('#carrusel-pista');
+const tarjeta=(f,i,dup)=>`<button class="foto-tarjeta" type="button" data-foto="${i}" ${dup?'tabindex="-1" aria-hidden="true"':''}><div class="arte">${collage(f.arte,f.p,i+11)}</div><div class="pie"><b>${esc(f.t)}</b><small>${esc(f.f)}</small></div></button>`;
+pista.innerHTML=FOTOS.map((f,i)=>tarjeta(f,i,false)).join('')+FOTOS.map((f,i)=>tarjeta(f,i,true)).join('');
+const dHist=$('#d-historia');
+function abrirHistoria(i){
+ const f=FOTOS[i], ant=FOTOS[(i+FOTOS.length-1)%FOTOS.length], sig=FOTOS[(i+1)%FOTOS.length];
+ $('#hist-contenido').innerHTML=`<div class="hist-hero">${collage(f.arte,f.p,i+11,1600,900)}<div class="titular"><span class="chip-et">Fotorreportaje · ${String(i+1).padStart(2,'0')}/${String(FOTOS.length).padStart(2,'0')}</span><h3 id="hist-titulo">${esc(f.t)}</h3><p style="margin:0">${esc(f.f)} · locación por confirmar</p></div></div>
+ <div class="hist-cuerpo"><h4 class="kicker" style="font-size:1rem">${esc(f.h)}</h4>${f.txt.map(p=>`<p>${esc(p)}</p>`).join('')}
+ <div class="hist-galeria">${[1,2,3].map(k=>`<figure><div class="arte">${collage(f.arte,f.p,i*10+k+40)}</div><figcaption>Foto ${k} · marcador de la galería</figcaption></figure>`).join('')}</div>
+ <div class="hist-nav"><button class="btn" type="button" data-ir="${(i+FOTOS.length-1)%FOTOS.length}">← ${esc(ant.t)}</button><button class="btn" type="button" data-ir="${(i+1)%FOTOS.length}">${esc(sig.t)} →</button></div></div>`;
+ if(!dHist.open) abrir(dHist); dHist.querySelector('.ventana').scrollTop=0;
+}
+pista.addEventListener('click',e=>{const b=e.target.closest('[data-foto]');if(b)abrirHistoria(+b.dataset.foto)});
+$('#hist-contenido').addEventListener('click',e=>{const b=e.target.closest('[data-ir]');if(b)abrirHistoria(+b.dataset.ir)});
+const btnPausa=$('#btn-pausa-carrusel');
+btnPausa.addEventListener('click',()=>{const p=$('#carrusel').classList.toggle('pausado');btnPausa.setAttribute('aria-pressed',p);btnPausa.querySelector('span').textContent=p?'Reanudar carrusel':'Pausar carrusel';$('#ico-pausa').setAttribute('d',p?'M7 4.5v15l13-7.5z':'M6 4h4v16H6zM14 4h4v16h-4z')});
+if(reduce){btnPausa.hidden=true}
+
+/* ---------- Galería lateral del perfil: ampliar ---------- */
+const GAL=[['camara','fucsia','El set'],['montaje','cobalto','La sala de montaje'],['sillas','lima','El estreno']];
+$$('[data-ampliar]').forEach(b=>b.addEventListener('click',()=>{const g=GAL[+b.dataset.ampliar];
+ $('#ficha-contenido').innerHTML=`<div style="aspect-ratio:1;max-height:70vh;margin:0 auto">${collage(g[0],g[1],+b.dataset.ampliar+5,800,800)}</div><div class="ficha-cuerpo"><h3 id="ficha-titulo" class="kicker" style="margin:0">${esc(g[2])}</h3><p style="margin:.4rem 0 0;font-size:.85rem">Imagen de muestra de la galería del perfil.</p></div>`;
+ abrir($('#d-ficha'))}));
+
+/* ---------- Fichas de oficios ---------- */
+const ICO={
+ foto:'<path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="4"/>',
+ sonido:'<path d="M4 20L14 10"/><rect x="13" y="3" width="8" height="10" rx="4" transform="rotate(45 17 8)"/>',
+ arte:'<path d="M18 3l3 3-10 10-4 1 1-4z"/><path d="M4 21c2 0 4-1 4-4"/>',
+ montaje:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5L20 18M8.5 16.5L20 6"/>',
+ script:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8 10h8M8 14h8M8 18h5"/>',
+ luz:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/>',
+ casting:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5.5"/>',
+ prod:'<path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>'
+};
+const REC_OF={foto:'camara-8mm',sonido:'microfono',arte:'casa',montaje:'tira-pelicula',script:'claqueta',luz:'reflector',casting:'manos',prod:'megafono'};
+const OFICIOS=[
+ ['foto','Dirección de fotografía','Imagen','Decide con la dirección cómo se ve la película: la luz, los encuadres, los lentes y el movimiento de cámara.','amarillo','negro'],
+ ['sonido','Sonido directo','Sonido','Graba las voces y los ambientes en el set. Pelea contra aviones, motos y neveras para que cada diálogo se entienda.','fucsia','negro'],
+ ['arte','Dirección de arte','Arte','Construye el mundo de la película: espacios, objetos, colores y texturas que hablan de los personajes sin decir nada.','lima','negro'],
+ ['montaje','Montaje','Posproducción','Elige qué plano va, cuánto dura y en qué orden. En la sala de edición, la película se escribe por última vez.','cobalto','crema'],
+ ['script','Continuidad (script)','Dirección','Vigila que todo coincida entre plano y plano: la ropa, el vaso medio lleno, la mano que sostiene la puerta.','terracota','negro'],
+ ['luz','Luminotecnia','Imagen','El equipo eléctrico que monta, mueve y moldea la luz que diseñó la dirección de fotografía.','naranja','negro'],
+ ['casting','Casting','Dirección','Encuentra los rostros y las voces de la historia. Muchas veces, actores naturales que nunca habían actuado.','rosa','negro'],
+ ['prod','Producción de campo','Producción','Resuelve todo lo que pasa fuera del encuadre: permisos, transporte, comida y que el rodaje llegue a tiempo.','rojo','crema']
+];
+$('#oficios').innerHTML=OFICIOS.map((o,i)=>`<div class="oficio revela"><button type="button" aria-pressed="false" aria-label="${esc(o[1])}. Mostrar qué hace">
+ <span class="cara" style="--c:${P[o[4]]};--t:${P[o[5]]}">${recImg(REC_OF[o[0]],'rec-oficio')}<span><small>${esc(o[2])}</small><br><b>${esc(o[1])}</b></span></span>
+ <span class="cara reverso" aria-hidden="true"><b>${esc(o[1])}</b><span>${esc(o[3])}</span></span></button></div>`).join('');
+$$('#oficios button').forEach(b=>{b.addEventListener('click',()=>{const v=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',v);b.querySelector('.reverso').setAttribute('aria-hidden',!v);b.querySelector('.cara:not(.reverso)').setAttribute('aria-hidden',v)})});
+$$('#oficios .revela').forEach(el=>ioRev.observe(el));
+
+/* ---------- Barra de lectura del perfil ---------- */
+function actualizarScroll(){
+ const vh=innerHeight;
+ let enArt=false; arts.forEach(art=>{const ar=art.getBoundingClientRect();if(ar.top<vh*.3&&ar.bottom>0){enArt=true;const pl=Math.max(0,Math.min(1,-ar.top/(ar.height-vh*.5)));barraL.style.transform=`scaleX(${pl})`}}); barraL.classList.toggle('visible',enArt);
+}
+let tick=false; addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(()=>{actualizarScroll();tick=false})}},{passive:true});
+addEventListener('resize',actualizarScroll); actualizarScroll();
+
+/* ---------- Carrusel 3D de la línea de tiempo (Biblia p.44 · 7) ---------- */
+const HITOS=[
+ ['1896','Llega el cinematógrafo','Las primeras proyecciones del invento de los hermanos Lumière llegan a varias capitales de América Latina, entre ellas Buenos Aires, Río de Janeiro y Ciudad de México.','América Latina','rojo','crema'],
+ ['1897','Primera función en Colombia','El cinematógrafo llega al país por la costa Caribe, en Colón (Panamá, entonces parte de Colombia), y después a otras ciudades.','Colombia','amarillo','negro'],
+ ['1922','“María”, el gran estreno','Se estrena la adaptación de la novela de Jorge Isaacs, uno de los primeros largometrajes de ficción del cine colombiano.','Colombia','fucsia','negro'],
+ ['1936–1956','Época de oro mexicana','El cine de México vive su periodo más prolífico y sus estrellas se vuelven populares en todo el continente.','México','cobalto','crema'],
+ ['Años 60','Nuevo Cine Latinoamericano','Movimientos como el Cinema Novo en Brasil proponen un cine político, propio y hecho con pocos recursos.','Brasil · Cuba · Argentina','lima','negro'],
+ ['1971','Nace la Cinemateca de Bogotá','Bogotá abre una cinemateca pública que se volverá un espacio clave para ver y preservar cine.','Colombia','terracota','negro'],
+ ['1978','Se crea FOCINE','La Compañía de Fomento Cinematográfico impulsa la producción nacional hasta su liquidación en 1993.','Colombia','naranja','negro'],
+ ['1986','Escuela de San Antonio de los Baños','Se funda en Cuba la Escuela Internacional de Cine y Televisión, que formará a cineastas de toda la región.','Cuba','azulp','crema'],
+ ['2003','Ley de Cine','La Ley 814 crea el Fondo para el Desarrollo Cinematográfico y cambia la manera de financiar películas en Colombia.','Colombia','rojo','crema'],
+ ['2012','Colombia como set','La Ley 1556 crea el Fondo Fílmico Colombia para atraer rodajes internacionales al país.','Colombia','amarillo','negro'],
+ ['2016','Primera nominación al Óscar','“El abrazo de la serpiente”, de Ciro Guerra, se convierte en la primera película colombiana nominada al Óscar en la categoría de habla no inglesa.','Colombia','fucsia','negro'],
+ ['2022','Concha de Oro','“Los reyes del mundo”, de Laura Mora, gana el máximo premio del Festival de San Sebastián.','Colombia · España','cobalto','crema']
+];
+const anillo=$('#tl-anillo'), N=HITOS.length, ANG=360/N; let tlI=0;
+anillo.innerHTML=HITOS.map((h,i)=>`<button class="tl-tarjeta" type="button" data-i="${i}" style="--c:${P[h[4]]};--t:${P[h[5]]}" aria-label="${esc(h[0]+': '+h[1])}"><span class="anio">${esc(h[0])}</span><h4>${esc(h[1])}</h4><p>${esc(h[2])}</p><span class="lugar">${esc(h[3])}</span></button>`).join('');
+const tarjetasTL=$$('.tl-tarjeta',anillo);
+const modo3D=()=>!reduce&&innerWidth>760;
+function radio(){return Math.round(150/Math.tan(Math.PI/N))+60}
+function tl(i,desdeScroll){
+ tlI=(i+N)%N; const R=radio();
+ tarjetasTL.forEach((t,k)=>{t.classList.toggle('activa',k===tlI);t.setAttribute('aria-current',k===tlI?'true':'false');if(modo3D())t.style.transform=`rotateY(${k*ANG}deg) translateZ(${R}px)`;else t.style.transform=''});
+ if(modo3D()){anillo.style.transform=`translateZ(${-R}px) rotateY(${-tlAcum*ANG}deg)`}
+ else if(!desdeScroll){tarjetasTL[tlI].scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest',inline:'center'})}
+ $('#tl-contador').textContent=String(tlI+1).padStart(2,'0')+'/'+N;
+}
+let tlAcum=0;
+function mover(d){tlAcum+=d;tl(tlI+d)}
+$('#tl-sig').addEventListener('click',()=>mover(1));
+$('#tl-ant').addEventListener('click',()=>mover(-1));
+anillo.addEventListener('click',e=>{const t=e.target.closest('.tl-tarjeta');if(!t)return;const k=+t.dataset.i;let d=k-tlI;if(d>N/2)d-=N;if(d<-N/2)d+=N;if(d)mover(d);else if(modo3D())mover(1)});
+$('#tl-escena').addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();mover(1)}if(e.key==='ArrowLeft'){e.preventDefault();mover(-1)}});
+let sx=null; $('#tl-escena').addEventListener('pointerdown',e=>{if(modo3D())sx=e.clientX});
+$('#tl-escena').addEventListener('pointerup',e=>{if(sx!==null){const d=e.clientX-sx;if(Math.abs(d)>40)mover(d<0?1:-1);sx=null}});
+anillo.addEventListener('scroll',()=>{if(modo3D())return;const c=anillo.scrollLeft+anillo.clientWidth/2;let best=0,bd=1e9;tarjetasTL.forEach((t,k)=>{const d=Math.abs(t.offsetLeft+t.offsetWidth/2-c);if(d<bd){bd=d;best=k}});if(best!==tlI){tlAcum+=best-tlI;tl(best,true)}},{passive:true});
+addEventListener('resize',()=>tl(tlI,true)); tl(0,true);
+
+/* ---------- Dosis de peli: retícula de carteles con filtros ---------- */
+const PELIS=[
+ ['La estrategia del caracol',1993,'Sergio Cabrera',['ciudad','empezar'],'Los inquilinos de una vieja casa en el centro de Bogotá se unen para resistir un desalojo con un plan ingenioso.','rojo','crema','amarillo','negro'],
+ ['Rodrigo D: No futuro',1990,'Víctor Gaviria',['ciudad','memoria'],'Un joven de Medellín sueña con ser baterista de punk mientras sus amigos viven al filo de la violencia.','negro','crema','rojo','fucsia'],
+ ['La vendedora de rosas',1998,'Víctor Gaviria',['ciudad','memoria'],'Una niña vende rosas en las calles de Medellín durante la noche de Navidad.','fucsia','negro','amarillo','crema'],
+ ['Los viajes del viento',2009,'Ciro Guerra',['territorio'],'Un juglar vallenato recorre el Caribe colombiano para devolver su acordeón a su maestro.','amarillo','negro','rojo','cobalto'],
+ ['El abrazo de la serpiente',2015,'Ciro Guerra',['territorio','memoria'],'Un chamán amazónico acompaña, en dos épocas distintas, a dos exploradores que buscan una planta sagrada.','lima','negro','negro','crema'],
+ ['La tierra y la sombra',2015,'César Augusto Acevedo',['territorio','memoria'],'Un campesino vuelve a casa para cuidar a su hijo enfermo, en medio de los cañaduzales y la ceniza de las quemas.','terracota','negro','amarillo','crema'],
+ ['Pájaros de verano',2018,'Cristina Gallego y Ciro Guerra',['territorio','mujeres'],'Una familia wayuu se ve arrastrada por la bonanza marimbera y la ambición en La Guajira.','naranja','negro','rojo','crema'],
+ ['Monos',2019,'Alejandro Landes',['memoria','empezar'],'En lo alto de una montaña, un grupo de jóvenes combatientes vigila a una rehén.','cobalto','crema','fucsia','lima'],
+ ['Matar a Jesús',2017,'Laura Mora',['ciudad','mujeres'],'Una estudiante de Medellín se acerca al joven que asesinó a su padre.','rosa','negro','negro','cobalto'],
+ ['Los reyes del mundo',2022,'Laura Mora',['territorio','mujeres','empezar'],'Cinco muchachos de Medellín viajan por el país para reclamar una tierra que les prometieron.','azulp','crema','amarillo','fucsia'],
+ ['Los colores de la montaña',2010,'Carlos César Arbeláez',['territorio','empezar'],'Unos niños de una vereda quieren recuperar su balón, que cayó en un campo minado.','verdec','negro','cobalto','rojo'],
+ ['Chircales',1972,'Marta Rodríguez y Jorge Silva',['memoria','mujeres'],'Documental sobre una familia que fabrica ladrillos a mano en las afueras de Bogotá.','papel','negro','terracota','rojo']
+];
+const REC_PELI=['caracol','bocas','estrella','flecha-trama','ojo','casa','espejo-roto','exclamacion','reflector','manos','carrete','camara-8mm'];
+const PUERTAS=[['todas','Todas'],['empezar','Para empezar'],['memoria','Memoria y conflicto'],['ciudad','Ciudad'],['territorio','Territorio'],['mujeres','Dirigidas por mujeres']];
+const NOMBRE_P=Object.fromEntries(PUERTAS);
+$('#filtros-pelis').innerHTML=PUERTAS.map((p,i)=>`<button class="filtro" type="button" data-p="${p[0]}" aria-pressed="${i===0}">${esc(p[1])}</button>`).join('');
+$('#carteles').innerHTML=PELIS.map((f,i)=>`<button class="cartel revela" type="button" data-peli="${i}" style="--c:${P[f[5]]};--t:${P[f[6]]};--f:${P[f[7]]};--g:${P[f[8]]}" aria-label="${esc(f[0])}, ${f[1]}. Ver ficha">${recImg(REC_PELI[i],"rec-cartel")}<span class="ca">${f[1]}</span><span class="ct">${esc(f[0])}</span><span class="cd">${esc(f[2])}</span></button>`).join('');
+$$('#carteles .revela').forEach(el=>ioRev.observe(el));
+$('#filtros-pelis').addEventListener('click',e=>{const b=e.target.closest('.filtro');if(!b)return;
+ $$('#filtros-pelis .filtro').forEach(x=>x.setAttribute('aria-pressed',x===b));const p=b.dataset.p;let n=0;
+ $$('#carteles .cartel').forEach(c=>{const ok=p==='todas'||PELIS[+c.dataset.peli][3].includes(p);c.classList.toggle('oculto',!ok);if(ok){n++;c.classList.add('visible')}});
+ $('#pelis-estado').textContent=n+' películas en '+NOMBRE_P[p]});
+$('#carteles').addEventListener('click',e=>{const c=e.target.closest('.cartel');if(!c)return;const f=PELIS[+c.dataset.peli];
+ $('#ficha-contenido').innerHTML=`<div class="ficha-cab" style="--c:${P[f[5]]};--t:${P[f[6]]}"><span class="chip-et">${f[3].map(x=>esc(NOMBRE_P[x])).join(' · ')}</span><h3 id="ficha-titulo">${esc(f[0])}</h3><p style="margin:0">${f[1]} · ${esc(f[2])}</p></div>
+ <div class="ficha-cuerpo"><p style="margin:0">${esc(f[4])}</p><h4>Dónde verla</h4><p style="margin:0 0 .8rem;font-size:.9rem">Búscala en Retina Latina, la plataforma pública y gratuita de cine latinoamericano. <em>La disponibilidad de cada título está por verificar.</em></p>
+ <a class="btn" href="https://www.retinalatina.org" target="_blank" rel="noopener">Buscar en Retina Latina <span aria-hidden="true">↗</span></a><p style="font-size:.8rem;margin:.6rem 0 0">retinalatina.org</p></div>`;
+ abrir($('#d-ficha'))});
+
+/* ---------- ¿Sin plan? Mapa + lista (infografía dinámica) ---------- */
+const BORDE=[[-71.3,12.35],[-71.98,12.45],[-72.4,11.8],[-73.3,11.3],[-74.2,11.25],[-74.8,11.0],[-75.5,10.4],[-75.7,9.4],[-76.2,9.0],[-76.7,8.6],[-77.36,8.67],[-77.9,7.2],[-77.6,6.5],[-77.4,5.8],[-77.3,4.6],[-77.0,3.9],[-77.8,2.6],[-78.6,2.2],[-78.8,1.8],[-78.9,1.4],[-77.6,0.8],[-76.5,0.3],[-75.5,-0.1],[-75.2,-0.9],[-74.3,-1.5],[-73.5,-2.3],[-72.0,-2.4],[-70.5,-3.8],[-69.95,-4.2],[-69.5,-1.0],[-69.6,0.6],[-70.0,1.2],[-69.4,1.7],[-67.8,1.8],[-67.3,2.2],[-67.5,3.7],[-67.8,6.2],[-69.4,6.1],[-70.7,7.0],[-72.0,7.0],[-72.5,7.9],[-73.0,9.2],[-72.8,10.5],[-72.3,11.1],[-71.3,11.8]];
+const LON0=-79.4,LON1=-66.6,LAT0=-4.6,LAT1=12.8,K=30;
+const px=(lon,lat)=>[((lon-LON0)*K).toFixed(1),((LAT1-lat)*K).toFixed(1)];
+const TIPOS={cinemateca:['Cinemateca','rojo'],sala:['Sala independiente','cobalto'],festival:['Festival','amarillo']};
+const SALAS=[
+ {id:'cinemateca-bogota',n:'Cinemateca de Bogotá',tipo:'cinemateca',c:'Bogotá',ll:[-74.07,4.71],d:'La cinemateca pública de la ciudad: ciclos, estrenos de cine colombiano, archivo y formación.'},
+ {id:'bogoshorts',n:'BOGOSHORTS',tipo:'festival',c:'Bogotá',ll:[-73.78,4.95],d:'Festival de cortometrajes de Bogotá. Una puerta de entrada perfecta para conocer nuevas voces.'},
+ {id:'cine-colombo',n:'Cine Colombo',tipo:'sala',c:'Medellín',ll:[-75.57,6.25],d:'Sala de cine independiente del Centro Colombo Americano en Medellín.'},
+ {id:'santafe',n:'Festival de Cine de Santa Fe de Antioquia',tipo:'festival',c:'Santa Fe de Antioquia',ll:[-75.83,6.56],d:'Festival que llena de cine las calles y plazas del municipio.'},
+ {id:'tertulia',n:'Cinemateca La Tertulia',tipo:'cinemateca',c:'Cali',ll:[-76.53,3.45],d:'La cinemateca del Museo La Tertulia, punto de encuentro de la cinefilia caleña.'},
+ {id:'ficali',n:'Festival Internacional de Cine de Cali',tipo:'festival',c:'Cali',ll:[-76.25,3.2],d:'Festival de cine de la ciudad, con muestras nacionales e internacionales.'},
+ {id:'caribe',n:'Cinemateca del Caribe',tipo:'cinemateca',c:'Barranquilla',ll:[-74.8,10.96],d:'Espacio dedicado a la exhibición y la formación de públicos en la región Caribe.'},
+ {id:'ficci',n:'FICCI · Festival de Cine de Cartagena',tipo:'festival',c:'Cartagena',ll:[-75.51,10.39],d:'El festival de cine más antiguo de América Latina, creado en 1960.'}
+];
+const CIUDADES=[['Bogotá',-74.07,4.71],['Medellín',-75.57,6.25],['Cali',-76.53,3.45],['Barranquilla',-74.8,10.96],['Cartagena',-75.51,10.39]];
+const W=((LON1-LON0)*K).toFixed(0), H=((LAT1-LAT0)*K).toFixed(0);
+$('#mapa').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="mapa-tit"><title id="mapa-tit">Mapa esquemático de Colombia con cinematecas, salas y festivales</title>
+ <defs><pattern id="rej" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#111" stroke-opacity=".08"/></pattern></defs>
+ <rect width="${W}" height="${H}" fill="url(#rej)"/>
+ <polygon class="mapa-pais" points="${BORDE.map(p=>px(p[0],p[1]).join(',')).join(' ')}"/>
+ <text x="${px(-72.4,2.8)[0]}" y="${px(-72.4,2.8)[1]}" font-family="Bebas Neue,Impact,sans-serif" font-size="46" fill="#111" opacity=".18" text-anchor="middle">COLOMBIA</text>
+ ${CIUDADES.map(c=>{const [x,y]=px(c[1],c[2]);return `<text class="mapa-ciudad" x="${+x+12}" y="${+y-12}">${esc(c[0])}</text>`}).join('')}
+ ${SALAS.map((s,i)=>{const [x,y]=px(s.ll[0],s.ll[1]);return `<g class="pin" data-sala="${i}" tabindex="0" role="button" aria-label="${esc(s.n)}, ${esc(s.c)}. Ver ficha" style="--c:${P[TIPOS[s.tipo][1]]}"><circle class="halo" cx="${x}" cy="${y}" r="12"/><circle class="punto" cx="${x}" cy="${y}" r="8"/></g>`}).join('')}
+</svg>`;
+const TIPO_F=[['todos','Todos'],['cinemateca','Cinematecas'],['sala','Salas'],['festival','Festivales']];
+$('#filtros-salas').innerHTML=TIPO_F.map((t,i)=>`<button class="filtro" type="button" data-t="${t[0]}" aria-pressed="${i===0}">${t[1]}</button>`).join('');
+let tipoSel='todos';
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+function pintarLista(){
+ const q=norm($('#buscar-sala').value.trim());
+ const vis=SALAS.map((s,i)=>[s,i]).filter(([s])=>(tipoSel==='todos'||s.tipo===tipoSel)&&(!q||norm(s.n+' '+s.c).includes(q)));
+ $('#lista-salas').innerHTML=vis.length?vis.map(([s,i])=>`<li><button type="button" data-sala="${i}" style="--c:${P[TIPOS[s.tipo][1]]}"><i aria-hidden="true"></i><span><b>${esc(s.n)}</b><small>${esc(TIPOS[s.tipo][0])} · ${esc(s.c)}</small></span><span class="fle" aria-hidden="true">→</span></button></li>`).join(''):'<li class="lista-vacia">No encontramos lugares con ese filtro. Prueba con otra ciudad.</li>';
+ $$('.pin').forEach(p=>{const ok=vis.some(([,i])=>i===+p.dataset.sala);p.style.opacity=ok?1:.15;p.style.pointerEvents=ok?'':'none'});
+ $('#salas-estado').textContent=vis.length+' lugares';
+}
+$('#filtros-salas').addEventListener('click',e=>{const b=e.target.closest('.filtro');if(!b)return;tipoSel=b.dataset.t;$$('#filtros-salas .filtro').forEach(x=>x.setAttribute('aria-pressed',x===b));pintarLista()});
+$('#buscar-sala').addEventListener('input',pintarLista);
+pintarLista();
+function resaltar(i,v){$$(`[data-sala="${i}"]`).forEach(el=>el.classList.toggle('resaltado',v))}
+['mouseover','focusin'].forEach(ev=>document.addEventListener(ev,e=>{const t=e.target.closest&&e.target.closest('[data-sala]');if(t)resaltar(t.dataset.sala,true)}));
+['mouseout','focusout'].forEach(ev=>document.addEventListener(ev,e=>{const t=e.target.closest&&e.target.closest('[data-sala]');if(t)resaltar(t.dataset.sala,false)}));
+const KEY='fdc-resenas';
+const leer=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}};
+const guardar=o=>{try{localStorage.setItem(KEY,JSON.stringify(o));return true}catch(e){return false}};
+let memoria=leer();
+function fichaSala(i,alForm){
+ const s=SALAS[i], t=TIPOS[s.tipo];
+ const propias=(memoria[s.id]||[]);
+ $('#ficha-contenido').innerHTML=`<div class="ficha-cab" style="--c:${P[t[1]]};--t:${s.tipo==='festival'?P.negro:P.crema}"><span class="chip-et">${esc(t[0])}</span><h3 id="ficha-titulo">${esc(s.n)}</h3><p style="margin:0">${esc(s.c)}</p></div>
+ <div class="ficha-cuerpo"><p style="margin:0">${esc(s.d)}</p>
+ <h4>Información</h4><dl class="ficha-datos"><dt>Ciudad</dt><dd>${esc(s.c)}</dd><dt>Dirección</dt><dd>Por confirmar</dd><dt>Horario</dt><dd>Por confirmar</dd><dt>Accesibilidad</dt><dd>Por confirmar</dd></dl>
+ <h4>${s.tipo==='festival'?'Programación':'Cartelera actual'}</h4><table class="tabla-mini"><thead><tr><th scope="col">Película</th><th scope="col">Función</th></tr></thead><tbody><tr><td>Título por confirmar</td><td>—</td></tr><tr><td>Título por confirmar</td><td>—</td></tr></tbody></table>
+ <h4>Precios de boletería</h4><table class="tabla-mini"><tbody><tr><th scope="row">General</th><td>Por confirmar</td></tr><tr><th scope="row">Estudiantes</th><td>Por confirmar</td></tr></tbody></table>
+ <h4>Reseñas de la comunidad</h4><ul class="resenas" id="lista-resenas">${propias.map(r=>`<li><b>${esc(r.n)}</b>${esc(r.t)}</li>`).join('')}<li><b>Reseña de ejemplo</b>Acá aparecerán las opiniones de quienes ya fueron.</li></ul>
+ <form class="form-resena" id="form-resena" novalidate><h4 style="margin:.8rem 0 0" id="t-resena">Cuéntanos a qué fuiste</h4>
+ <label class="sr" for="r-nombre">Tu nombre</label><input id="r-nombre" maxlength="40" placeholder="Tu nombre o apodo" autocomplete="nickname">
+ <label class="sr" for="r-texto">Tu reseña</label><textarea id="r-texto" maxlength="400" placeholder="¿Qué viste? ¿Cómo te fue en la sala?" required></textarea>
+ <button class="btn" type="submit">Publicar reseña</button><p class="estado" id="r-estado" aria-live="polite"></p></form></div>`;
+ abrir($('#d-ficha'));
+ $('#form-resena').addEventListener('submit',e=>{e.preventDefault();const tx=$('#r-texto').value.trim();if(!tx){$('#r-estado').textContent='Escribe algo antes de publicar.';$('#r-texto').focus();return}
+  const r={n:$('#r-nombre').value.trim()||'Anónimo',t:tx};memoria[s.id]=[r,...(memoria[s.id]||[])];const ok=guardar(memoria);
+  $('#lista-resenas').insertAdjacentHTML('afterbegin',`<li><b>${esc(r.n)}</b>${esc(r.t)}</li>`);e.target.reset();
+  $('#r-estado').textContent=ok?'¡Gracias! Tu reseña quedó guardada en este navegador (versión de demostración).':'¡Gracias! Tu reseña se muestra solo en esta visita (versión de demostración).'});
+ if(alForm) setTimeout(()=>{$('#r-texto').focus();$('#t-resena').scrollIntoView({block:'center'})},350);
+}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-sala]');if(t)fichaSala(+t.dataset.sala)});
+document.addEventListener('keydown',e=>{const t=e.target.closest&&e.target.closest('.pin');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();fichaSala(+t.dataset.sala)}});
+$('#cta-resena').addEventListener('click',()=>{const lista=$('#lista-salas');lista.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+ $('#buscar-sala').classList.remove('pulso');void lista.offsetWidth;$$('#lista-salas button').forEach(b=>{b.classList.remove('pulso');void b.offsetWidth;b.classList.add('pulso')});
+ $('#salas-estado').textContent='Elige un lugar de la lista para dejar tu reseña.'});
+
+/* ---------- Suscripción ---------- */
+$('#form-suscripcion').addEventListener('submit',e=>{e.preventDefault();const i=$('#correo'),est=$('#estado-suscripcion');
+ if(!i.value.trim()||!i.checkValidity()){est.textContent='Revisa tu correo: parece que le falta algo.';i.focus();return}
+ est.textContent='¡Listo! Anotamos '+i.value.trim()+'. En esta versión de demostración el correo no se envía a ningún servidor.';i.value=''});
+
+/* ---------- Pintar artes ---------- */
+pintarArtes();
+$$('[data-recortes]').forEach(el=>{el.innerHTML=el.dataset.recortes.split(',').map(par=>{const [n,c]=par.split(':');return recImg(n,c)}).join('');if(el.tagName==='SPAN'){el.setAttribute('aria-hidden','true')}});
+$$('[data-logo]').forEach(el=>{el.innerHTML=logoSVG(P.crema,P.crema,P.amarillo);el.firstChild.style.width='100%'});
+
+})();
+</script>
+</body>
+</html>
