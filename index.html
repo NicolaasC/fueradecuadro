@@ -777,6 +777,39 @@ a.fr-tarjeta:focus-visible{outline:3px solid var(--c);outline-offset:3px}
 a.storymap .storymap-marco{height:auto;min-height:0;aspect-ratio:16/9}
 .storymap-marco iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
 .storymap-marco .rec{position:absolute}
+.sm-portada{background:#14204f}
+.sm-fondo,.sm-fondo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.sm-fondo img{opacity:.78;transition:transform 700ms var(--ease-out)}
+.sm-portada::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(17,17,17,.78) 0%,rgba(17,17,17,.45) 42%,rgba(17,17,17,0) 72%),linear-gradient(0deg,rgba(17,17,17,.55),transparent 55%)}
+.sm-portada .genially-txt{z-index:2}
+.sm-portada .genially-txt b{text-shadow:0 3px 0 rgba(0,0,0,.35)}
+@media (hover:hover) and (pointer:fine){a.storymap:hover .sm-fondo img,.storymap .sm-portada:hover .sm-fondo img{transform:scale(1.03)}}
+.storymap button.genially-btn{border:0;cursor:pointer;font:inherit;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem}
+.resenas-sec{padding:1rem 0 1rem;scroll-margin-top:6.5rem}
+.resenas-rejilla{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:2rem;align-items:start}
+@media (max-width:900px){.resenas-rejilla{grid-template-columns:minmax(0,1fr)}}
+.resena-form{display:grid;gap:.45rem;background:var(--amarillo);border:3px solid var(--negro);border-radius:8px;padding:1.6rem;box-shadow:6px 6px 0 var(--negro)}
+.resena-form h4,.resenas-lista-caja h4{font-family:var(--display);font-weight:400;font-size:2.4rem;line-height:.95;margin:0 0 .3rem}
+.resena-ayuda{margin:0 0 .6rem;font-size:.9rem}
+.resena-form label{font-family:var(--etiqueta);font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;margin-top:.5rem}
+.resena-form input,.resena-form textarea{width:100%;border:3px solid var(--negro);border-radius:6px;padding:.75rem .9rem;font:inherit;font-size:.95rem;background:var(--crema);color:var(--negro)}
+.resena-form textarea{resize:vertical;min-height:120px}
+.resena-form input:focus-visible,.resena-form textarea:focus-visible{outline:3px solid var(--cobalto);outline-offset:2px}
+.resena-form .btn{justify-self:start;margin-top:.8rem}
+.resena-form .estado{margin:.2rem 0 0;font-size:.85rem;min-height:1.3em}
+.trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.resenas-lista{list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.9rem;max-height:640px;overflow-y:auto;padding-right:.3rem}
+.resenas-lista li{background:var(--crema);border:2px solid var(--negro);border-radius:8px;padding:1rem 1.1rem}
+.resenas-lista li.nueva{animation:resenaEntra 600ms var(--ease-out)}
+@keyframes resenaEntra{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.resenas-lista .r-cab{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;align-items:baseline}
+.resenas-lista .r-cab b{font-size:1rem}
+.resenas-lista time{font-size:.75rem;color:#4a443d}
+.resenas-lista .r-meta{font-size:.82rem;margin:.25rem 0 .5rem;color:#3a3530}
+.resenas-lista .r-meta em{font-style:italic;color:var(--rojo);font-weight:600}
+.resenas-lista p{margin:0;font-size:.92rem;line-height:1.55;white-space:pre-line;overflow-wrap:anywhere}
+.resenas-lista .r-vacio{background:none;border:2px dashed var(--negro);text-align:center;font-size:.9rem}
+#r-cuenta{font-family:var(--cifra);font-size:1.2rem;color:var(--rojo)}
 .sm1{right:6%;top:8%;width:30%;transform:rotate(8deg)}.sm2{right:30%;bottom:-4%;width:20%;transform:rotate(-6deg)}.sm3{right:4%;bottom:8%;width:13%;transform:rotate(14deg)}
 a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visible{outline:3px solid var(--cobalto);outline-offset:6px;border-radius:8px}
 .storymap-pie{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1rem;margin-top:1rem;font-size:.85rem}
@@ -1229,12 +1262,41 @@ a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visib
       <div class="revela">
         <span class="chip-et">Infografía interactiva · ¿Sin plan?</span>
         <h3 class="titulo-mod">Dónde ver cine colombiano</h3>
-        <p class="entradilla">Cinematecas, salas independientes y festivales. Recorre el mapa parada por parada y descubre dónde ver cine colombiano.</p>
+        <p class="entradilla">Una ruta por el cine colombiano. Desde cinematecas y salas independientes hasta festivales. ¡Recorre cada parada y déjate sorprender por las historias que llegan a la pantalla grande!</p>
       </div>
-      <figure class="storymap revela" style="margin-left:0;margin-right:0">
-        <div class="storymap-marco"><iframe title="¿Sin plan? · mapa interactivo en StoryMapJS" src="https://uploads.knightlab.com/storymapjs/6ee39bba5ac278e1871e2680c1b2954f/sin-plan-1/draft.html" loading="lazy" allowfullscreen allow="fullscreen"></iframe></div>
-        <figcaption class="storymap-pie"><span>Avanza con las flechas del mapa para recorrer cada lugar.</span><a class="genially-abrir" href="https://uploads.knightlab.com/storymapjs/6ee39bba5ac278e1871e2680c1b2954f/sin-plan-1/draft.html" target="_blank" rel="noopener">Ver en pantalla completa ↗</a></figcaption>
+      <figure class="storymap revela" data-sm-src="https://uploads.knightlab.com/storymapjs/6ee39bba5ac278e1871e2680c1b2954f/sin-plan-1/draft.html" style="margin-left:0;margin-right:0">
+        <div class="storymap-marco sm-portada">
+          <picture class="sm-fondo" aria-hidden="true"><source media="(max-width:640px)" srcset="img/sinplan-fondo-m.webp"><img src="img/sinplan-fondo.webp" alt="" loading="lazy" decoding="async"></picture>
+          <div class="genially-txt"><span class="kicker">Mapa interactivo</span><b>¿Sin plan?</b><button class="genially-btn" type="button">Abrir el mapa</button></div>
+        </div>
+        <figcaption class="storymap-pie" hidden><span>Avanza con las flechas del mapa para recorrer cada parada.</span><a class="genially-abrir" href="https://uploads.knightlab.com/storymapjs/6ee39bba5ac278e1871e2680c1b2954f/sin-plan-1/draft.html" target="_blank" rel="noopener">Ver en pantalla completa ↗</a></figcaption>
       </figure>
+    </div>
+    <div class="envoltura resenas-zona">
+      <div class="cta-cierre" style="padding-bottom:2rem"><button class="btn" type="button" id="btn-resenas" aria-expanded="false" aria-controls="resenas">Deja tu reseña <span class="fle" aria-hidden="true">↓</span></button></div>
+      <div class="resenas-sec" id="resenas" hidden>
+        <div class="resenas-rejilla">
+          <form class="resena-form" id="form-resena" novalidate>
+            <h4>Deja tu reseña</h4>
+            <p class="resena-ayuda">Cuéntale a otros espectadores cómo te fue. Tu reseña queda publicada en esta sección.</p>
+            <label for="r-nombre">Nombre:</label>
+            <input id="r-nombre" name="nombre" type="text" maxlength="60" autocomplete="given-name" required>
+            <label for="r-lugar">¿A dónde fuiste?:</label>
+            <input id="r-lugar" name="lugar" type="text" maxlength="100" placeholder="Sala, cinemateca o festival" required>
+            <label for="r-peli">¿Qué película viste?:</label>
+            <input id="r-peli" name="pelicula" type="text" maxlength="100" required>
+            <label for="r-exp">Cuéntanos tu experiencia:</label>
+            <textarea id="r-exp" name="experiencia" maxlength="1200" rows="5" required></textarea>
+            <div class="trampa" aria-hidden="true"><label for="r-web">No llenes este campo</label><input id="r-web" name="web" type="text" tabindex="-1" autocomplete="off"></div>
+            <button class="btn" type="submit" id="r-enviar">Publicar reseña</button>
+            <p class="estado" id="r-estado" aria-live="polite"></p>
+          </form>
+          <div class="resenas-lista-caja">
+            <h4>Lo que dicen los espectadores <span id="r-cuenta"></span></h4>
+            <ul class="resenas-lista" id="resenas-lista"><li class="r-vacio">Cargando reseñas…</li></ul>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="cta-cierre"><a class="btn" href="#futuro">Sigue al cierre del especial <span class="fle" aria-hidden="true">→</span></a></div>
   </div>
@@ -1497,7 +1559,7 @@ const SECCIONES=[
  {id:'costo',n:'05',sn:'El costo de un sueño',t:'Luces, cámara… ¿presupuesto?',p:'Cuánto cuesta, de verdad, hacer una película acá.',c:'terracota',tx:'negro',k:'Reportaje'},
  {id:'continental',n:'06',sn:'Mirada continental',t:'Viaje fílmico',p:'Cómo nos vemos al lado del resto de Latinoamérica.',c:'lima',tx:'negro',k:'Infografía estática'},
  {id:'dosis',n:'07',sn:'Dosis de peli',t:'Dosis de peli',p:'Qué ver si nunca has visto cine colombiano.',c:'negro',tx:'crema',k:'Curaduría'},
- {id:'sinplan',n:'08',sn:'¿Sin plan?',t:'¿Sin plan?',p:'Dónde ver cine colombiano esta semana.',c:'azulp',tx:'crema',k:'Infografía interactiva'},
+ {id:'sinplan',n:'08',sn:'¿Sin plan?',t:'¿Sin plan?',p:'Prepara tus palomitas y encuentra tu próxima función.',c:'azulp',tx:'crema',k:'Infografía interactiva'},
  {id:'futuro',n:'09',sn:'Futuro en proyección',t:'Futuro en proyección',p:'Qué viene ahora y qué puedes hacer tú.',c:'rosa',tx:'negro',k:'Cierre editorial'}
 ];
 const etiquetaSec=s=>s.sn===s.t?s.k:s.sn+' · '+s.k;
@@ -2019,6 +2081,45 @@ $('#carteles').addEventListener('click',e=>{const c=e.target.closest('.cartel');
  <div class="ficha-cuerpo"><p style="margin:0">${esc(f[4])}</p><h4>Dónde verla</h4><p style="margin:0 0 .8rem;font-size:.9rem">Búscala en Retina Latina, la plataforma pública y gratuita de cine latinoamericano. <em>La disponibilidad de cada título está por verificar.</em></p>
  <a class="btn" href="https://www.retinalatina.org" target="_blank" rel="noopener">Buscar en Retina Latina <span aria-hidden="true">↗</span></a><p style="font-size:.8rem;margin:.6rem 0 0">retinalatina.org</p></div>`;
  abrir($('#d-ficha'))});
+
+/* ---------- ¿Sin plan?: mapa que se abre en el mismo lugar (solo cuando la página trae el iframe) ---------- */
+$$('.storymap[data-sm-src]').forEach(f=>{const b=f.querySelector('.genially-btn');b&&b.addEventListener('click',()=>{
+ const m=f.querySelector('.storymap-marco');m.classList.remove('sm-portada');
+ m.innerHTML='<iframe title="¿Sin plan? · mapa interactivo" src="'+f.dataset.smSrc+'" allowfullscreen allow="fullscreen"></iframe>';
+ const c=f.querySelector('figcaption');if(c)c.hidden=false})});
+
+/* ---------- ¿Sin plan?: reseñas de los espectadores ---------- */
+(()=>{
+ const API='/api/resenas', btn=$('#btn-resenas'), sec=$('#resenas'), lista=$('#resenas-lista'), form=$('#form-resena'), est=$('#r-estado');
+ let cargadas=false, remoto=true;
+ const fecha=t=>{try{return new Date(t).toLocaleDateString('es-CO',{day:'numeric',month:'short',year:'numeric'})}catch(e){return ''}};
+ const item=(r,nueva)=>`<li${nueva?' class="nueva"':''}><div class="r-cab"><b>${esc(r.nombre)}</b><time datetime="${esc(r.fecha||'')}">${fecha(r.fecha)}</time></div><div class="r-meta">Fue a <b>${esc(r.lugar)}</b> · vio <em>${esc(r.pelicula)}</em></div><p>${esc(r.experiencia)}</p></li>`;
+ const locales=()=>{try{return JSON.parse(localStorage.getItem('fdc-resenas')||'[]')}catch(e){return []}};
+ const guardarLocal=r=>{try{const l=locales();l.unshift(r);localStorage.setItem('fdc-resenas',JSON.stringify(l.slice(0,50)))}catch(e){}};
+ const pintar=l=>{lista.innerHTML=l.length?l.map(r=>item(r)).join(''):'<li class="r-vacio">Todavía no hay reseñas. ¡Sé la primera persona en contarnos!</li>';$('#r-cuenta').textContent=l.length?'('+l.length+')':''};
+ async function cargar(){
+  try{const r=await fetch(API,{headers:{accept:'application/json'},cache:'no-store'}); if(!r.ok)throw 0; const d=await r.json(); remoto=true; pintar(d.resenas||[])}
+  catch(e){remoto=false; pintar(locales())}
+  cargadas=true }
+ btn.addEventListener('click',()=>{const abrir=sec.hidden; sec.hidden=!abrir; btn.setAttribute('aria-expanded',abrir);
+  btn.querySelector('.fle').textContent=abrir?'↑':'↓';
+  if(abrir){ if(!cargadas)cargar(); sec.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); setTimeout(()=>$('#r-nombre').focus({preventScroll:true}),reduce?0:450)}});
+ form.addEventListener('submit',async e=>{e.preventDefault();
+  const d=Object.fromEntries(new FormData(form)); for(const k of ['nombre','lugar','pelicula','experiencia'])d[k]=(d[k]||'').trim();
+  const falta=[['nombre','tu nombre'],['lugar','a dónde fuiste'],['pelicula','qué película viste'],['experiencia','tu experiencia']].find(([k])=>!d[k]);
+  if(falta){est.textContent='Falta '+falta[1]+'.';form.elements[falta[0]].focus();return}
+  if(d.experiencia.length<10){est.textContent='Cuéntanos un poco más de tu experiencia (mínimo 10 caracteres).';form.elements.experiencia.focus();return}
+  const b=$('#r-enviar'); b.disabled=true; est.textContent='Publicando…';
+  let r=null;
+  if(remoto){try{const res=await fetch(API,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)}); const j=await res.json().catch(()=>({}));
+    if(!res.ok){est.textContent=j.error||'No pudimos publicar tu reseña. Intenta de nuevo en un momento.';b.disabled=false;return}
+    r=j.resena}catch(e){remoto=false}}
+  if(!r){r={nombre:d.nombre,lugar:d.lugar,pelicula:d.pelicula,experiencia:d.experiencia,fecha:new Date().toISOString()};guardarLocal(r)}
+  const vacio=lista.querySelector('.r-vacio'); if(vacio)vacio.remove();
+  lista.insertAdjacentHTML('afterbegin',item(r,true)); $('#r-cuenta').textContent='('+lista.children.length+')';
+  est.textContent=remoto?'¡Gracias! Tu reseña ya está publicada.':'¡Gracias! En esta vista previa tu reseña se guarda solo en este navegador; en la página publicada la ven todos.';
+  form.reset(); b.disabled=false });
+})();
 
 /* ---------- Suscripción ---------- */
 $('#form-suscripcion').addEventListener('submit',e=>{e.preventDefault();const i=$('#correo'),est=$('#estado-suscripcion');

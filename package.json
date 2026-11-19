@@ -1,0 +1,8 @@
+{
+  "name": "fuera-de-cuadro",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/blob": "^1.1.1"
+  }
+}
