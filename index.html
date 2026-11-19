@@ -479,7 +479,11 @@ dialog.historia .ventana{width:100vw;max-width:100vw;height:100vh;height:100dvh;
 .nav-panel{position:absolute;top:calc(100% + .7rem);left:50%;width:min(560px,80vw);transform:translate(-50%,-6px);background:var(--crema);border:2px solid var(--negro);border-radius:10px;box-shadow:6px 6px 0 var(--negro);padding:.7rem;display:grid;grid-template-columns:1fr 1fr;gap:.45rem;opacity:0;visibility:hidden;transition:opacity 180ms ease,transform 220ms var(--ease-out),visibility 0s linear 220ms}
 .nav-drop.abierto .nav-panel{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity 180ms ease,transform 220ms var(--ease-out),visibility 0s}
 .nav-panel a{display:flex!important;height:auto!important;padding:.7rem .8rem!important;border-radius:6px!important;background:var(--c);color:var(--t)!important;gap:.7rem!important;text-transform:none!important;letter-spacing:0!important;font-family:var(--texto)!important;font-size:.86rem!important;font-weight:500;line-height:1.25}
-.nav-panel a b{font-family:var(--cifra);font-weight:400;font-size:1.15rem}
+.nav-panel a b{font-family:var(--cifra);font-weight:400;font-size:1.6rem;line-height:1;flex:none;min-width:1.6em}
+.nav-panel a{align-items:center!important}
+.nav-panel .np-txt{display:grid;gap:.1rem;min-width:0}
+.nav-panel .np-t{font-weight:700;font-size:.92rem;line-height:1.2}
+.nav-panel small{font-family:var(--etiqueta);font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;opacity:.8}
 @media (hover:hover) and (pointer:fine){.nav-panel a:hover{background:var(--c)!important;box-shadow:3px 3px 0 var(--negro)}}
 @media (max-width:1180px){.nav-sup{display:none}}
 .menu-atajos{width:min(1200px,100%);margin:0 auto 1.2rem;display:flex;flex-wrap:wrap;gap:.5rem}
@@ -803,8 +807,6 @@ a.fr-tarjeta:focus-visible{outline:3px solid var(--c);outline-offset:3px}
       <button type="button" aria-expanded="false" aria-controls="nav-panel" data-nav="secciones">Secciones <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg></button>
       <div class="nav-panel" id="nav-panel"></div>
     </div>
-    <a href="#creditos" data-nav="creditos">Podcast</a>
-    <a href="#sinplan" data-nav="sinplan">Mapa</a>
     <a href="#contacto" data-nav="contacto">Contacto</a>
   </nav>
   <div class="cab-der">
@@ -819,7 +821,7 @@ a.fr-tarjeta:focus-visible{outline:3px solid var(--c);outline-offset:3px}
     <p>Nueve paradas por el cine colombiano. Salta directo a la que quieras: el recorrido no se rompe.</p>
   </div>
   <div class="menu-atajos" id="menu-atajos">
-    <a href="#portada" data-nav="portada">Inicio</a><a href="#nosotros" data-nav="nosotros">Nosotros</a><a href="#creditos" data-nav="creditos">Podcast</a><a href="#sinplan" data-nav="sinplan">Mapa</a><a href="#contacto" data-nav="contacto">Contacto</a>
+    <a href="#portada" data-nav="portada">Inicio</a><a href="#nosotros" data-nav="nosotros">Nosotros</a><a href="#contacto" data-nav="contacto">Contacto</a>
   </div>
   <ul class="menu-rejilla" id="menu-rejilla"></ul>
   <div class="menu-pie"><span class="kicker">Convergencia 2026-2</span><span>·</span><a href="#futuro">Suscríbete al boletín</a></div>
@@ -1778,16 +1780,18 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.class
 
 /* ---------- Indicador de sección y barra de lectura ---------- */
 /* Enlace activo en la navegación superior */
-const NAV_DE={portada:'portada',nosotros:'nosotros',creditos:'creditos',sinplan:'sinplan',contacto:'contacto',futuro:'contacto'};
+const NAV_DE={portada:'portada',nosotros:'nosotros',contacto:'contacto',futuro:'contacto'};
 function marcarNav(clave){$$('[data-nav]').forEach(a=>{const on=a.dataset.nav===clave;if(a.tagName==='A')a.setAttribute('aria-current',on?'true':'false');else a.classList.toggle('activo',on)})}
 const ioSec=new IntersectionObserver(ents=>{ents.forEach(en=>{if(en.isIntersecting)marcarNav(NAV_DE[en.target.id]||'secciones')})},{rootMargin:'-45% 0px -50% 0px'});
 ['portada','nosotros',...SECCIONES.map(s=>s.id),'contacto'].forEach(id=>{const el=document.getElementById(id);if(el)ioSec.observe(el)});
 /* Panel desplegable de secciones */
 const drop=$('#nav-drop'), dropBtn=drop.querySelector('button');
-$('#nav-panel').innerHTML=SECCIONES.map(s=>`<a href="#${s.id}" style="--c:${P[s.c]};--t:${P[s.tx]}"><b>${s.n}</b>${esc(s.t)}</a>`).join('');
+$('#nav-panel').innerHTML=SECCIONES.map(s=>`<a href="#${s.id}" style="--c:${P[s.c]};--t:${P[s.tx]}"><b>${s.n}</b><span class="np-txt"><span class="np-t">${esc(s.t)}</span><small>${esc(s.k)}</small></span></a>`).join('');
 function panel(v){drop.classList.toggle('abierto',v);dropBtn.setAttribute('aria-expanded',v)}
-dropBtn.addEventListener('click',()=>panel(!drop.classList.contains('abierto')));
-if(matchMedia('(hover: hover) and (pointer: fine)').matches){let tm;drop.addEventListener('mouseenter',()=>{clearTimeout(tm);panel(true)});drop.addEventListener('mouseleave',()=>{tm=setTimeout(()=>panel(false),180)})}
+const conHover=matchMedia('(hover: hover) and (pointer: fine)').matches;
+/* con mouse el panel ya se abrió al pasar por encima: el clic lo deja abierto en lugar de cerrarlo */
+dropBtn.addEventListener('click',()=>panel(conHover?true:!drop.classList.contains('abierto')));
+if(conHover){let tm;drop.addEventListener('mouseenter',()=>{clearTimeout(tm);panel(true)});drop.addEventListener('mouseleave',()=>{tm=setTimeout(()=>panel(false),180)})}
 $('#nav-panel').addEventListener('click',e=>{if(e.target.closest('a'))panel(false)});
 document.addEventListener('click',e=>{if(!drop.contains(e.target))panel(false)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drop.classList.contains('abierto')){panel(false);dropBtn.focus()}});
