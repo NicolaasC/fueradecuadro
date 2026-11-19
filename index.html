@@ -2036,7 +2036,7 @@ const YT_ID='RbaCC4BSCNs', dVideo=$('#d-video'), ytMarco=$('#yt-marco');
 const conEmbeds=document.documentElement.dataset.embeds==='1';
 $('#btn-video').addEventListener('click',()=>{
  if(!conEmbeds){ window.open('https://youtu.be/'+YT_ID,'_blank','noopener'); return }
- ytMarco.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+YT_ID+'?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Cazando cine · documental corto" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+ ytMarco.innerHTML='<iframe src="https://www.youtube.com/embed/'+YT_ID+'?autoplay=1&rel=0&playsinline=1&origin='+encodeURIComponent(location.origin)+'" title="Cazando cine · documental corto" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
  pausarMusicaPorMedio(); abrir(dVideo);
 });
 
