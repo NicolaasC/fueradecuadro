@@ -816,6 +816,62 @@ a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visib
 .storymap-pie{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1rem;margin-top:1rem;font-size:.85rem}
 @media (max-width:640px){.storymap-marco{height:620px;box-shadow:5px 5px 0 var(--negro)}a.storymap .storymap-marco{aspect-ratio:4/3}.sm1{width:40%}.sm2{display:none}}
 
+/* ===== Perfil «Romper el encuadre» ===== */
+.pf-escena{position:relative}
+.pf-iconos{position:absolute;inset:0;pointer-events:none;z-index:0}
+.pf-iconos .rec{position:absolute;filter:drop-shadow(4px 6px 0 rgba(17,17,17,.25));animation:flota 7s ease-in-out infinite alternate}
+.pf-iconos .rec:nth-child(2n){animation-duration:8.5s;animation-delay:-2s}.pf-iconos .rec:nth-child(3n){animation-duration:6s;animation-delay:-3.5s}
+.pi1{left:3%;top:4%;width:clamp(90px,9vw,140px);--r:-10deg}.pi2{right:3%;top:2%;width:clamp(110px,11vw,170px);--r:8deg}
+.pi3{left:4%;top:38%;width:clamp(70px,7vw,110px);--r:12deg}.pi4{right:6%;top:34%;width:clamp(60px,6vw,95px);--r:-8deg}
+.pi5{left:2%;bottom:16%;width:clamp(100px,10vw,150px);--r:-6deg}.pi6{right:3%;bottom:22%;width:clamp(100px,10vw,155px);--r:10deg}
+.pi7{left:12%;bottom:2%;width:clamp(60px,6vw,90px);--r:14deg}.pi8{right:12%;bottom:4%;width:clamp(140px,14vw,220px);--r:-4deg}
+.pf-escena>.articulo-cab,.pf-extracto{position:relative;z-index:1}
+@media (max-width:1180px){.pi3,.pi4,.pi7{display:none}.pi1,.pi2,.pi5,.pi6,.pi8{opacity:.35}}
+@media (max-width:760px){.pf-escena .pf-iconos{display:none}}
+.pf-extracto{padding-bottom:1rem}
+.pf-ficha{float:right;width:230px;margin:.3rem -260px 1rem 2rem;background:var(--fucsia);color:var(--negro);border:3px solid var(--negro);border-radius:8px;box-shadow:6px 6px 0 var(--negro);padding:1.1rem 1.2rem;transform:rotate(1.5deg)}
+.pf-ficha b{display:block;font-family:var(--display);font-weight:400;font-size:2rem;line-height:.95;margin:.4rem 0 .6rem}
+.pf-ficha dl{margin:0;display:grid;gap:.15rem;font-size:.85rem}.pf-ficha dt{font-family:var(--etiqueta);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.45rem}.pf-ficha dd{margin:0;font-weight:600}
+@media (max-width:1180px){.pf-ficha{float:none;width:auto;margin:0 0 1.6rem;transform:none}}
+.pf-texto .pf-desvanece{-webkit-mask:linear-gradient(#000 35%,transparent);mask:linear-gradient(#000 35%,transparent);margin-bottom:0}
+.pf-accion{display:flex;justify-content:center;padding:.6rem 0 1rem;position:relative;z-index:1}
+.pf-accion .btn{font-size:1rem;padding:1.05rem 1.8rem;background:var(--fucsia);color:var(--negro);border:3px solid var(--negro);box-shadow:5px 5px 0 var(--negro)}
+@media (hover:hover) and (pointer:fine){.pf-accion .btn:hover{background:var(--amarillo);box-shadow:7px 7px 0 var(--negro)}.pf-accion .btn:hover .fle{transform:translateX(5px)}}
+.pf-accion .fle{transition:transform 200ms var(--ease-out)}
+/* Página completa */
+.perfil-dlg .ventana{background:var(--crema);overflow-y:auto;overscroll-behavior:contain;scroll-behavior:smooth}
+.pf-barra{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.8rem clamp(1rem,3vw,2.4rem);background:rgba(245,232,205,.94);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:3px solid var(--negro)}
+.pf-volver{padding:.75rem 1.2rem}
+.pf-hero{position:relative;display:grid;grid-template-columns:minmax(0,420px) minmax(0,560px);gap:3rem;justify-content:center;align-items:center;padding:3.5rem clamp(1.2rem,4vw,3rem) 2rem;background:var(--fucsia);border-bottom:3px solid var(--negro);overflow:hidden}
+.pf-hero .firma{color:var(--negro);border-color:var(--negro)}
+.pf-hero h3{font-family:var(--display);font-weight:400;font-size:clamp(3.2rem,8vw,6.5rem);line-height:.86;margin:.8rem 0 1rem}
+.pf-hero .bajada{font-size:1.2rem;line-height:1.5;font-weight:500;margin:0 0 1.2rem}
+.pf-hero .chip-et{background:var(--negro);color:var(--crema)}
+.pf-hero-txt,.pf-foto{position:relative;z-index:1}
+.pf-foto{margin:0;background:var(--crema);padding:.9rem .9rem 1rem;border:3px solid var(--negro);box-shadow:8px 8px 0 var(--negro);transform:rotate(-2.5deg)}
+.pf-foto img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;filter:contrast(1.05)}
+.pf-foto figcaption{font-family:var(--etiqueta);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;margin-top:.7rem}
+.pf-cinta{position:absolute;left:50%;top:-14px;width:130px;height:28px;margin-left:-65px;background:var(--amarillo);opacity:.95;transform:rotate(3deg);clip-path:polygon(2% 10%,30% 0,62% 8%,98% 2%,100% 88%,66% 100%,34% 92%,0 100%);z-index:2}
+.ph1{right:3%;top:6%;width:120px;--r:10deg}.ph2{left:2%;bottom:6%;width:95px;--r:-12deg}.ph3{right:3%;bottom:8%;width:110px;--r:6deg}.ph4{left:38%;top:4%;width:60px;--r:14deg}
+@media (max-width:900px){.pf-hero{grid-template-columns:minmax(0,1fr);gap:2rem;padding-top:2.4rem}.pf-foto{max-width:340px;justify-self:center}.ph3,.ph4{display:none}.ph1{width:80px;opacity:.6}.ph2{width:70px;opacity:.6}}
+.pf-cuerpo-caja{position:relative;padding:3rem 1.5rem 1rem}
+.pf-cuerpo{position:relative;z-index:1;width:min(680px,100%);margin:0 auto}
+.pf-cuerpo-caja .pf-iconos .rec{opacity:.9}
+.pc1{left:4%;top:3%;width:120px;--r:-10deg}.pc2{right:4%;top:9%;width:150px;--r:8deg}.pc3{left:5%;top:24%;width:90px;--r:12deg}.pc4{right:6%;top:33%;width:85px;--r:-8deg}
+.pc5{left:3%;top:50%;width:130px;--r:-6deg}.pc6{right:4%;top:60%;width:135px;--r:10deg}.pc7{left:6%;top:76%;width:85px;--r:14deg}.pc8{right:3%;top:86%;width:190px;--r:-4deg}
+@media (max-width:1180px){.pf-cuerpo-caja .pf-iconos{display:none}}
+.pf-cuerpo p{font-size:1.08rem}
+.pf-cuerpo .cita-banda{margin-left:0;margin-right:0}
+.pf-dato .pf-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pf-dato .pf-cifras b{display:block;font-family:var(--cifra);font-weight:400;font-size:2.4rem;line-height:1}
+.pf-dato .pf-cifras span{font-size:.82rem;line-height:1.4;display:block;margin-top:.3rem}
+@media (max-width:620px){.pf-dato .pf-cifras{grid-template-columns:1fr}}
+.pf-fin{position:relative;display:grid;justify-items:center;gap:1rem;padding:3rem 1.5rem 5rem;border-top:3px dashed var(--negro);margin:2rem auto 0;width:min(900px,100% - 3rem);overflow:hidden}
+.pf-fin .kicker{margin:0}
+.pf1{left:4%;top:20%;width:110px;--r:-8deg}.pf2{right:4%;top:14%;width:110px;--r:10deg}.pf3{right:22%;bottom:-10%;width:80px;--r:-12deg}
+@media (max-width:700px){.pf-iconos-fin .rec{opacity:.35}.pf3{display:none}}
+@media (prefers-reduced-motion:reduce){.pf-iconos .rec{animation:none;transform:rotate(var(--r))}}
+
 /* ===== Responsive: red de seguridad para pantallas angostas ===== */
 @media (max-width:420px){.envoltura{width:calc(100% - 2rem)}h1,h2,h3,h4,p,li,blockquote{overflow-wrap:break-word}.mapa-caja{padding:.6rem}}
 /* ===== Movimiento reducido ===== */
@@ -970,32 +1026,26 @@ a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visib
   <div class="apertura revela" data-arte="encuadre" data-paleta="rojo">
   </div>
   <div class="bloque" style="--fondo:var(--crema);padding-top:0">
-    <div class="lectura articulo-cab revela">
-      <span class="chip-et">Perfil · Romper el encuadre</span>
-      <h3>Las que movieron la cámara</h3>
-      <p class="bajada">Durante décadas el cine colombiano se contó en masculino. Esta es la historia de las mujeres que dirigieron, produjeron y filmaron a pesar de eso, y de las que hoy están cambiando quién se sienta en la silla de dirección.</p>
-      <div class="firma"><span>Por <b>Equipo Fuera de Cuadro</b></span><span>Con las voces de Leonor Manotas, Nathashia Franco y Neila Macea</span><span>Lectura de 6 min</span></div>
-    </div>
-    <div class="articulo articulo-solo">
-      <div class="cuerpo">
-        <p class="nota-muestra"><b>Nota del equipo:</b> este es el texto de muestra que ocupa el lugar del perfil final, construido con las entrevistas a Leonor Manotas (productora de cine), Nathashia Franco y Neila Macea. Los datos que aparecen aquí deben verificarse con las fuentes antes de publicar.</p>
-        <p class="capitular">En 1972, cuando casi nadie en Colombia pensaba en el documental como una forma de hacer periodismo, <strong>Marta Rodríguez y Jorge Silva estrenaron <em>Chircales</em></strong>, una película sobre una familia que fabricaba ladrillos a mano en las afueras de Bogotá. No había efectos, ni estrellas, ni presupuesto de estudio. Había tiempo: años de convivir con esa familia hasta que la cámara dejó de ser una intrusa.</p>
-        <p>Esa manera de mirar —paciente, cercana, puesta del lado de quienes casi nunca salen en pantalla— se volvió una escuela. Y la abrió, en buena parte, una mujer que todavía hoy es referencia para quienes empiezan a hacer documental en el país.</p>
-        <blockquote class="destacada revela">Antes de que existieran las cuotas y los estímulos, ya había mujeres filmando. Lo que faltaba era que alguien las nombrara.</blockquote>
-        <h4>La primera silla de dirección</h4>
-        <p>En la ficción, el camino fue más lento. <strong>En 1984 Camila Loboguerrero estrenó <em>Con su música a otra parte</em></strong>, reconocida como el primer largometraje de ficción dirigido por una mujer en Colombia. Piénsalo un segundo: el cine había llegado al país casi noventa años antes.</p>
-        <p>Detrás de cámaras pasaba algo parecido. Montajistas, guionistas, script, maquilladoras, productoras de campo: muchas de las personas que sostenían los rodajes eran mujeres, pero sus nombres quedaban en letra pequeña, al final de los créditos, cuando la sala ya estaba prendiendo las luces.</p>
-        <figure class="fig-lateral">
-          <div class="arte" data-arte="claqueta" data-paleta="amarillo"></div>
-          <figcaption>Imagen de muestra · El rodaje como trabajo colectivo.</figcaption>
-        </figure>
-        <h4>De producir a dirigir</h4>
-        <p>Si hay un nombre que muestra cómo cambió la industria es el de <strong>Cristina Gallego</strong>. Como productora estuvo detrás de películas que pusieron a Colombia en los festivales más grandes del mundo, y en 2018 codirigió <em>Pájaros de verano</em>, una historia sobre una familia wayuu en los años de la bonanza marimbera.</p>
-        <blockquote class="destacada revela">Producir también es contar: decidir qué historia merece años de trabajo y plata que casi nunca alcanza.</blockquote>
-        <p>Y luego está <strong>Laura Mora</strong>. Su segundo largometraje, <em>Los reyes del mundo</em>, sigue a cinco muchachos de Medellín que viajan a reclamar una tierra que les prometieron. En 2022 ganó la Concha de Oro del Festival de San Sebastián: <strong>la primera vez que una película colombiana se llevaba ese premio</strong>.</p>
-        <h4>Lo que sigue fuera de cuadro</h4>
-        <p>Los premios ayudan a contar la historia, pero no la resuelven. Las brechas siguen ahí: en quién consigue financiación para su ópera prima, en quién se sostiene en un set de doce horas mientras cuida a alguien en casa, en quién recibe la segunda oportunidad después de una primera película que no funcionó.</p>
-        <p>Por eso este perfil no termina con un nombre sino con una pregunta: ¿cuántas historias nos perdimos porque nadie le dio la cámara a la persona correcta? En la siguiente parada te presentamos a otras manos que tampoco suelen salir en pantalla.</p>
+    <div class="pf-escena">
+      <span class="pf-iconos" aria-hidden="true" data-recortes="claqueta:pi1,camara-tripode:pi2,reflector:pi3,microfono:pi4,silla-director:pi5,megafono:pi6,carrete-cinta:pi7,tira-pelicula:pi8"></span>
+      <div class="lectura articulo-cab revela">
+        <span class="chip-et">Perfil · Romper el encuadre</span>
+        <h3>Romper el encuadre</h3>
+        <p class="bajada">Leonor Manotas tiene 29 años, es de Barranquilla y es productora ejecutiva: la persona que hace posible que una película salga adelante.</p>
+        <div class="firma"><span>Por <b>Andrea Catalina Vela Celis</b></span><span>Con las voces de Leonor Manotas, Nathashia y Neila</span><span>Lectura de 9 min</span></div>
+      </div>
+      <div class="pf-extracto lectura">
+        <aside class="pf-ficha revela" aria-label="Ficha de Leonor Manotas">
+          <span class="kicker">Ficha</span>
+          <b>Leonor Manotas</b>
+          <dl><dt>Oficio</dt><dd>Productora ejecutiva</dd><dt>Casa productora</dt><dd>Manotas Film House</dd><dt>Edad</dt><dd>29 años</dd><dt>Ciudad</dt><dd>Barranquilla</dd></dl>
+        </aside>
+        <div class="cuerpo pf-texto revela">
+          <p class="capitular">Leonor no tuvo que pensar mucho cuando le puso nombre a su propia empresa, eligió Manotas Film House y explicó el porqué: "Manotas es mi apellido y Film House es porque siempre pienso el cine como una casa en donde todos hacemos parte".</p>
+          <p>Nathashia, una productora de televisión que conoce a Leonor desde sus inicios en este mundo del cine también utiliza la idea de una casa u hogar para explicar su trabajo: producir una película es como manejar una casa por ejemplo, alguien recibe la plata, la administra y hace el mercado o le pide a otro que lo haga. Además, arma la lista de lo que hace falta y de lo que se daña, como ella misma lo explica "es conocer muy bien un proyecto de tal manera que se pueda conseguir todo lo que se necesita ya sea técnico, logístico o humano".</p>
+          <p class="pf-desvanece">Sin embargo, cuando vamos al cine pocas veces pensamos en la persona que hace posible que la película salga adelante. Recordamos al director, a la actriz, o esa escena que nos hizo llorar. Leonor lo explica con un ejemplo bastante sencillo para poder entenderlo: "así como en la medicina existen cardiólogos, neurólogos y ortopedistas, en el cine cada persona tiene su campo de especialización, y la producción es una de las cinco principales, junto a dirección, fotografía, sonido y arte". Su papel es el de productora ejecutiva, que es la propietaria del filme, quien busca financiamiento, firma acuerdos y gestiona la película para que alcance al público. Y comienza mucho antes de que haya un guión, cuando todo es solo una "noción". Para ella no es únicamente logística, también implica creatividad, en numerosas ocasiones el productor entiende y conoce mejor al público que el propio director. Al final, sin alguien que haga posible todo ese proceso, las ideas pueden quedarse simplemente en ideas.</p>
+        </div>
+        <div class="pf-accion revela"><button class="btn" type="button" id="btn-perfil" aria-haspopup="dialog">Seguir leyendo <span class="fle" aria-hidden="true">→</span></button></div>
       </div>
     </div>
     <div class="cta-cierre"><a class="btn" href="#creditos">Conoce a quienes están detrás <span class="fle" aria-hidden="true">→</span></a></div>
@@ -1384,6 +1434,61 @@ a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visib
   <div class="ventana" id="ficha-ventana">
     <button class="cerrar" type="button" data-cerrar aria-label="Cerrar ficha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
     <div id="ficha-contenido"></div>
+  </div>
+</dialog>
+
+<dialog id="d-perfil" class="historia perfil-dlg" aria-labelledby="pf-titulo">
+  <div class="ventana" id="pf-ventana">
+    <div class="pf-barra">
+      <button class="btn pf-volver" type="button" data-volver-perfil><span aria-hidden="true">←</span> Volver a la sección</button>
+      <span class="kicker">02 · Perfil · Romper el encuadre</span>
+    </div>
+    <header class="pf-hero">
+      <span class="pf-iconos pf-iconos-hero" aria-hidden="true" data-recortes="claqueta:ph1,reflector:ph2,camara-8mm:ph3,estrella:ph4"></span>
+      <figure class="pf-foto">
+        <span class="pf-cinta" aria-hidden="true"></span>
+        <img src="img/leonor.webp" alt="Retrato en blanco y negro de Leonor Manotas, sonriendo" width="900" height="899" loading="lazy" decoding="async">
+        <figcaption>Leonor Manotas · Productora ejecutiva · Manotas Film House</figcaption>
+      </figure>
+      <div class="pf-hero-txt">
+        <span class="chip-et">Perfil</span>
+        <h3 id="pf-titulo">Romper el encuadre</h3>
+        <p class="bajada">Leonor Manotas tiene 29 años, es de Barranquilla y es productora ejecutiva: la persona que hace posible que una película salga adelante.</p>
+        <div class="firma"><span>Por <b>Andrea Catalina Vela Celis</b></span><span>Con las voces de Leonor Manotas, Nathashia y Neila</span><span>Lectura de 9 min</span></div>
+      </div>
+    </header>
+    <div class="pf-cuerpo-caja">
+      <span class="pf-iconos" aria-hidden="true" data-recortes="claqueta:pc1,camara-tripode:pc2,reflector:pc3,microfono:pc4,silla-director:pc5,megafono:pc6,carrete-cinta:pc7,tira-pelicula:pc8"></span>
+      <div class="cuerpo pf-cuerpo">
+          <p class="capitular">Leonor no tuvo que pensar mucho cuando le puso nombre a su propia empresa, eligió Manotas Film House y explicó el porqué: "Manotas es mi apellido y Film House es porque siempre pienso el cine como una casa en donde todos hacemos parte".</p>
+          <p>Nathashia, una productora de televisión que conoce a Leonor desde sus inicios en este mundo del cine también utiliza la idea de una casa u hogar para explicar su trabajo: producir una película es como manejar una casa por ejemplo, alguien recibe la plata, la administra y hace el mercado o le pide a otro que lo haga. Además, arma la lista de lo que hace falta y de lo que se daña, como ella misma lo explica "es conocer muy bien un proyecto de tal manera que se pueda conseguir todo lo que se necesita ya sea técnico, logístico o humano".</p>
+          <p>Sin embargo, cuando vamos al cine pocas veces pensamos en la persona que hace posible que la película salga adelante. Recordamos al director, a la actriz, o esa escena que nos hizo llorar. Leonor lo explica con un ejemplo bastante sencillo para poder entenderlo: "así como en la medicina existen cardiólogos, neurólogos y ortopedistas, en el cine cada persona tiene su campo de especialización, y la producción es una de las cinco principales, junto a dirección, fotografía, sonido y arte". Su papel es el de productora ejecutiva, que es la propietaria del filme, quien busca financiamiento, firma acuerdos y gestiona la película para que alcance al público. Y comienza mucho antes de que haya un guión, cuando todo es solo una "noción". Para ella no es únicamente logística, también implica creatividad, en numerosas ocasiones el productor entiende y conoce mejor al público que el propio director. Al final, sin alguien que haga posible todo ese proceso, las ideas pueden quedarse simplemente en ideas.</p>
+          <blockquote class="cita pf-cita" style="--a:var(--fucsia)"><p>“Siempre pienso el cine como una casa en donde todos hacemos parte”.</p><footer>Leonor Manotas</footer></blockquote>
+          <p>Leonor tiene 29 años y es de Barranquilla, de nueve a seis labora en el Centro Innova de la Universidad del Magdalena, ayudando a los profesores: es su trabajo "formal". El cine se presenta después, a las siete de la noche en una reunión u organizando el proyecto de una película y dice "Si lo realizo es porque le gusta, de lo contrario, no lo estaría haciendo", Nunca ha dependido únicamente del cine y ella misma es consciente de que: "vivir solo del cine en Colombia es extremadamente complicado y difícil". Eso ya lo sabía a los 17 años cuando dejó Barranquilla para estudiar cine en la Universidad del Magdalena. Antes a los 15 le había pedido a sus padres una computadora en lugar de una fiesta para hacer ediciones de videos. Cuando le dijeron que el cine no da de comer, respondió que si le tocaba comer pan y agua toda la vida, estaba dispuesta a asumirlo.</p>
+          <p>Es un camino lento y pausado. Una película puede llevar de cinco a siete años desde que alguien tiene la idea hasta su estreno. Toca escribir y volver a escribir, buscar financiamiento, tocar varias puertas, exhibir el proyecto en festivales de cine para encontrar colaboradores y soportar muchas esperas. Así mismo toca hacer rendir el uso del dinero. Leonor lo aclara con un ejemplo de manzanas: "Tienes diez manzanas y tienes que repartirlas en tu rodaje". Si no alcanzan, hay que comunicarse claramente con los proveedores, los involucrados y el equipo, y notificar con anticipación. "No es que comenzó el rodaje y te quedaste sin dinero." "desde temprano sabes que te quedarás sin ella."</p>
+          <aside class="dato-caja pf-dato" style="--c:var(--amarillo);--t:var(--negro)" aria-label="Datos del oficio"><span class="kicker">El oficio en cifras</span><div class="pf-cifras"><div><b>5–7</b><span>años puede tardar una película desde la idea hasta el estreno</span></div><div><b>5</b><span>campos principales del cine: dirección, fotografía, sonido, arte y producción</span></div><div><b>32</b><span>personas reunió Leonor para crear un pueblo en Boca de Ceniza</span></div></div></aside>
+          <p>Por eso optó por la producción ejecutiva ya que puede realizarla en su horario y desde su hogar sin necesidad de estar presente en cada filmación, por eso jamás ha abandonado su otro trabajo, en su caso más vocación que sueldo.</p>
+          <p>Leonor tenía solo 22 o 23 años cuando comenzó a sustituir a Nathashia en una compañía de Barranquilla. Nathashia se sentía fatigada y deseaba descubrir nuevas rutas, pero al conocer a Leonor se dio cuenta de que era la persona adecuada. "Yo le hablaba sobre contabilidad y ella entendía." le comentaba sobre documentos administrativos y ella estaba al tanto. Recuerda que lo que ella había aprendido en cinco o siete años en rodajes, Leonor ya lo traía al salir de la universidad. Y además sabía de cine, algo que la empresa todavía no tenía. "Con 23 añitos podía hacer cualquiera de esos cargos", dice Nathashia, que se confiesa más miedosa y cree que a esa edad habría contestado "no, yo no puedo". Leonor, en cambio, agarró de una los proyectos grandes incluido un video para Bomba Estéreo.</p>
+          <p>Neila conoció a Leonor por primera vez en la universidad y ha sido testigo de su crecimiento desde el inicio. Se hicieron amigas alrededor de 2015, ya que el novio de Neila colaboraba en un cortometraje de Leonor, y terminaron viviendo juntas aproximadamente dos años. Su término preferido para referirse a ella es "decidida". Y cuenta que tiene la prueba de eso. Cuando tenían unos 17 o 18 años. Un director necesitaba un pueblo mágico para su historia, y Leonor lo creó ella misma, reunió a unas 32 personas, entre ellos amigos y compañeros de la universidad, y las llevó hasta Boca de Ceniza, un pueblito donde el río se junta con el mar, lejísimos de todo. Salieron de su casa muy temprano y una vez allí tomaron unos trencitos y empezaron a resolver lo que era el agua, comida, gestionar permisos y hasta hablar con los pescadores hasta que lograron pintar todas las casas de rojo. Para Neila, esa experiencia demuestra lo importante que es la producción: "Si no tienes una buena producción, este proyecto se te cae".</p>
+          <p>Desde sus primeros proyectos, Leonor ya estaba dispuesta a lo que fuera por conseguir plata. En el corto de quinto semestre de Neila, las dos se fueron a vender gelatina al centro. "Eso fue una locura", recuerda entre risas. "Si hay que salir a vender, si hay que freír, ella se le mide". En los primeros proyectos, cuando todo se pagaba en efectivo, Leonor dividía la plata por sobres: "Lo que es de esto es de esto, no voy a sacar de aquí para meter allá".</p>
+          <p>Conseguir plata para hacer cine en Colombia es casi una actividad de alto riesgo. Hay que armar un documento enorme con la historia y ese presupuesto presentarlo a convocatorias como los del Fondo para el Desarrollo Cinematográfico (FDC) o del MinTIC y si pasa el primer filtro, sustentarlo en vivo. Esa plata sale en parte de las boletas, explica Nathashia: cuando uno paga para ver Avengers, un pedacito va al fondo.</p>
+          <p>Leonor ha ganado varios de esos concursos con La Almeja, Sal y dulce, Santuario y La estrategia del Mero, su primer largometraje como jefa de producción, esa vez su mamá vio su nombre en una sala de cine. Pero no todo ha sido ganar después de algunos momentos difíciles, Leonor ha pensado más de una vez en dejarlo todo, aunque con el tiempo ha aprendido a no pensar en eliminar, sino en tomar distancia para alejarse un rato, respirar y volver a empezar.</p>
+          <p>Ser una mujer joven al mando de un set no siempre es fácil y Leonor lo sabe muy bien, a ella la subestiman todo el tiempo pues es la más joven del grupo, "me veo chiquitita" Cuenta que a veces, cuando habla por teléfono con alguien, todo puede marchar bien, pero cuando enciende la cámara y la ven, la reacción cambia y es como "Ay, es una pelada". "El nombre tampoco me ayuda mucho", dice entre risas y frente a eso tiene algo muy claro: "Uno demuestra las cosas haciéndolas".</p>
+          <blockquote class="cita cita-banda pf-cita" style="--a:var(--amarillo);--fondo-cita:var(--negro);--tc:var(--crema)"><p>“Uno demuestra las cosas haciéndolas”.</p><footer>Leonor Manotas</footer></blockquote>
+          <p>Aun así Leonor no quiere hacerse la víctima. Reconoce que ella ha tenido suerte y que muchas veces ha sido "la excepción", pero esto no significa que esto siga pasando, en las ferias de cine por ejemplo, ha visto paneles llenos de hombres, o historias de mujeres contadas por hombres y pocas mujeres llenando estos espacios. "Que no me pase a mí no significa que no exista", aclara. Por eso cuando ella está a cargo de una producción, procura que las mujeres ocupen esos puestos de liderazgo.</p>
+          <p>Para Neila, trabajar en esta industria siendo mujer obliga a las productoras a ponerse una coraza. "Hay muchas cosas que te golpean, pues no solo el cansancio físico, sino también el emocional, les toca pararse firme para que las respeten por ser la productora y no por ser mujer", explica. Pero Neila cuenta que detrás de esa Leonor firme hay otra: "La he visto llorar, la he visto sufrir sus proyectos". Y por otro lado, también está esa Leonor que no suelta nada, ella nunca va a dejar caer un proyecto, lo lleva hasta el final.</p>
+          <blockquote class="cita pf-cita" style="--a:var(--cobalto)"><p>“El set es sagrado. Tú vas a trabajar. Tú creces en red”.</p><footer>Neila</footer></blockquote>
+          <p>Leonor lo tiene claro ya que para ella, todo se basa en dos cosas, respeto y orden. Siempre llega con todo organizado, saluda y les cuenta a los demás qué van a hacer durante el día. Es querida y amable, pero también sabe poner límites y dejar claro que la amistad no significa que todo se vale. Neila cuenta que está muy pendiente de los papeles y de la plata, y que si en algún momento tiene que sacar a alguien del set lo hace, pero sin faltarle al respeto. "Más que estresarse es muy práctica para resolver, no es alguien que se bloquea, es alguien que resuelve". Neila tiene un mensaje para las nuevas generaciones: nada de envidias ni peleas entre mujeres. "El set es sagrado. Tú vas a trabajar. Tú creces en red", dice. Que entren acompañadas, que se enseñen entre ellas cómo moverse en el set y que se cuiden. Y que las broncas no se tomen personales.</p>
+          <p>"El cine colombiano está en crecimiento", dice Leonor. En septiembre, una película hecha en Santa Marta por gente de Santa Marta, llegó al Festival de Toronto, uno de los más importantes del mundo. "Una película hecha en el Caribe, desde el Caribe, para el Caribe", cuenta con orgullo. Para ella esto demuestra que las historias que nacen desde las regiones por fin están siendo escuchadas y vistas afuera.</p>
+          <p>Sin embargo, cree que al cine colombiano todavía le faltan dos cosas: más plata de parte de las regiones, como de alcaldías y gobernaciones y más público, que la gente se anime a ir a las salas de cine a apoyar lo que realmente es el cine colombiano ."El Fondo se nutre de la taquilla". es decir, si la gente no consume este tipo de cine, también se hace más difícil conseguir recursos para sacar adelante nuevas producciones . Por eso Leonor insiste en contar lo que conoce y que hace parte de su entorno "Y yo no puedo contarte cómo es algo en Berlín. porque no soy alemana".</p>
+          <p>Aunque lleva años ayudando y haciendo posible las películas de otros, Leonor guarda un sueño y una historia propia que quiere contar "Quiero dirigir algo. Escribir y dirigir, puede ser un corto". Mucha gente se lo ha dicho, que por qué no lo hace y se anima, todavía no tiene claro que quiere llevar a la pantalla, por ahora quiere que la recuerden como la productora que abrió su casa a las historias del territorio, "historias en donde cabemos todos". Con berraquera, paciencia y mucha calle, construyendo así un espacio donde las historias encuentran su lugar.</p>
+      </div>
+    </div>
+    <div class="pf-fin">
+      <span class="pf-iconos pf-iconos-fin" aria-hidden="true" data-recortes="silla-director:pf1,megafono:pf2,carrete:pf3"></span>
+      <p class="kicker">Fin del perfil</p>
+      <button class="btn" type="button" data-volver-perfil><span aria-hidden="true">←</span> Volver a la sección</button>
+    </div>
   </div>
 </dialog>
 
@@ -2071,6 +2176,21 @@ $('#carteles').addEventListener('click',e=>{const c=e.target.closest('.cartel');
  <div class="ficha-cuerpo"><p style="margin:0">${esc(f[4])}</p><h4>Dónde verla</h4><p style="margin:0 0 .8rem;font-size:.9rem">Búscala en Retina Latina, la plataforma pública y gratuita de cine latinoamericano. <em>La disponibilidad de cada título está por verificar.</em></p>
  <a class="btn" href="https://www.retinalatina.org" target="_blank" rel="noopener">Buscar en Retina Latina <span aria-hidden="true">↗</span></a><p style="font-size:.8rem;margin:.6rem 0 0">retinalatina.org</p></div>`;
  abrir($('#d-ficha'))});
+
+/* ---------- Perfil completo: página propia con botón para volver ---------- */
+(()=>{
+ const d=$('#d-perfil'), v=$('#pf-ventana'); let conHistoria=false;
+ function abrirPerfil(push){ if(d.open)return; v.scrollTop=0; abrir(d);
+  if(push){try{history.pushState({perfil:1},'','#perfil-leonor');conHistoria=true}catch(e){}} }
+ function volver(){ if(conHistoria){conHistoria=false;history.back()} else cerrar(d) }
+ $('#btn-perfil').addEventListener('click',()=>abrirPerfil(true));
+ $$('[data-volver-perfil]').forEach(b=>b.addEventListener('click',volver));
+ d.addEventListener('cancel',()=>{ if(conHistoria){conHistoria=false;history.back()} });
+ addEventListener('popstate',()=>{ if(location.hash!=='#perfil-leonor'&&d.open){conHistoria=false;cerrar(d)} else if(location.hash==='#perfil-leonor'&&!d.open)abrirPerfil(false) });
+ d.addEventListener('close',()=>{ if(conHistoria){conHistoria=false;history.back()}
+  const sec=$('#directoras-contenido')||$('#directoras'); if(sec&&!sec.contains(document.activeElement))$('#btn-perfil').focus({preventScroll:true}) });
+ if(location.hash==='#perfil-leonor') addEventListener('load',()=>setTimeout(()=>{ if(document.body.classList.contains('dentro'))abrirPerfil(false) },300));
+})();
 
 /* ---------- ¿Sin plan?: mapa que se abre en el mismo lugar (solo cuando la página trae el iframe) ---------- */
 $$('.storymap[data-sm-src]').forEach(f=>{const b=f.querySelector('.genially-btn');b&&b.addEventListener('click',()=>{
