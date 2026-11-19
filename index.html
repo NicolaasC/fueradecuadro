@@ -771,6 +771,17 @@ a.fr-tarjeta:focus-visible{outline:3px solid var(--c);outline-offset:3px}
 .cierre-texto a{color:var(--amarillo);font-weight:700;text-underline-offset:3px}
 .futuro .cierre-texto .cierre-firma{margin-top:1.8rem;font-family:var(--etiqueta);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amarillo)}
 .futuro .cierre-texto .cierre-firma::before{content:"— "}
+/* ===== ¿Sin plan? · StoryMap ===== */
+.storymap{display:block;margin:2.2rem 0 1rem;color:inherit;text-decoration:none}
+.storymap-marco{position:relative;width:100%;height:800px;max-height:calc(100vh - 7rem);min-height:520px;border:3px solid var(--negro);border-radius:8px;overflow:hidden;background:var(--azul-profundo);box-shadow:8px 8px 0 var(--negro)}
+a.storymap .storymap-marco{height:auto;min-height:0;aspect-ratio:16/9}
+.storymap-marco iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+.storymap-marco .rec{position:absolute}
+.sm1{right:6%;top:8%;width:30%;transform:rotate(8deg)}.sm2{right:30%;bottom:-4%;width:20%;transform:rotate(-6deg)}.sm3{right:4%;bottom:8%;width:13%;transform:rotate(14deg)}
+a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visible{outline:3px solid var(--cobalto);outline-offset:6px;border-radius:8px}
+.storymap-pie{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1rem;margin-top:1rem;font-size:.85rem}
+@media (max-width:640px){.storymap-marco{height:620px;box-shadow:5px 5px 0 var(--negro)}a.storymap .storymap-marco{aspect-ratio:4/3}.sm1{width:40%}.sm2{display:none}}
+
 /* ===== Responsive: red de seguridad para pantallas angostas ===== */
 @media (max-width:420px){.envoltura{width:calc(100% - 2rem)}h1,h2,h3,h4,p,li,blockquote{overflow-wrap:break-word}.mapa-caja{padding:.6rem}}
 /* ===== Movimiento reducido ===== */
@@ -1218,31 +1229,14 @@ a.fr-tarjeta:focus-visible{outline:3px solid var(--c);outline-offset:3px}
       <div class="revela">
         <span class="chip-et">Infografía interactiva · ¿Sin plan?</span>
         <h3 class="titulo-mod">Dónde ver cine colombiano</h3>
-        <p class="entradilla">Cinematecas, salas independientes y festivales. Toca un punto del mapa o elige de la lista para ver la ficha de cada lugar: cartelera, precios, reseñas y tu propia opinión.</p>
+        <p class="entradilla">Cinematecas, salas independientes y festivales. Recorre el mapa parada por parada y descubre dónde ver cine colombiano.</p>
       </div>
-      <div class="mapa-layout">
-        <div class="mapa-caja revela">
-          <div id="mapa"></div>
-          <div class="leyenda-mapa">
-            <h4>Convenciones</h4>
-            <div class="li" style="--c:var(--rojo)"><i></i>Cinemateca</div>
-            <div class="li" style="--c:var(--cobalto)"><i></i>Sala independiente</div>
-            <div class="li" style="--c:var(--amarillo)"><i></i>Festival</div>
-            <p class="aviso">Mapa esquemático, no está a escala. Cartelera, horarios y precios se confirman con cada lugar.</p>
-          </div>
-        </div>
-        <div class="bloque-lista revela">
-          <div class="lista-filtros">
-            <div class="filtros" id="filtros-salas" role="group" aria-label="Filtrar lugares por tipo" style="margin:0"></div>
-            <label class="sr" for="buscar-sala">Buscar por nombre o ciudad</label>
-            <input class="buscador" id="buscar-sala" type="search" placeholder="Busca por nombre o ciudad" autocomplete="off">
-          </div>
-          <ul class="lista-salas" id="lista-salas"></ul>
-          <p class="sr" id="salas-estado" aria-live="polite"></p>
-        </div>
-      </div>
+      <figure class="storymap revela" style="margin-left:0;margin-right:0">
+        <div class="storymap-marco"><iframe title="¿Sin plan? · mapa interactivo en StoryMapJS" src="https://uploads.knightlab.com/storymapjs/6ee39bba5ac278e1871e2680c1b2954f/sin-plan-1/draft.html" loading="lazy" allowfullscreen allow="fullscreen"></iframe></div>
+        <figcaption class="storymap-pie"><span>Avanza con las flechas del mapa para recorrer cada lugar.</span><a class="genially-abrir" href="https://uploads.knightlab.com/storymapjs/6ee39bba5ac278e1871e2680c1b2954f/sin-plan-1/draft.html" target="_blank" rel="noopener">Ver en pantalla completa ↗</a></figcaption>
+      </figure>
     </div>
-    <div class="cta-cierre"><button class="btn" type="button" id="cta-resena">Cuéntanos a qué fuiste <span class="fle" aria-hidden="true">→</span></button></div>
+    <div class="cta-cierre"><a class="btn" href="#futuro">Sigue al cierre del especial <span class="fle" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
@@ -2025,78 +2019,6 @@ $('#carteles').addEventListener('click',e=>{const c=e.target.closest('.cartel');
  <div class="ficha-cuerpo"><p style="margin:0">${esc(f[4])}</p><h4>Dónde verla</h4><p style="margin:0 0 .8rem;font-size:.9rem">Búscala en Retina Latina, la plataforma pública y gratuita de cine latinoamericano. <em>La disponibilidad de cada título está por verificar.</em></p>
  <a class="btn" href="https://www.retinalatina.org" target="_blank" rel="noopener">Buscar en Retina Latina <span aria-hidden="true">↗</span></a><p style="font-size:.8rem;margin:.6rem 0 0">retinalatina.org</p></div>`;
  abrir($('#d-ficha'))});
-
-/* ---------- ¿Sin plan? Mapa + lista (infografía dinámica) ---------- */
-const BORDE=[[-71.3,12.35],[-71.98,12.45],[-72.4,11.8],[-73.3,11.3],[-74.2,11.25],[-74.8,11.0],[-75.5,10.4],[-75.7,9.4],[-76.2,9.0],[-76.7,8.6],[-77.36,8.67],[-77.9,7.2],[-77.6,6.5],[-77.4,5.8],[-77.3,4.6],[-77.0,3.9],[-77.8,2.6],[-78.6,2.2],[-78.8,1.8],[-78.9,1.4],[-77.6,0.8],[-76.5,0.3],[-75.5,-0.1],[-75.2,-0.9],[-74.3,-1.5],[-73.5,-2.3],[-72.0,-2.4],[-70.5,-3.8],[-69.95,-4.2],[-69.5,-1.0],[-69.6,0.6],[-70.0,1.2],[-69.4,1.7],[-67.8,1.8],[-67.3,2.2],[-67.5,3.7],[-67.8,6.2],[-69.4,6.1],[-70.7,7.0],[-72.0,7.0],[-72.5,7.9],[-73.0,9.2],[-72.8,10.5],[-72.3,11.1],[-71.3,11.8]];
-const LON0=-79.4,LON1=-66.6,LAT0=-4.6,LAT1=12.8,K=30;
-const px=(lon,lat)=>[((lon-LON0)*K).toFixed(1),((LAT1-lat)*K).toFixed(1)];
-const TIPOS={cinemateca:['Cinemateca','rojo'],sala:['Sala independiente','cobalto'],festival:['Festival','amarillo']};
-const SALAS=[
- {id:'cinemateca-bogota',n:'Cinemateca de Bogotá',tipo:'cinemateca',c:'Bogotá',ll:[-74.07,4.71],d:'La cinemateca pública de la ciudad: ciclos, estrenos de cine colombiano, archivo y formación.'},
- {id:'bogoshorts',n:'BOGOSHORTS',tipo:'festival',c:'Bogotá',ll:[-73.78,4.95],d:'Festival de cortometrajes de Bogotá. Una puerta de entrada perfecta para conocer nuevas voces.'},
- {id:'cine-colombo',n:'Cine Colombo',tipo:'sala',c:'Medellín',ll:[-75.57,6.25],d:'Sala de cine independiente del Centro Colombo Americano en Medellín.'},
- {id:'santafe',n:'Festival de Cine de Santa Fe de Antioquia',tipo:'festival',c:'Santa Fe de Antioquia',ll:[-75.83,6.56],d:'Festival que llena de cine las calles y plazas del municipio.'},
- {id:'tertulia',n:'Cinemateca La Tertulia',tipo:'cinemateca',c:'Cali',ll:[-76.53,3.45],d:'La cinemateca del Museo La Tertulia, punto de encuentro de la cinefilia caleña.'},
- {id:'ficali',n:'Festival Internacional de Cine de Cali',tipo:'festival',c:'Cali',ll:[-76.25,3.2],d:'Festival de cine de la ciudad, con muestras nacionales e internacionales.'},
- {id:'caribe',n:'Cinemateca del Caribe',tipo:'cinemateca',c:'Barranquilla',ll:[-74.8,10.96],d:'Espacio dedicado a la exhibición y la formación de públicos en la región Caribe.'},
- {id:'ficci',n:'FICCI · Festival de Cine de Cartagena',tipo:'festival',c:'Cartagena',ll:[-75.51,10.39],d:'El festival de cine más antiguo de América Latina, creado en 1960.'}
-];
-const CIUDADES=[['Bogotá',-74.07,4.71],['Medellín',-75.57,6.25],['Cali',-76.53,3.45],['Barranquilla',-74.8,10.96],['Cartagena',-75.51,10.39]];
-const W=((LON1-LON0)*K).toFixed(0), H=((LAT1-LAT0)*K).toFixed(0);
-$('#mapa').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="mapa-tit"><title id="mapa-tit">Mapa esquemático de Colombia con cinematecas, salas y festivales</title>
- <defs><pattern id="rej" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#111" stroke-opacity=".08"/></pattern></defs>
- <rect width="${W}" height="${H}" fill="url(#rej)"/>
- <polygon class="mapa-pais" points="${BORDE.map(p=>px(p[0],p[1]).join(',')).join(' ')}"/>
- <text x="${px(-72.4,2.8)[0]}" y="${px(-72.4,2.8)[1]}" font-family="Bebas Neue,Impact,sans-serif" font-size="46" fill="#111" opacity=".18" text-anchor="middle">COLOMBIA</text>
- ${CIUDADES.map(c=>{const [x,y]=px(c[1],c[2]);return `<text class="mapa-ciudad" x="${+x+12}" y="${+y-12}">${esc(c[0])}</text>`}).join('')}
- ${SALAS.map((s,i)=>{const [x,y]=px(s.ll[0],s.ll[1]);return `<g class="pin" data-sala="${i}" tabindex="0" role="button" aria-label="${esc(s.n)}, ${esc(s.c)}. Ver ficha" style="--c:${P[TIPOS[s.tipo][1]]}"><circle class="halo" cx="${x}" cy="${y}" r="12"/><circle class="punto" cx="${x}" cy="${y}" r="8"/></g>`}).join('')}
-</svg>`;
-const TIPO_F=[['todos','Todos'],['cinemateca','Cinematecas'],['sala','Salas'],['festival','Festivales']];
-$('#filtros-salas').innerHTML=TIPO_F.map((t,i)=>`<button class="filtro" type="button" data-t="${t[0]}" aria-pressed="${i===0}">${t[1]}</button>`).join('');
-let tipoSel='todos';
-const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
-function pintarLista(){
- const q=norm($('#buscar-sala').value.trim());
- const vis=SALAS.map((s,i)=>[s,i]).filter(([s])=>(tipoSel==='todos'||s.tipo===tipoSel)&&(!q||norm(s.n+' '+s.c).includes(q)));
- $('#lista-salas').innerHTML=vis.length?vis.map(([s,i])=>`<li><button type="button" data-sala="${i}" style="--c:${P[TIPOS[s.tipo][1]]}"><i aria-hidden="true"></i><span><b>${esc(s.n)}</b><small>${esc(TIPOS[s.tipo][0])} · ${esc(s.c)}</small></span><span class="fle" aria-hidden="true">→</span></button></li>`).join(''):'<li class="lista-vacia">No encontramos lugares con ese filtro. Prueba con otra ciudad.</li>';
- $$('.pin').forEach(p=>{const ok=vis.some(([,i])=>i===+p.dataset.sala);p.style.opacity=ok?1:.15;p.style.pointerEvents=ok?'':'none'});
- $('#salas-estado').textContent=vis.length+' lugares';
-}
-$('#filtros-salas').addEventListener('click',e=>{const b=e.target.closest('.filtro');if(!b)return;tipoSel=b.dataset.t;$$('#filtros-salas .filtro').forEach(x=>x.setAttribute('aria-pressed',x===b));pintarLista()});
-$('#buscar-sala').addEventListener('input',pintarLista);
-pintarLista();
-function resaltar(i,v){$$(`[data-sala="${i}"]`).forEach(el=>el.classList.toggle('resaltado',v))}
-['mouseover','focusin'].forEach(ev=>document.addEventListener(ev,e=>{const t=e.target.closest&&e.target.closest('[data-sala]');if(t)resaltar(t.dataset.sala,true)}));
-['mouseout','focusout'].forEach(ev=>document.addEventListener(ev,e=>{const t=e.target.closest&&e.target.closest('[data-sala]');if(t)resaltar(t.dataset.sala,false)}));
-const KEY='fdc-resenas';
-const leer=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}};
-const guardar=o=>{try{localStorage.setItem(KEY,JSON.stringify(o));return true}catch(e){return false}};
-let memoria=leer();
-function fichaSala(i,alForm){
- const s=SALAS[i], t=TIPOS[s.tipo];
- const propias=(memoria[s.id]||[]);
- $('#ficha-contenido').innerHTML=`<div class="ficha-cab" style="--c:${P[t[1]]};--t:${s.tipo==='festival'?P.negro:P.crema}"><span class="chip-et">${esc(t[0])}</span><h3 id="ficha-titulo">${esc(s.n)}</h3><p style="margin:0">${esc(s.c)}</p></div>
- <div class="ficha-cuerpo"><p style="margin:0">${esc(s.d)}</p>
- <h4>Información</h4><dl class="ficha-datos"><dt>Ciudad</dt><dd>${esc(s.c)}</dd><dt>Dirección</dt><dd>Por confirmar</dd><dt>Horario</dt><dd>Por confirmar</dd><dt>Accesibilidad</dt><dd>Por confirmar</dd></dl>
- <h4>${s.tipo==='festival'?'Programación':'Cartelera actual'}</h4><table class="tabla-mini"><thead><tr><th scope="col">Película</th><th scope="col">Función</th></tr></thead><tbody><tr><td>Título por confirmar</td><td>—</td></tr><tr><td>Título por confirmar</td><td>—</td></tr></tbody></table>
- <h4>Precios de boletería</h4><table class="tabla-mini"><tbody><tr><th scope="row">General</th><td>Por confirmar</td></tr><tr><th scope="row">Estudiantes</th><td>Por confirmar</td></tr></tbody></table>
- <h4>Reseñas de la comunidad</h4><ul class="resenas" id="lista-resenas">${propias.map(r=>`<li><b>${esc(r.n)}</b>${esc(r.t)}</li>`).join('')}<li><b>Reseña de ejemplo</b>Acá aparecerán las opiniones de quienes ya fueron.</li></ul>
- <form class="form-resena" id="form-resena" novalidate><h4 style="margin:.8rem 0 0" id="t-resena">Cuéntanos a qué fuiste</h4>
- <label class="sr" for="r-nombre">Tu nombre</label><input id="r-nombre" maxlength="40" placeholder="Tu nombre o apodo" autocomplete="nickname">
- <label class="sr" for="r-texto">Tu reseña</label><textarea id="r-texto" maxlength="400" placeholder="¿Qué viste? ¿Cómo te fue en la sala?" required></textarea>
- <button class="btn" type="submit">Publicar reseña</button><p class="estado" id="r-estado" aria-live="polite"></p></form></div>`;
- abrir($('#d-ficha'));
- $('#form-resena').addEventListener('submit',e=>{e.preventDefault();const tx=$('#r-texto').value.trim();if(!tx){$('#r-estado').textContent='Escribe algo antes de publicar.';$('#r-texto').focus();return}
-  const r={n:$('#r-nombre').value.trim()||'Anónimo',t:tx};memoria[s.id]=[r,...(memoria[s.id]||[])];const ok=guardar(memoria);
-  $('#lista-resenas').insertAdjacentHTML('afterbegin',`<li><b>${esc(r.n)}</b>${esc(r.t)}</li>`);e.target.reset();
-  $('#r-estado').textContent=ok?'¡Gracias! Tu reseña quedó guardada en este navegador (versión de demostración).':'¡Gracias! Tu reseña se muestra solo en esta visita (versión de demostración).'});
- if(alForm) setTimeout(()=>{$('#r-texto').focus();$('#t-resena').scrollIntoView({block:'center'})},350);
-}
-document.addEventListener('click',e=>{const t=e.target.closest('[data-sala]');if(t)fichaSala(+t.dataset.sala)});
-document.addEventListener('keydown',e=>{const t=e.target.closest&&e.target.closest('.pin');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();fichaSala(+t.dataset.sala)}});
-$('#cta-resena').addEventListener('click',()=>{const lista=$('#lista-salas');lista.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
- $('#buscar-sala').classList.remove('pulso');void lista.offsetWidth;$$('#lista-salas button').forEach(b=>{b.classList.remove('pulso');void b.offsetWidth;b.classList.add('pulso')});
- $('#salas-estado').textContent='Elige un lugar de la lista para dejar tu reseña.'});
 
 /* ---------- Suscripción ---------- */
 $('#form-suscripcion').addEventListener('submit',e=>{e.preventDefault();const i=$('#correo'),est=$('#estado-suscripcion');
