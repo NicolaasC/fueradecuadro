@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-embeds="1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -432,6 +432,8 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 /* Video */
 .ventana.v-video{width:min(1100px,calc(100vw - 2rem));background:var(--negro);color:var(--crema)}
 .ventana.v-video video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.yt-marco{position:relative;width:100%;aspect-ratio:16/9;background:#000}.yt-marco iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-enlace{color:var(--amarillo)}
 .ventana.v-video .info{padding:1rem 1.4rem 1.3rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
 .ventana.v-video h3{font-family:var(--display);font-weight:400;font-size:2rem;margin:0}
 .ventana.v-video .cerrar{background:var(--crema);color:var(--negro)}
@@ -1107,7 +1109,7 @@ a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visib
         <div class="arte" data-arte="cazando" data-paleta="negro"></div>
         <div class="sobre">
           <span class="btn-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span>
-          <span><b>Cazando cine</b><small>Documental corto · Ojo al Sancocho · Video de muestra 0:24 · Reproducción manual</small></span>
+          <span><b>Cazando cine</b><small>Documental corto · Ojo al Sancocho · Dale play para verlo completo</small></span>
         </div>
       </button>
     </div>
@@ -1391,7 +1393,7 @@ a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visib
       <div><h5 id="t-contacto">Contacto</h5><ul><li><a class="pie-ig" href="https://www.instagram.com/fuera__de__cuadro/" target="_blank" rel="noopener" aria-label="Instagram de Fuera de Cuadro: @fuera__de__cuadro (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram · @fuera__de__cuadro</a></li><li><a href="#futuro">Suscríbete al boletín</a></li></ul><h5 style="margin-top:1.6rem">Equipo</h5><ul><li>Silvana Segura</li><li>Catalina Vela</li><li>María José García</li><li>Laura Sofía Flórez</li></ul></div>
     </div>
     <div class="pie-recortes" aria-hidden="true" data-recortes="claqueta:pr1,palomitas:pr2,boleta:pr3"></div>
-    <div class="legal"><span>Fuera de Cuadro · Convergencia 2026-2</span><span>Audios, video e imágenes de esta versión son marcadores de muestra.</span><span id="estado-3d" role="status">Efectos 3D: cargando…</span><a href="#portada">Volver arriba ↑</a></div>
+    <div class="legal"><span>Fuera de Cuadro · Convergencia 2026-2</span><span>Especial de periodismo cultural sobre el cine colombiano.</span><span id="estado-3d" role="status">Efectos 3D: cargando…</span><a href="#portada">Volver arriba ↑</a></div>
   </div>
 </footer>
 
@@ -1425,8 +1427,8 @@ a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visib
 <dialog id="d-video" aria-labelledby="vid-titulo">
   <div class="ventana v-video">
     <button class="cerrar" type="button" data-cerrar aria-label="Cerrar video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
-    <video id="video" controls playsinline preload="none"></video>
-    <div class="info"><h3 id="vid-titulo">Cazando cine</h3><span style="font-size:.8rem;opacity:.8">Documental corto · video de muestra, reemplazar con la pieza final</span></div>
+    <div class="yt-marco" id="yt-marco"></div>
+    <div class="info"><h3 id="vid-titulo">Cazando cine</h3><a class="genially-abrir yt-enlace" href="https://youtu.be/RbaCC4BSCNs" target="_blank" rel="noopener">Ver en YouTube ↗</a></div>
   </div>
 </dialog>
 
@@ -1987,7 +1989,7 @@ $$('dialog').forEach(d=>{
  d.addEventListener('click',e=>{if(e.target===d||e.target.closest('[data-cerrar]')) cerrar(d)});
  d.addEventListener('close',()=>{
   document.body.style.overflow=document.body.classList.contains('menu-abierto')?'hidden':'';
-  if(d.id==='d-audio'){rep.pause(); const cj=$('#rep-sc'); if(cj&&cj.dataset.url){cj.innerHTML='';cj.dataset.url=''}} if(d.id==='d-video'){video.pause()}
+  if(d.id==='d-audio'){rep.pause(); const cj=$('#rep-sc'); if(cj&&cj.dataset.url){cj.innerHTML='';cj.dataset.url=''}} if(d.id==='d-video'){ytMarco.innerHTML=''}
   if(d.id==='d-audio'||d.id==='d-video') reanudarMusica();
   if(origenFoco&&origenFoco.focus) origenFoco.focus({preventScroll:true});
  });
@@ -2028,10 +2030,14 @@ rep.addEventListener('timeupdate',()=>{if(!isFinite(rep.duration))return;const p
 pos.addEventListener('input',()=>{if(isFinite(rep.duration)){rep.currentTime=pos.value/100*rep.duration;pos.style.setProperty('--av',pos.value+'%')}});
 
 /* ---------- Video (Biblia p.45 · 8): reproducción manual en módulo ---------- */
-const video=$('#video'), dVideo=$('#d-video');
+/* Documental en YouTube: en la página publicada se ve dentro de la ventana; donde no se permiten
+   reproductores de otros sitios (vista previa), se abre en YouTube */
+const YT_ID='RbaCC4BSCNs', dVideo=$('#d-video'), ytMarco=$('#yt-marco');
+const conEmbeds=document.documentElement.dataset.embeds==='1';
 $('#btn-video').addEventListener('click',()=>{
- if(!video.src) video.src='media/minidocumental.mp4';
- pausarMusicaPorMedio(); abrir(dVideo); const pr=video.play(); if(pr&&pr.catch) pr.catch(()=>{});
+ if(!conEmbeds){ window.open('https://youtu.be/'+YT_ID,'_blank','noopener'); return }
+ ytMarco.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+YT_ID+'?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Cazando cine · documental corto" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+ pausarMusicaPorMedio(); abrir(dVideo);
 });
 
 /* ---------- Fotorreportaje (Biblia p.43) ---------- */
