@@ -732,6 +732,34 @@ html.anim .portada-collage .pc1{transition-delay:500ms}.portada-collage .pc2{tra
 #inicio .ini-kicker{z-index:2}
 @media (max-width:640px){#inicio .ini-kicker{top:1.4rem;bottom:auto;left:1.8rem;right:auto;text-align:left}#inicio .ini-pie{top:2.9rem;left:1.8rem;max-width:70vw}}
 
+/* ===== Fotorreportaje ¿Y aquí qué pasó? · bloques y carruseles de títulos ===== */
+.fr-bajada{font-family:var(--etiqueta);font-size:1rem;letter-spacing:.02em;line-height:1.45;margin:0 0 1rem;max-width:44ch;color:var(--rojo)}
+.fr-bloque{margin-top:4.5rem}
+.fr-cab{display:flex;gap:1.1rem;align-items:flex-start;border-top:4px solid var(--negro);padding-top:1.2rem;margin-bottom:1.4rem}
+.fr-num{flex:none;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--c);color:var(--crema);font-family:var(--cifra);font-size:2rem;border:3px solid var(--negro);box-shadow:3px 3px 0 var(--negro)}
+.fr-tit{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5.4vw,4.2rem);line-height:.9;margin:0}
+.fr-sub{margin:.5rem 0 0;max-width:62ch;font-size:1rem;line-height:1.55}
+.fr-carrusel{position:relative}
+.fr-pista{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:2px;padding:.4rem 2px 1.4rem;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--negro) transparent}
+.fr-tarjeta{flex:0 0 clamp(230px,26vw,300px);scroll-snap-align:start;display:flex;flex-direction:column;text-decoration:none;color:var(--crema);background:var(--negro);border:3px solid var(--negro);border-radius:6px;overflow:hidden;transition:transform 200ms var(--ease-out),box-shadow 200ms ease}
+.fr-tarjeta .arte{aspect-ratio:4/3;position:relative;overflow:hidden}
+.fr-tarjeta .arte .collage{transition:transform 500ms var(--ease-out)}
+.fr-tarjeta .pie{padding:.9rem 1rem 1.1rem;display:grid;gap:.35rem;flex:1}
+.fr-tarjeta .fr-n{font-family:var(--cifra);font-size:.95rem;color:var(--amarillo)}
+.fr-tarjeta b{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,2.4vw,2.2rem);line-height:.95}
+.fr-tarjeta small{font-family:var(--etiqueta);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.fr-tarjeta .fr-ver{margin-top:auto;padding-top:.6rem;font-family:var(--etiqueta);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--amarillo)}
+@media (hover:hover) and (pointer:fine){a.fr-tarjeta:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:6px 6px 0 var(--c)}a.fr-tarjeta:hover .arte .collage{transform:scale(1.05)}}
+a.fr-tarjeta:active{transform:scale(.98)}
+a.fr-tarjeta:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+.fr-tarjeta.pronto{opacity:.72;cursor:default}
+.fr-tarjeta.pronto .fr-ver{color:var(--crema)}
+.fr-ctrl{display:flex;gap:.5rem;justify-content:flex-end}
+.fr-ctrl .btn-cab[disabled]{opacity:.3;cursor:default}
+.fr-cierre{margin:4.5rem 0 0;max-width:62ch;border-left:8px solid var(--amarillo);padding:.4rem 0 .4rem 1.4rem}
+.fr-cierre p{margin:.6rem 0 0;font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.55;font-weight:500}
+@media (max-width:640px){.fr-num{width:48px;height:48px;font-size:1.5rem}.fr-tarjeta{flex-basis:76vw}.fr-bloque{margin-top:3.2rem}}
+
 /* ===== Responsive: red de seguridad para pantallas angostas ===== */
 @media (max-width:420px){.envoltura{width:calc(100% - 2rem)}h1,h2,h3,h4,p,li,blockquote{overflow-wrap:break-word}.mapa-caja{padding:.6rem}}
 /* ===== Movimiento reducido ===== */
@@ -857,8 +885,10 @@ html.anim .portada-collage .pc1{transition-delay:500ms}.portada-collage .pc2{tra
       <div class="dos-col">
         <div class="revela">
           <span class="chip-et">Fotorreportaje · ¿Y aquí qué pasó?</span>
-          <h3 class="titulo-mod">Las locaciones que marcaron nuestras pantallas</h3>
-          <p class="entradilla">Pasamos todos los días por lugares donde se grabaron telenovelas, series y películas que marcaron a Colombia, sin saberlo. Volvimos a esas locaciones, las comparamos con la escena original y las intervenimos con recortes y collage para mirarlas de nuevo.</p>
+          <h3 class="titulo-mod">Foto reportaje “¿Y aquí qué pasó?”</h3>
+          <p class="fr-bajada">Bogotá, como escenario principal donde el cine y la televisión colombiana contaron sus historias.</p>
+          <p class="entradilla">Una esquina, una casa, una calle cualquiera. Las vemos pasar en pantalla y casi nunca nos preguntamos si existen. Existen. Este fotorreportaje recorre Bogotá con un frame en la mano: buscamos el lugar exacto donde se grabó cada escena y lo fotografiamos hoy.</p>
+          <p class="entradilla" style="margin-bottom:0">Empezamos por el cine colombiano, que es el corazón de este trabajo, y terminamos en las telenovelas y series que marcaron generaciones.</p>
         </div>
         <div class="revela">
           <article class="audio-tarjeta" aria-labelledby="t-audio-inm">
@@ -872,13 +902,21 @@ html.anim .portada-collage .pc1{transition-delay:500ms}.portada-collage .pc2{tra
           </article>
         </div>
       </div>
-      <div class="foto-cab revela" style="margin-top:3.5rem">
-        <p class="kicker" style="margin:0">Toca una foto para ver la historia completa</p>
-        <button class="btn-pausa" id="btn-pausa-carrusel" type="button" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="ico-pausa" d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>Pausar carrusel</span></button>
+      <div class="fr-bloque revela" style="--c:var(--rojo)">
+        <div class="fr-cab"><span class="fr-num" aria-hidden="true">1</span><div><h4 class="fr-tit">Cine colombiano</h4><p class="fr-sub">Cinco películas, cinco lugares reales.</p></div></div>
+        <div class="fr-carrusel" data-carrusel="cine" role="region" aria-label="Cine colombiano: películas del fotorreportaje">
+          <div class="fr-pista" id="fr-cine"></div>
+          <div class="fr-ctrl"><button class="btn-cab redondo" type="button" data-mover="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="btn-cab redondo" type="button" data-mover="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+        </div>
       </div>
-    </div>
-    <div class="carrusel revela" id="carrusel" aria-label="Fotorreportaje ¿Y aquí qué pasó?: carrusel de locaciones">
-      <div class="carrusel-pista" id="carrusel-pista"></div>
+      <div class="fr-bloque revela" style="--c:var(--cobalto)">
+        <div class="fr-cab"><span class="fr-num" aria-hidden="true">2</span><div><h4 class="fr-tit">Telenovelas y series colombianas</h4><p class="fr-sub">De la pantalla grande pasamos a la pantalla de la casa. En esta sección reunimos tres telenovelas y dos series colombianas que también dejaron huella en las calles de Bogotá.</p></div></div>
+        <div class="fr-carrusel" data-carrusel="tv" role="region" aria-label="Telenovelas y series del fotorreportaje">
+          <div class="fr-pista" id="fr-tv"></div>
+          <div class="fr-ctrl"><button class="btn-cab redondo" type="button" data-mover="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="btn-cab redondo" type="button" data-mover="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </div>
+      <div class="fr-cierre revela"><span class="kicker">Para terminar</span><p>Al final, los actores y los “escenarios” se fueron, pero la ciudad sigue ahí con sus cambios y todo lo que ha vivido. Caminar por estos lugares y preguntarse qué se grabó allí es una forma de descubrir la otra cara de Bogotá y recordar las películas y novelas que hemos visto en el cine y la televisión colombiana.</p></div>
     </div>
     <div class="cta-cierre"><button class="btn" type="button" data-audio="inmersivo">Escucha el audio completo <span class="fle" aria-hidden="true">→</span></button></div>
   </div>
@@ -1833,35 +1871,36 @@ $('#btn-video').addEventListener('click',()=>{
 });
 
 /* ---------- Fotorreportaje (Biblia p.43) ---------- */
-const FOTOS=[
- {id:'betty',t:'Betty la fea',f:'Telenovela',arte:'tv',p:'rosa'},
- {id:'reyes',t:'Los Reyes',f:'Telenovela',arte:'reyes',p:'amarillo'},
- {id:'caracol',t:'La estrategia del caracol',f:'Película',arte:'caracol',p:'terracota'},
- {id:'delirio',t:'Delirio',f:'Serie',arte:'delirio',p:'azulc'},
- {id:'primeravez',t:'La primera vez',f:'Serie',arte:'primeravez',p:'cobalto'},
- {id:'semaforo',t:'La sociedad del semáforo',f:'Película',arte:'semaforo',p:'naranja'},
- {id:'universal',t:'La gente de la Universal',f:'Película',arte:'universal',p:'fucsia'},
- {id:'primeranoche',t:'La primera noche',f:'Película',arte:'primeranoche',p:'negro'},
- {id:'dosangeles',t:'Dos ángeles y medio',f:'Película',arte:'dosangeles',p:'rojo'},
- {id:'vecinos',t:'Vecinos',f:'Telenovela',arte:'vecinos',p:'lima'}
-].map(f=>Object.assign(f,{h:'La locación hoy',txt:['Aquí va la historia completa de la locación donde se grabó «'+f.t+'»: cómo se veía en la escena original, qué pasó durante la grabación y qué queda hoy en ese lugar.','Texto de muestra: reemplazar con la crónica y las fotos del recorrido por la locación.']}));
-const pista=$('#carrusel-pista');
-const tarjeta=(f,i,dup)=>`<button class="foto-tarjeta" type="button" data-foto="${i}" ${dup?'tabindex="-1" aria-hidden="true"':''}><div class="arte">${collage(f.arte,f.p,i+11)}</div><div class="pie"><b>${esc(f.t)}</b><small>${esc(f.f)}</small></div></button>`;
-pista.innerHTML=FOTOS.map((f,i)=>tarjeta(f,i,false)).join('')+FOTOS.map((f,i)=>tarjeta(f,i,true)).join('');
-const dHist=$('#d-historia');
-function abrirHistoria(i){
- const f=FOTOS[i], ant=FOTOS[(i+FOTOS.length-1)%FOTOS.length], sig=FOTOS[(i+1)%FOTOS.length];
- $('#hist-contenido').innerHTML=`<div class="hist-hero">${collage(f.arte,f.p,i+11,1600,900)}<div class="titular"><span class="chip-et">Fotorreportaje · ${String(i+1).padStart(2,'0')}/${String(FOTOS.length).padStart(2,'0')}</span><h3 id="hist-titulo">${esc(f.t)}</h3><p style="margin:0">${esc(f.f)} · locación por confirmar</p></div></div>
- <div class="hist-cuerpo"><h4 class="kicker" style="font-size:1rem">${esc(f.h)}</h4>${f.txt.map(p=>`<p>${esc(p)}</p>`).join('')}
- <div class="hist-galeria">${[1,2,3].map(k=>`<figure><div class="arte">${collage(f.arte,f.p,i*10+k+40)}</div><figcaption>Foto ${k} · marcador de la galería</figcaption></figure>`).join('')}</div>
- <div class="hist-nav"><button class="btn" type="button" data-ir="${(i+FOTOS.length-1)%FOTOS.length}">← ${esc(ant.t)}</button><button class="btn" type="button" data-ir="${(i+1)%FOTOS.length}">${esc(sig.t)} →</button></div></div>`;
- if(!dHist.open) abrir(dHist); dHist.querySelector('.ventana').scrollTop=0;
-}
-pista.addEventListener('click',e=>{const b=e.target.closest('[data-foto]');if(b)abrirHistoria(+b.dataset.foto)});
-$('#hist-contenido').addEventListener('click',e=>{const b=e.target.closest('[data-ir]');if(b)abrirHistoria(+b.dataset.ir)});
-const btnPausa=$('#btn-pausa-carrusel');
-btnPausa.addEventListener('click',()=>{const p=$('#carrusel').classList.toggle('pausado');btnPausa.setAttribute('aria-pressed',p);btnPausa.querySelector('span').textContent=p?'Reanudar carrusel':'Pausar carrusel';$('#ico-pausa').setAttribute('d',p?'M7 4.5v15l13-7.5z':'M6 4h4v16H6zM14 4h4v16h-4z')});
-if(reduce){btnPausa.hidden=true}
+/* ---------- Fotorreportaje: carruseles de títulos que abren su comparación en Juxtapose ---------- */
+const JX='https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=';
+const FR={
+ cine:[
+  {t:'La sociedad del semáforo',f:'Película',arte:'semaforo',p:'naranja',u:'f76e1b68-d41c-11f1-ba1b-0e6f42328d7d'},
+  {t:'La estrategia del caracol',f:'Película',arte:'caracol',p:'terracota',u:'d9f291f8-d418-11f1-ba1b-0e6f42328d7d'},
+  {t:'La gente de La Universal',f:'Película',arte:'universal',p:'fucsia',u:'28f17020-d41a-11f1-ba1b-0e6f42328d7d'},
+  {t:'La primera noche',f:'Película',arte:'primeranoche',p:'negro',u:'b0149540-d41b-11f1-ba1b-0e6f42328d7d'},
+  {t:'Dos ángeles y medio',f:'Película',arte:'dosangeles',p:'rojo',u:'23ffa16c-d416-11f1-ba1b-0e6f42328d7d'}],
+ tv:[
+  {t:'Betty la fea',f:'Telenovela',arte:'tv',p:'rosa',u:''},
+  {t:'Los Reyes',f:'Telenovela',arte:'reyes',p:'amarillo',u:'625f379c-d420-11f1-ba1b-0e6f42328d7d'},
+  {t:'Vecinos',f:'Telenovela',arte:'vecinos',p:'lima',u:'476516d4-d41e-11f1-ba1b-0e6f42328d7d'},
+  {t:'La primera vez',f:'Serie',arte:'primeravez',p:'cobalto',u:'08e5bc6c-d421-11f1-ba1b-0e6f42328d7d'},
+  {t:'Delirio',f:'Serie',arte:'delirio',p:'azulc',u:'8a8cb66e-d41f-11f1-ba1b-0e6f42328d7d'}]
+};
+Object.entries(FR).forEach(([k,lista],b)=>{
+ $('#fr-'+k).innerHTML=lista.map((f,i)=>{
+  const dentro=`<div class="arte">${collage(f.arte,f.p,b*10+i+11)}</div><div class="pie"><span class="fr-n">${String(i+1).padStart(2,'0')}</span><b>${esc(f.t)}</b><small>${esc(f.f)}</small><span class="fr-ver">${f.u?'Ver el antes y después ↗':'Próximamente'}</span></div>`;
+  return f.u?`<a class="fr-tarjeta" href="${JX+f.u}" target="_blank" rel="noopener" aria-label="${esc(f.t)} (${esc(f.f.toLowerCase())}): ver el antes y después en Juxtapose, se abre en una pestaña nueva">${dentro}</a>`
+            :`<div class="fr-tarjeta pronto" aria-label="${esc(f.t)}: comparación próximamente">${dentro}</div>`}).join('');
+});
+$$('.fr-carrusel').forEach(c=>{
+ const pista=c.querySelector('.fr-pista'), [ant,sig]=c.querySelectorAll('[data-mover]');
+ const estado=()=>{ant.disabled=pista.scrollLeft<4; sig.disabled=pista.scrollLeft+pista.clientWidth>=pista.scrollWidth-4};
+ c.addEventListener('click',e=>{const b=e.target.closest('[data-mover]'); if(!b)return;
+  const paso=(pista.firstElementChild?.getBoundingClientRect().width||280)+18;
+  pista.scrollBy({left:+b.dataset.mover*paso,behavior:reduce?'auto':'smooth'})});
+ pista.addEventListener('scroll',estado,{passive:true}); addEventListener('resize',estado); estado();
+});
 
 /* ---------- Galería lateral del perfil: ampliar ---------- */
 const GAL=[['camara','fucsia','El set'],['montaje','cobalto','La sala de montaje'],['sillas','lima','El estreno']];
