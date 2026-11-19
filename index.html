@@ -765,6 +765,12 @@ a.fr-tarjeta:focus-visible{outline:3px solid var(--c);outline-offset:3px}
 @media (max-width:640px){.fr-num{width:48px;height:48px;font-size:1.5rem}.fr-tarjeta{flex-basis:76vw}.fr-bloque{margin-top:3.2rem}}
 
 .pie-ig{display:inline-flex;align-items:center;gap:.5rem}.pie-ig svg{width:18px;height:18px;flex:none}
+.cierre-texto{max-width:64ch;margin:1.4rem 0 3rem}
+.futuro .cierre-texto p{max-width:none;margin:0 0 1.25rem;font-size:1.1rem;line-height:1.7}
+.futuro .cierre-texto .cierre-lead{font-size:clamp(1.25rem,2.2vw,1.5rem);line-height:1.55;font-weight:500}
+.cierre-texto a{color:var(--amarillo);font-weight:700;text-underline-offset:3px}
+.futuro .cierre-texto .cierre-firma{margin-top:1.8rem;font-family:var(--etiqueta);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amarillo)}
+.futuro .cierre-texto .cierre-firma::before{content:"— "}
 /* ===== Responsive: red de seguridad para pantallas angostas ===== */
 @media (max-width:420px){.envoltura{width:calc(100% - 2rem)}h1,h2,h3,h4,p,li,blockquote{overflow-wrap:break-word}.mapa-caja{padding:.6rem}}
 /* ===== Movimiento reducido ===== */
@@ -1247,13 +1253,15 @@ a.fr-tarjeta:focus-visible{outline:3px solid var(--c);outline-offset:3px}
     <div class="envoltura">
       <div class="revela">
         <span class="chip-et" style="background:var(--amarillo);color:var(--negro)">Cierre editorial</span>
-        <h3 style="margin-top:1rem">La próxima película la estás pensando tú</h3>
-        <p>Nuevas narrativas, celulares que filman como cámaras de cine, festivales que nacen en pueblos pequeños y una generación que ya no espera permiso para contar. El futuro del cine colombiano no está solo en la pantalla grande: está en quién se anima a mirar distinto.</p>
+        <h3 id="t-futuro" style="margin-top:1rem">Lo que queda fuera del cuadro</h3>
       </div>
-      <div class="voces">
-        <div class="voz revela"><p>Espacio para el testimonio de una voz joven del cine colombiano.</p><small>Voz joven · por confirmar</small></div>
-        <div class="voz revela"><p>Espacio para el testimonio de una estudiante o realizadora emergente.</p><small>Voz joven · por confirmar</small></div>
-        <div class="voz revela"><p>Espacio para el testimonio de alguien que programa o gestiona una sala.</p><small>Voz joven · por confirmar</small></div>
+      <div class="cierre-texto revela">
+        <p class="cierre-lead">Detrás de cada película colombiana hay una historia que no sale en pantalla: quién la escribió, quién la financió, quién cargó las luces y quién, al final, compró la boleta. Fuera de Cuadro nació para contar esa parte: los oficios, las directoras, el dinero, las salas y las películas que vale la pena ver.</p>
+        <p>En el recorrido encontramos un cine que produce más que nunca y que, sin embargo, casi nadie ve. En 2025 se estrenaron 77 películas colombianas, pero solo 1,5 de cada 100 espectadores eligió una de ellas. El problema no es la falta de historias ni de talento. Falta que esas historias se encuentren con su público.</p>
+        <p>Los actores que entrevistamos lo dijeron a su manera: en Colombia hay talento, pero no creemos en él; falta inversión, falta apoyo y, sobre todo, falta confianza en lo que hacemos. Una de ellas lo resumió en una palabra: “unirnos”. Las voces coinciden en que el arte puede transformar a la sociedad, pero solo si el público, los creadores y la industria caminan juntos.</p>
+        <p>Creemos que valorar lo nuestro empieza por conocerlo: saber de dónde viene, cómo se hace y cuánto cuesta. Por eso este especial no termina aquí. El futuro del cine colombiano también se juega en las nuevas narrativas, en los creadores que filman con lo que tienen y en un público dispuesto a darles una oportunidad. Si queremos consolidarnos en Latinoamérica, ese cambio tiene que empezar por casa.</p>
+        <p>La próxima vez que vayas a cine, elige una película colombiana. Busca una función en <a href="#sinplan">¿Sin plan?</a> o empieza por alguna de las recomendadas en <a href="#dosis">Dosis de peli</a>. Y si quieres seguir mirando lo que pasa fuera del cuadro, déjanos tu correo.</p>
+        <p class="cierre-firma">Equipo Fuera de Cuadro</p>
       </div>
       <div class="suscripcion revela">
         <div>
