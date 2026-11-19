@@ -738,6 +738,7 @@ html.anim .portada-collage .pc1{transition-delay:500ms}.portada-collage .pc2{tra
 
 /* ===== Fotorreportaje ¿Y aquí qué pasó? · bloques y carruseles de títulos ===== */
 .fr-bajada{font-family:var(--etiqueta);font-size:1rem;letter-spacing:.02em;line-height:1.45;margin:0 0 1rem;max-width:44ch;color:var(--rojo)}
+.fr-intro{max-width:780px}
 .fr-bloque{margin-top:4.5rem}
 .fr-cab{display:flex;gap:1.1rem;align-items:flex-start;border-top:4px solid var(--negro);padding-top:1.2rem;margin-bottom:1.4rem}
 .fr-num{flex:none;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--c);color:var(--crema);font-family:var(--cifra);font-size:2rem;border:3px solid var(--negro);box-shadow:3px 3px 0 var(--negro)}
@@ -935,24 +936,13 @@ a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visib
 <section id="identidad" data-sep="1" aria-labelledby="t-identidad">
   <div class="bloque" style="--fondo:var(--crema)">
     <div class="envoltura">
-      <div class="dos-col">
+      <div class="fr-intro">
         <div class="revela">
           <span class="chip-et">Fotorreportaje · ¿Y aquí qué pasó?</span>
           <h3 class="titulo-mod">Foto reportaje “¿Y aquí qué pasó?”</h3>
           <p class="fr-bajada">Bogotá, como escenario principal donde el cine y la televisión colombiana contaron sus historias.</p>
           <p class="entradilla">Una esquina, una casa, una calle cualquiera. Las vemos pasar en pantalla y casi nunca nos preguntamos si existen. Existen. Este fotorreportaje recorre Bogotá con un frame en la mano: buscamos el lugar exacto donde se grabó cada escena y lo fotografiamos hoy.</p>
           <p class="entradilla" style="margin-bottom:0">Empezamos por el cine colombiano, que es el corazón de este trabajo, y terminamos en las telenovelas y series que marcaron generaciones.</p>
-        </div>
-        <div class="revela">
-          <article class="audio-tarjeta" aria-labelledby="t-audio-inm">
-            <div class="arte" data-arte="sonido" data-paleta="amarillo"></div>
-            <div>
-              <span class="kicker" style="color:var(--amarillo)">Audio inmersivo</span>
-              <h4 id="t-audio-inm">Ecos del conflicto</h4>
-              <p>Una recreación sonora en 3D de cómo el cine latinoamericano ha contado la violencia. Ponte audífonos y cierra los ojos.</p>
-              <div class="meta"><button class="btn-play" type="button" data-audio="inmersivo" aria-label="Reproducir Ecos del conflicto"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button><span>Con audífonos · Muestra 0:40</span></div>
-            </div>
-          </article>
         </div>
       </div>
       <div class="fr-bloque revela" style="--c:var(--rojo)">
@@ -971,7 +961,7 @@ a.storymap:hover .genially-btn{transform:translateY(-2px)}a.storymap:focus-visib
       </div>
       <div class="fr-cierre revela"><span class="kicker">Para terminar</span><p>Al final, los actores y los “escenarios” se fueron, pero la ciudad sigue ahí con sus cambios y todo lo que ha vivido. Caminar por estos lugares y preguntarse qué se grabó allí es una forma de descubrir la otra cara de Bogotá y recordar las películas y novelas que hemos visto en el cine y la televisión colombiana.</p></div>
     </div>
-    <div class="cta-cierre"><button class="btn" type="button" data-audio="inmersivo">Escucha el audio completo <span class="fle" aria-hidden="true">→</span></button></div>
+    <div class="cta-cierre"><a class="btn" href="#directoras">Sigue con Romper el encuadre <span class="fle" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
@@ -1552,7 +1542,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 function logoSVG(marco,fd,cu){return `<svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="width:78%;overflow:visible"><rect x="8" y="8" width="210" height="96" fill="none" stroke="${marco}" stroke-width="3.5" stroke-dasharray="14 7"/><text x="24" y="86" font-family="Bebas Neue,Anton,Impact,sans-serif" font-size="52" fill="${fd}" textLength="150" lengthAdjust="spacingAndGlyphs">FUERA DE</text><text x="98" y="150" font-family="Bebas Neue,Anton,Impact,sans-serif" font-size="52" fill="${cu}" textLength="112" lengthAdjust="spacingAndGlyphs">CUADRO</text><path d="M220 132 H286 M276 123 L287 132 L276 141" fill="none" stroke="${cu}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`}
 /* ---------- Datos de las secciones (Biblia p.47 · mapa de navegación) ---------- */
 const SECCIONES=[
- {id:'identidad',n:'01',sn:'Identidad en pantalla',t:'¿Y aquí qué pasó?',p:'Por qué estas historias también hablan de ti.',c:'rojo',tx:'crema',k:'Fotorreportaje + audio inmersivo'},
+ {id:'identidad',n:'01',sn:'Identidad en pantalla',t:'¿Y aquí qué pasó?',p:'Por qué estas historias también hablan de ti.',c:'rojo',tx:'crema',k:'Fotorreportaje'},
  {id:'directoras',n:'02',sn:'Directoras de historia',t:'Romper el encuadre',p:'Las mujeres que lo hicieron posible.',c:'fucsia',tx:'negro',k:'Perfil'},
  {id:'creditos',n:'03',sn:'Revelación de créditos',t:'Sin libreto y Créditos',p:'Los oficios que nadie nombra en los créditos.',c:'cobalto',tx:'crema',k:'Podcasts'},
  {id:'guion',n:'04',sn:'Del guion a la sala',t:'Cazando cine',p:'El cine también se vive afuera de la pantalla: así se siente un festival.',c:'amarillo',tx:'negro',k:'Documental corto'},
@@ -1950,7 +1940,7 @@ const FR={
   {t:'La primera noche',f:'Película',arte:'primeranoche',p:'negro',u:'b0149540-d41b-11f1-ba1b-0e6f42328d7d'},
   {t:'Dos ángeles y medio',f:'Película',arte:'dosangeles',p:'rojo',u:'23ffa16c-d416-11f1-ba1b-0e6f42328d7d'}],
  tv:[
-  {t:'Betty la fea',f:'Telenovela',arte:'tv',p:'rosa',u:''},
+  {t:'Betty la fea',f:'Telenovela',arte:'tv',p:'rosa',u:'40e07d9c-e40b-11f1-ba1b-0e6f42328d7d'},
   {t:'Los Reyes',f:'Telenovela',arte:'reyes',p:'amarillo',u:'625f379c-d420-11f1-ba1b-0e6f42328d7d'},
   {t:'Vecinos',f:'Telenovela',arte:'vecinos',p:'lima',u:'476516d4-d41e-11f1-ba1b-0e6f42328d7d'},
   {t:'La primera vez',f:'Serie',arte:'primeravez',p:'cobalto',u:'08e5bc6c-d421-11f1-ba1b-0e6f42328d7d'},
